@@ -5,11 +5,10 @@ from sqlalchemy import (
     Text,
     Boolean,
     Date,
-    DateTime,
     ForeignKey,
-    func,
 )
 from sqlalchemy.orm import relationship
+
 from base.db.database import Base, Database
 from base.mixins import StatusMixin, TimestampMixin
 
@@ -24,7 +23,8 @@ class Rule(Base, StatusMixin, TimestampMixin):
     ruleType = Column(String(100), nullable=False)
     countryId = Column(
         Integer,
-        ForeignKey("country_table.countryId", onupdate="CASCADE", ondelete="RESTRICT"),
+        ForeignKey("country_table.countryId", onupdate="CASCADE",
+                   ondelete="RESTRICT"),
         nullable=False,
     )
     ruleTitle = Column(String(255), nullable=False)
@@ -36,4 +36,4 @@ class Rule(Base, StatusMixin, TimestampMixin):
     # only if Country model has `rules = relationship("Rule", back_populates="country")`
 
 
-Base.metadata.create_all(engine)
+# Base.metadata.create_all(engine)

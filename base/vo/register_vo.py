@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String
+
 from base.db.database import Base, Database
 from base.mixins import StatusMixin, TimestampMixin
 
@@ -18,4 +19,4 @@ class RegisterVO(Base, StatusMixin, TimestampMixin):
     registerPhone = Column(String(15), nullable=False, unique=True)
 
 
-Base.metadata.create_all(engine)
+# Base.metadata.create_all(engine)

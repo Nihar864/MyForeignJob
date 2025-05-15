@@ -24,7 +24,8 @@ class MysqlCommonQuery:
         """Retrieve all non-deleted entities of a given model."""
         session = database.get_db_session(engine)
         table_data = (
-            session.query(table_name).filter(table_name.isDeleted == False).all()
+            session.query(table_name).filter(
+                table_name.isDeleted == False).all()
         )
         return table_data
 
@@ -66,18 +67,20 @@ class MysqlCommonQuery:
     def get_record_by_field(model, field_name, value):
         session = database.get_db_session(engine)
         user_data = (
-            session.query(model).filter(getattr(model, field_name) == value).first()
+            session.query(model).filter(
+                getattr(model, field_name) == value).first()
         )
         session.close()
         return user_data
 
     @staticmethod
     def update_login_status(
-        model_class, table_id, model_id, current_login_status: bool
+            model_class, table_id, model_id, current_login_status: bool
     ):
         session = database.get_db_session(engine)
 
-        existing_user = session.query(model_class).filter(table_id == model_id).first()
+        existing_user = session.query(model_class).filter(
+            table_id == model_id).first()
 
         if existing_user:
             existing_user.login_status = current_login_status
@@ -88,58 +91,58 @@ class MysqlCommonQuery:
 
     @staticmethod
     def get_all_with_filters(
-        model,
-        searchFields,
-        searchValue,
-        pageNumber,
-        pageSize,
-        sortBy,
-        sortAs,
+            model,
+            search_fields,
+            page_number, page_size, search_value, sort_by,
+            sort_as
     ):
         session = database.get_db_session(engine)
 
         query = session.query(model).filter(model.isDeleted == False)
 
         # Searching (if any field matches search_term)
-        if searchValue and searchFields:
-            search_term = f"%{searchValue.lower()}%"
+        if search_value and search_fields:
+            search_term = f"%{search_value.lower()}%"
             query = query.filter(
                 or_(
                     *[
                         getattr(model, field).ilike(search_term)
-                        for field in searchFields
+                        for field in search_fields
                     ]
                 )
             )
 
         # Sorting
-        if hasattr(model, sortBy):
-            sort_column = getattr(model, sortBy)
+        if hasattr(model, sort_by):
+            sort_column = getattr(model, sort_by)
             query = query.order_by(
-                asc(sort_column) if sortAs == "asc" else desc(sort_column)
+                asc(sort_column) if sort_as == "asc" else desc(sort_column)
             )
         else:
             query = query.order_by(model.id.asc())  # fallback
 
         # Pagination
         total = query.count()
-        offset = (pageNumber - 1) * pageSize
-        items = query.offset(offset).limit(pageSize).all()
+        offset = (page_number - 1) * page_size
+        items = query.offset(offset).limit(page_size).all()
 
         session.close()
 
-        return {"items": items, "total": total, "page": pageNumber, "limit": pageSize}
+        return {"items": items, "total": total, "page": page_number,
+                "limit": page_size}
 
     @staticmethod
     def update_user_password_by_username(model, username, new_password):
         session = database.get_db_session(engine)
-        user = session.query(model).filter(model.loginUsername == username).first()
+        user = session.query(model).filter(
+            model.loginUsername == username).first()
         user.login_password = new_password
         session.commit()
         return True
 
     @staticmethod
-    def fetch_email_by_login_username(register_vo, login_vo, username, loginId):
+    def fetch_email_by_login_username(register_vo, login_vo, username,
+                                      loginId):
         session = database.get_db_session(engine)
         result = (
             session.query(register_vo.register_email)
@@ -155,7 +158,8 @@ class MysqlCommonQuery:
         session = database.get_db_session(engine)
         try:
             country = (
-                session.query(CountryVO).filter(CountryVO.countryName == name).first()
+                session.query(CountryVO).filter(
+                    CountryVO.countryName == name).first()
             )
             return country.countryId if country else None
         finally:

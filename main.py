@@ -1,4 +1,5 @@
 import uvicorn
+
 from base import get_app
 from base.routes.api_routes import router as api_router
 

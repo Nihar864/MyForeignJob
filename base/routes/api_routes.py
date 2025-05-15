@@ -1,9 +1,9 @@
 from fastapi import APIRouter
 
 from base.api.controller.country import country_controller
+from base.api.controller.job import job_controller
 from base.api.controller.login import login_controller
 from base.api.controller.register import register_controller
-from base.api.controller.job import job_controller
 
 router = APIRouter()
 

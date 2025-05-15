@@ -15,7 +15,8 @@ class JobVO(Base, StatusMixin, TimestampMixin):
     jobTitle = Column(String(500), unique=True, index=True, nullable=False)
     jobCountryId = Column(
         Integer,
-        ForeignKey("country_table.countryId", ondelete="CASCADE", onupdate="CASCADE"),
+        ForeignKey("country_table.countryId", ondelete="CASCADE",
+                   onupdate="CASCADE"),
         nullable=False,
     )
     jobDescription = Column(String(500), nullable=False)
@@ -25,4 +26,4 @@ class JobVO(Base, StatusMixin, TimestampMixin):
 
 
 country = relationship("Country", back_populates="jobs")
-Base.metadata.create_all(engine)
+# Base.metadata.create_all(engine)

@@ -11,7 +11,8 @@ class JobService:
 
     @staticmethod
     def insert_job_service(
-        jobTitle, countryName, jobDescription, joblocation, jobSalary, jobStatus
+            jobTitle, countryName, jobDescription, joblocation, jobSalary,
+            jobStatus
     ):
         try:
             countryId = JobDAO.get_country_dao(countryName)
@@ -136,7 +137,8 @@ class JobService:
 
     @staticmethod
     def update_job_service(
-        jobId, jobTitle, countryName, jobDescription, jobLocation, jobSalary, jobStatus
+            jobId, jobTitle, countryName, jobDescription, jobLocation,
+            jobSalary, jobStatus
     ):
         try:
             existing_job = JobDAO.get_job_by_id_dao(jobId)

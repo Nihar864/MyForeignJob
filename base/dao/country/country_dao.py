@@ -10,16 +10,16 @@ class CountryDAO:
         return country_data
 
     @staticmethod
-    def get_all_categories_dao(pageNumber, pageSize, searchValue, sortBy, sortAs):
-
+    def get_all_categories_dao(page_number, page_size, search_value, sort_by,
+                                   sort_as):
         return MysqlCommonQuery.get_all_with_filters(
             model=CountryVO,
-            searchFields=["countryName"],
-            searchValue=searchValue,
-            pageNumber=pageNumber,
-            pageSize=pageSize,
-            sortBy=sortBy,
-            sortAs=sortAs,
+            search_fields=["countryName"],
+            search_value=search_value,
+            page_number=page_number,
+            page_size=page_size,
+            sort_by=sort_by,
+            sort_as=sort_as,
         )
 
     @staticmethod
@@ -45,9 +45,9 @@ class CountryDAO:
         return country_data
 
     @staticmethod
-    def check_existing_user(countryName):
+    def check_existing_user(country_name):
         """Check if the username already exists."""
         get_data = MysqlCommonQuery.get_record_by_field(
-            CountryVO, "countryName", countryName
+            CountryVO, "country_name", country_name
         )
         return get_data

@@ -1,8 +1,6 @@
 import shutil
 from pathlib import Path
 
-from django.template.defaultfilters import lower
-
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
 from base.dao.country.country_dao import CountryDAO
@@ -16,22 +14,23 @@ class CountryService:
 
     @staticmethod
     def insert_country_service(
-            countryName,
-            countryDescription,
-            showOnHomepageStatus,
-            countryStatus,
-            countryCurrency,
-            countryImage,
-            countryFlagImage,
+            country_name,
+            country_description,
+            show_on_homepage_status,
+            country_status,
+            country_currency,
+            country_image,
+            country_flag_image,
     ):
         """Convert form data to VO & Insert country, including both images."""
 
         try:
-            # lowerCountryName = countryName.strip().lower()
+            # lowercountry_name = country_name.strip().lower()
             existing_country = CountryDAO.check_existing_user(
-                countryName)
+                country_name)
             if existing_country:
-                return (f"The country name '{countryName}' is already in use. Please choose a different name.",)
+                return (
+                    f"The country name '{country_name}' is already in use. Please choose a different name.",)
 
             # Directories for images
             country_image_dir = Path("static/country_image")
@@ -40,25 +39,25 @@ class CountryService:
             country_image_dir.mkdir(parents=True, exist_ok=True)
             flag_image_dir.mkdir(parents=True, exist_ok=True)
 
-            country_image_path = country_image_dir / countryImage.filename
+            country_image_path = country_image_dir / country_image.filename
             with open(country_image_path, "wb") as buffer:
-                shutil.copyfileobj(countryImage.file, buffer)
+                shutil.copyfileobj(country_image.file, buffer)
 
-            flag_image_path = flag_image_dir / countryFlagImage.filename
+            flag_image_path = flag_image_dir / country_flag_image.filename
             with open(flag_image_path, "wb") as buffer:
-                shutil.copyfileobj(countryFlagImage.file, buffer)
+                shutil.copyfileobj(country_flag_image.file, buffer)
 
             # Prepare VO object
             country_vo = CountryVO()
-            country_vo.countryName = countryName
-            country_vo.countryDescription = countryDescription
-            country_vo.countryImageNames = countryImage.filename
-            country_vo.countryImagePaths = str(country_image_path)
-            country_vo.countryFlagImageName = countryFlagImage.filename
-            country_vo.countryFlagImagePath = str(flag_image_path)
-            country_vo.countryCurrency = countryCurrency
-            country_vo.showOnHomepageStatus = showOnHomepageStatus
-            country_vo.countryStatus = countryStatus
+            country_vo.country_name = country_name
+            country_vo.country_description = country_description
+            country_vo.country_image_names = country_image.filename
+            country_vo.country_image_paths = str(country_image_path)
+            country_vo.country_flag_image_name = country_flag_image.filename
+            country_vo.country_flag_image_path = str(flag_image_path)
+            country_vo.country_currency = country_currency
+            country_vo.show_on_homepage_status = show_on_homepage_status
+            country_vo.country_status = country_status
 
             # DAO call
             country_insert_data = CountryDAO.insert_country_dao(country_vo)
@@ -71,7 +70,7 @@ class CountryService:
                     data={},
                 )
 
-            logger.info("Inserted country: %s", country_vo.countryName)
+            logger.info("Inserted country: %s", country_vo.country_name)
             return AppServices.app_response(
                 HttpStatusCodeEnum.CREATED.value,
                 ResponseMessageEnum.INSERT_DATA.value,
@@ -84,15 +83,15 @@ class CountryService:
             return AppServices.handle_exception(exception)
 
     @staticmethod
-    def get_all_categories_service(pageNumber, pageSize, searchValue, sortBy,
-                                   sortAs):
+    def get_all_categories_service(page_number, page_size, search_value, sort_by,
+                                   sort_as):
         try:
             get_all_data_result = CountryDAO.get_all_categories_dao(
-                pageNumber=pageNumber,
-                pageSize=pageSize,
-                searchValue=searchValue,
-                sortBy=sortBy,
-                sortAs=sortAs,
+                page_number=page_number,
+                page_size=page_size,
+                search_value=search_value,
+                sort_by=sort_by,
+                sort_as=sort_as,
             )
 
             if not get_all_data_result["items"]:
@@ -172,13 +171,13 @@ class CountryService:
     @staticmethod
     def update_country_service(
             countryId,
-            countryName,
-            countryDescription,
-            showOnHomepageStatus,
-            countryCurrency,
-            countryStatus,
-            countryImage,
-            countryFlagImage,
+            country_name,
+            country_description,
+            show_on_homepage_status,
+            country_currency,
+            country_status,
+            country_image,
+            country_flag_image,
     ):
         try:
             existing_country = CountryDAO.get_country_by_id_dao(countryId)
@@ -191,25 +190,25 @@ class CountryService:
                     data={},
                 )
 
-            if countryName is not None:
-                existing_country.countryName = countryName
+            if country_name is not None:
+                existing_country.country_name = country_name
 
-            if countryDescription is not None:
-                existing_country.countryDescription = countryDescription
+            if country_description is not None:
+                existing_country.country_description = country_description
 
-            if showOnHomepageStatus is not None:
-                existing_country.showOnHomepageStatus = showOnHomepageStatus
+            if show_on_homepage_status is not None:
+                existing_country.show_on_homepage_status = show_on_homepage_status
 
-            if countryCurrency is not None:
-                existing_country.countryCurrency = countryCurrency
+            if country_currency is not None:
+                existing_country.country_currency = country_currency
 
-            if countryStatus is not None:
-                existing_country.countryStatus = countryStatus
+            if country_status is not None:
+                existing_country.country_status = country_status
 
             allowed_extensions = {"png", "jpg", "jpeg", "gif"}
 
-            if countryImage is not None:
-                extension = countryImage.filename.split(".")[-1].lower()
+            if country_image is not None:
+                extension = country_image.filename.split(".")[-1].lower()
                 if extension not in allowed_extensions:
                     return AppServices.app_response(
                         HttpStatusCodeEnum.BAD_REQUEST.value,
@@ -220,17 +219,17 @@ class CountryService:
 
                 upload_dir = Path("static/country_image")
                 upload_dir.mkdir(parents=True, exist_ok=True)
-                safe_filename = f"{countryImage.filename}"
+                safe_filename = f"{country_image.filename}"
                 file_path = upload_dir / safe_filename
 
                 with open(file_path, "wb") as buffer:
-                    shutil.copyfileobj(countryImage.file, buffer)
+                    shutil.copyfileobj(country_image.file, buffer)
 
-                existing_country.countryImageNames = safe_filename
-                existing_country.countryImagePaths = str(file_path)
+                existing_country.country_image_names = safe_filename
+                existing_country.country_image_paths = str(file_path)
 
-            if countryFlagImage is not None:
-                extension = countryFlagImage.filename.split(".")[-1].lower()
+            if country_flag_image is not None:
+                extension = country_flag_image.filename.split(".")[-1].lower()
                 if extension not in allowed_extensions:
                     return AppServices.app_response(
                         HttpStatusCodeEnum.BAD_REQUEST.value,
@@ -241,14 +240,14 @@ class CountryService:
 
                 flag_upload_dir = Path("static/country_flag_image")
                 flag_upload_dir.mkdir(parents=True, exist_ok=True)
-                safe_flag_filename = f"{countryFlagImage.filename}"
+                safe_flag_filename = f"{country_flag_image.filename}"
                 flag_file_path = flag_upload_dir / safe_flag_filename
 
                 with open(flag_file_path, "wb") as buffer:
-                    shutil.copyfileobj(countryFlagImage.file, buffer)
+                    shutil.copyfileobj(country_flag_image.file, buffer)
 
-                existing_country.countryFlagImageName = safe_flag_filename
-                existing_country.countryFlagImagePath = str(flag_file_path)
+                existing_country.country_flag_image_name = safe_flag_filename
+                existing_country.country_flag_image_path = str(flag_file_path)
 
             updated_country_data = CountryDAO.update_country_dao(
                 existing_country)

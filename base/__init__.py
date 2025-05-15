@@ -2,6 +2,7 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
 from base.utils.constant import constant
 
 SECRET_KEY = constant.SECRET_KEY

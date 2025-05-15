@@ -20,7 +20,6 @@ PREPING = True
 
 
 class Database:
-
     _instance = None
 
     def __init__(self):

@@ -1,12 +1,13 @@
 # path: base/controller/login_router.py
 
 from fastapi import APIRouter, HTTPException, Response
+
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
 from base.dto.login.login_dto import LoginDTO
 from base.service.login.login_service import LoginService
-from base.utils.custom_exception import AppServices
 from base.utils.constant import Constant
+from base.utils.custom_exception import AppServices
 
 logger = get_logger()
 
@@ -21,8 +22,8 @@ login_router = APIRouter(
 def admin_login(login_dto: LoginDTO, response: Response):
     try:
         if (
-            login_dto.loginUsername != Constant.ADMIN_USERNAME
-            or login_dto.loginPassword != Constant.ADMIN_PASSWORD
+                login_dto.loginUsername != Constant.ADMIN_USERNAME
+                or login_dto.loginPassword != Constant.ADMIN_PASSWORD
         ):
             return AppServices.app_response(
                 status_code=HttpStatusCodeEnum.BAD_REQUEST.value,

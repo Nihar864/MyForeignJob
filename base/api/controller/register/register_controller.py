@@ -17,8 +17,8 @@ register_router = APIRouter(
 
 @register_router.post("/register")
 def insert_register_controller(
-    register_dto: RegisterDTO,
-    response: Response,
+        register_dto: RegisterDTO,
+        response: Response,
 ):
     try:
         if not register_dto:

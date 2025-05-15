@@ -1,11 +1,11 @@
 from typing import Optional
 
-from fastapi import APIRouter, Request, Response, UploadFile, File, Form, Query
+from fastapi import APIRouter, Form, Query
 
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import SortingOrderEnum
-from base.utils.custom_exception import AppServices
 from base.service.job.job_service import JobService
+from base.utils.custom_exception import AppServices
 
 logger = get_logger()
 
@@ -19,12 +19,12 @@ job_router = APIRouter(
 @job_router.post("/add")
 # @login_required()
 def insert_job_controller(
-    countryName: str = Form(...),
-    jobTitle: str = Form(...),
-    jobDescription: str = Form(...),
-    joblocation: str = Form(...),
-    jobSalary: int = Form(...),
-    jobStatus: bool = Form(...),
+        countryName: str = Form(...),
+        jobTitle: str = Form(...),
+        jobDescription: str = Form(...),
+        joblocation: str = Form(...),
+        jobSalary: int = Form(...),
+        jobStatus: bool = Form(...),
 ):
     try:
         response_payload = JobService.insert_job_service(
@@ -90,13 +90,13 @@ def get_job_by_id_controller(jobId: int):
 @job_router.put("/update")
 # @login_required()
 def update_job_controller(
-    jobId: int = Form(...),
-    jobTitle: Optional[str] = Form(...),
-    jobDescription: Optional[str] = Form(...),
-    countryName: Optional[str] = Form(...),
-    jobLocation: Optional[str] = Form(...),
-    jobSalary: Optional[int] = Form(...),
-    jobStatus: Optional[bool] = Form(...),
+        jobId: int = Form(...),
+        jobTitle: Optional[str] = Form(...),
+        jobDescription: Optional[str] = Form(...),
+        countryName: Optional[str] = Form(...),
+        jobLocation: Optional[str] = Form(...),
+        jobSalary: Optional[int] = Form(...),
+        jobStatus: Optional[bool] = Form(...),
 ):
     try:
         response_payload = JobService.update_job_service(

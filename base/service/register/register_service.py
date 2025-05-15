@@ -1,13 +1,9 @@
-import bcrypt
 from fastapi import FastAPI
 
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
-from base.dao.login.login_dao import LoginDAO
 from base.dao.register.register_dao import RegisterDAO
 from base.utils.custom_exception import AppServices
-
-from base.vo.login_vo import LoginVO
 from base.vo.register_vo import RegisterVO
 
 logger = get_logger()
@@ -19,7 +15,8 @@ class RegisterService:
     def register_user(register_dto):
         """Handles user registration logic."""
 
-        existing_user = RegisterDAO.check_existing_user(register_dto.registerName)
+        existing_user = RegisterDAO.check_existing_user(
+            register_dto.registerName)
         if existing_user:
             return AppServices.app_response(
                 HttpStatusCodeEnum.NOT_FOUND,
