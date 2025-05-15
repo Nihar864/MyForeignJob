@@ -108,3 +108,80 @@ class FaqService:
         except Exception as exception:
             logger.exception("Error deleting faq with ID: %s", faq_id)
             return AppServices.handle_exception(exception)
+
+    @staticmethod
+    def get_faq_by_id_service(faq_id):
+        """Retrieve faq details for a given ID."""
+        try:
+            faq_detail = FaqDAO.get_faq_by_id_dao(faq_id)
+
+            if not faq_detail:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.BAD_REQUEST.value,
+                    ResponseMessageEnum.NOT_FOUND.value,
+                    success=False,
+                    data={},
+                )
+
+            logger.info("Fetched faq detail for ID: %s", faq_id)
+            return AppServices.app_response(
+                HttpStatusCodeEnum.ACCEPTED.value,
+                ResponseMessageEnum.GET_DATA.value,
+                success=True,
+                data=faq_detail,
+            )
+
+        except Exception as exception:
+            logger.exception("Error retrieving faq with ID: %s", faq_id)
+            return AppServices.handle_exception(exception)
+
+    @staticmethod
+    def update_faq_service(faq_dto):
+        try:
+            existing_faq = FaqDAO.get_faq_by_id_dao(faq_dto.faq_id)
+
+            faq_country_id = FaqDAO.get_country_dao(faq_dto.country_name)
+
+
+            if not existing_faq:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.BAD_REQUEST.value,
+                    ResponseMessageEnum.NOT_FOUND.value,
+                    success=False,
+                    data={},
+                )
+
+            if faq_dto.faq_id is not None:
+                existing_faq.faq_id = faq_dto.faq_id
+
+            if faq_country_id is not None:
+                existing_faq.faq_country_id = faq_country_id
+
+            if faq_dto.faq_title is not None:
+                existing_faq.faq_title = faq_dto.faq_title
+
+            if faq_dto.faq_description is not None:
+                existing_faq.faq_description = faq_dto.faq_description
+
+            # Step 3: Persist updated data
+            updated_faq = FaqDAO.update_faq_dao(existing_faq)
+
+            if not updated_faq:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.BAD_REQUEST.value,
+                    ResponseMessageEnum.UPDATE_FAILED.value,
+                    success=False,
+                    data={},
+                )
+
+            logger.info("Updated faq with ID: %s", faq_dto.faq_id)
+            return AppServices.app_response(
+                HttpStatusCodeEnum.ACCEPTED.value,
+                ResponseMessageEnum.UPDATE_DATA.value,
+                success=True,
+                data=updated_faq,
+            )
+
+        except Exception as exception:
+            logger.exception("Error updating faq")
+            return AppServices.handle_exception(exception)

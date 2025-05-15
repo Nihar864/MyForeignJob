@@ -48,7 +48,7 @@ class MysqlCommonQuery:
         session = database.get_db_session(engine)
         table_data = (
             session.query(table_name)
-            .filter(table_id == entity_id, table_name.isDeleted == False)
+            .filter(table_id == entity_id, table_name.is_deleted == False)
             .first()
         )
         return table_data

@@ -7847,3 +7847,33 @@ AttributeError: type object 'FaqVO' has no attribute 'isDeleted'
 
 2025-05-15 17:02:23,686 - faq_controller.py - MyForeignJob -  delete_faq_controller - INFO - Deleted faq with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.faq_vo.FaqVO object at 0x7efcae716710>}
 
+2025-05-15 17:11:04,531 - faq_controller.py - MyForeignJob -  get_faq_by_id_controller - INFO - Fetching faq details for ID: 1
+
+2025-05-15 17:11:04,536 - faq_service.py - MyForeignJob -  get_faq_by_id_service - ERROR - Error retrieving faq with ID: 1
+Traceback (most recent call last):
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/service/faq/faq_service.py", line 116, in get_faq_by_id_service
+    faq_detail = FaqDAO.get_faq_by_id_dao(faq_id)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/dao/faq/faq_dao.py", line 41, in get_faq_by_id_dao
+    faq_data = MysqlCommonQuery.get_by_id_query(FaqVO, FaqVO.faq_id,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/client/mysql_common/mysql_common_query.py", line 51, in get_by_id_query
+    .filter(table_id == entity_id, table_name.isDeleted == False)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'FaqVO' has no attribute 'isDeleted'
+2025-05-15 17:11:04,537 - faq_controller.py - MyForeignJob -  get_faq_by_id_controller - INFO - Fetched faq details: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 17:11:36,621 - faq_controller.py - MyForeignJob -  get_faq_by_id_controller - INFO - Fetching faq details for ID: 1
+
+2025-05-15 17:11:36,633 - faq_service.py - MyForeignJob -  get_faq_by_id_service - INFO - Fetched faq detail for ID: 1
+
+2025-05-15 17:11:36,633 - faq_controller.py - MyForeignJob -  get_faq_by_id_controller - INFO - Fetched faq details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.faq_vo.FaqVO object at 0x72b71ada1750>}
+
+2025-05-15 17:21:59,966 - faq_controller.py - MyForeignJob -  update_faq_controller - INFO - Updated job with ID: {'status_code': 400, 'success': False, 'message': "Country 'string' not found.", 'data': {}}
+
+2025-05-15 17:22:16,832 - faq_controller.py - MyForeignJob -  update_faq_controller - INFO - Updated job with ID: {'status_code': 400, 'success': False, 'message': "Country 'india' not found.", 'data': {}}
+
+2025-05-15 17:24:58,430 - faq_service.py - MyForeignJob -  update_faq_service - INFO - Updated faq with ID: 1
+
+2025-05-15 17:24:58,431 - faq_controller.py - MyForeignJob -  update_faq_controller - INFO - Updated job with ID: {'status_code': 202, 'success': True, 'message': 'Data updated successfully', 'data': <base.vo.faq_vo.FaqVO object at 0x767e56fb6e90>}
+
