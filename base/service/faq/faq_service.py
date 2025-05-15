@@ -140,7 +140,6 @@ class FaqService:
         try:
             existing_faq = FaqDAO.get_faq_by_id_dao(faq_dto.faq_id)
 
-            faq_country_id = FaqDAO.get_country_dao(faq_dto.country_name)
 
 
             if not existing_faq:
@@ -154,8 +153,16 @@ class FaqService:
             if faq_dto.faq_id is not None:
                 existing_faq.faq_id = faq_dto.faq_id
 
-            if faq_country_id is not None:
-                existing_faq.faq_country_id = faq_country_id
+            if faq_dto.country_name is not None:
+                faq_country_id = FaqDAO.get_country_dao(faq_dto.country_name)
+                if not faq_country_id:
+                    return AppServices.app_response(
+                        HttpStatusCodeEnum.BAD_REQUEST.value,
+                        f"Country '{faq_dto.country_name}' not found.",
+                        success=False,
+                        data={},
+                    )
+                existing_faq.country_name = faq_country_id
 
             if faq_dto.faq_title is not None:
                 existing_faq.faq_title = faq_dto.faq_title
