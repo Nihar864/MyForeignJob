@@ -34,10 +34,10 @@ class MysqlCommonQuery:
         session = database.get_db_session(engine)
         table_data = (
             session.query(table_name)
-            .filter(table_id == entity_id, table_name.isDeleted == False)
+            .filter(table_id == entity_id, table_name.is_deleted == False)
             .first()
         )
-        table_data.isDeleted = True
+        table_data.is_deleted = True
         session.commit()
         return table_data
 
@@ -98,7 +98,7 @@ class MysqlCommonQuery:
     ):
         session = database.get_db_session(engine)
 
-        query = session.query(model).filter(model.isDeleted == False)
+        query = session.query(model).filter(model.is_deleted == False)
 
         # Searching (if any field matches search_term)
         if search_value and search_fields:
@@ -159,8 +159,8 @@ class MysqlCommonQuery:
         try:
             country = (
                 session.query(CountryVO).filter(
-                    CountryVO.countryName == name).first()
+                    CountryVO.country_name == name).first()
             )
-            return country.countryId if country else None
+            return country.country_id if country else None
         finally:
             session.close()

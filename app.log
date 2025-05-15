@@ -7669,3 +7669,181 @@ AttributeError: type object 'CountryVO' has no attribute 'countryName'
 
 2025-05-15 15:57:56,580 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': 201, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7f45a8998250>}
 
+2025-05-15 16:37:54,096 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'myforeignjob_dbs.country_table' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/service/country/country_service.py", line 29, in insert_country_service
+    existing_country = CountryDAO.check_existing_user(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/dao/country/country_dao.py", line 50, in check_existing_user
+    get_data = MysqlCommonQuery.get_record_by_field(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/client/mysql_common/mysql_common_query.py", line 71, in get_record_by_field
+    getattr(model, field_name) == value).first()
+                                         ^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2754, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2853, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/orm/context.py", line 305, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/nihar/Softvan/flaskMvcProject-master/.venv/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1146, "Table 'myforeignjob_dbs.country_table' doesn't exist")
+[SQL: SELECT country_table.country_id AS country_table_country_id, country_table.country_name AS country_table_country_name, country_table.country_description AS country_table_country_description, country_table.country_image_names AS country_table_country_image_names, country_table.country_image_paths AS country_table_country_image_paths, country_table.country_flag_image_name AS country_table_country_flag_image_name, country_table.country_flag_image_path AS country_table_country_flag_image_path, country_table.country_currency AS country_table_country_currency, country_table.show_on_homepage_status AS country_table_show_on_homepage_status, country_table.country_status AS country_table_country_status, country_table.is_deleted AS country_table_is_deleted, country_table.created_at AS country_table_created_at, country_table.updated_at AS country_table_updated_at 
+FROM country_table 
+WHERE country_table.country_name = %(country_name_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'country_name_1': 'scadc', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-05-15 16:37:54,102 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 16:38:52,474 - country_service.py - MyForeignJob -  insert_country_service - INFO - Inserted country: scadc
+
+2025-05-15 16:38:52,475 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': 201, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7275473fe710>}
+
+2025-05-15 16:57:08,404 - faq_service.py - MyForeignJob -  insert_faq_service - ERROR - Error inserting faq
+Traceback (most recent call last):
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/service/faq/faq_service.py", line 17, in insert_faq_service
+    country_id = FaqDAO.get_country_dao(faq_dto.country_name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/dao/faq/faq_dao.py", line 15, in get_country_dao
+    faq_country_id = MysqlCommonQuery.get_country_id_by_name(country_name)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/client/mysql_common/mysql_common_query.py", line 162, in get_country_id_by_name
+    CountryVO.countryName == name).first()
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'CountryVO' has no attribute 'countryName'
+2025-05-15 16:57:08,407 - faq_controller.py - MyForeignJob -  insert_faq_controller - INFO - Faq inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 16:57:44,913 - faq_controller.py - MyForeignJob -  insert_faq_controller - INFO - Faq inserted: {'status_code': <HttpStatusCodeEnum.NOT_FOUND: 404>, 'success': False, 'message': 'try another country', 'data': {}}
+
+2025-05-15 16:58:00,336 - faq_service.py - MyForeignJob -  insert_faq_service - ERROR - Error inserting faq
+Traceback (most recent call last):
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/service/faq/faq_service.py", line 17, in insert_faq_service
+    country_id = FaqDAO.get_country_dao(faq_dto.country_name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/dao/faq/faq_dao.py", line 15, in get_country_dao
+    faq_country_id = MysqlCommonQuery.get_country_id_by_name(country_name)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/client/mysql_common/mysql_common_query.py", line 164, in get_country_id_by_name
+    return country.countryId if country else None
+           ^^^^^^^^^^^^^^^^^
+AttributeError: 'CountryVO' object has no attribute 'countryId'
+2025-05-15 16:58:00,338 - faq_controller.py - MyForeignJob -  insert_faq_controller - INFO - Faq inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 16:59:09,170 - faq_service.py - MyForeignJob -  insert_faq_service - INFO - Inserted faq: dfdadf
+
+2025-05-15 16:59:09,170 - faq_controller.py - MyForeignJob -  insert_faq_controller - INFO - Faq inserted: {'status_code': 200, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.faq_vo.FaqVO object at 0x798d44205b10>}
+
+2025-05-15 16:59:15,938 - faq_service.py - MyForeignJob -  get_all_faq_service - ERROR - Error fetching all faq
+Traceback (most recent call last):
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/service/faq/faq_service.py", line 57, in get_all_faq_service
+    result = FaqDAO.get_all_faq_dao(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/dao/faq/faq_dao.py", line 21, in get_all_faq_dao
+    return MysqlCommonQuery.get_all_with_filters(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/client/mysql_common/mysql_common_query.py", line 101, in get_all_with_filters
+    query = session.query(model).filter(model.isDeleted == False)
+                                        ^^^^^^^^^^^^^^^
+AttributeError: type object 'FaqVO' has no attribute 'isDeleted'
+2025-05-15 17:00:05,594 - faq_service.py - MyForeignJob -  delete_faq_service - ERROR - Error deleting faq with ID: 1
+Traceback (most recent call last):
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/service/faq/faq_service.py", line 88, in delete_faq_service
+    delete_faq_data = FaqDAO.delete_faq_dao(faq_id)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/dao/faq/faq_dao.py", line 34, in delete_faq_dao
+    faq_data = MysqlCommonQuery.soft_delete_query(FaqVO, FaqVO.faq_id,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Softvan/MyForeignJob-clean/base/client/mysql_common/mysql_common_query.py", line 37, in soft_delete_query
+    .filter(table_id == entity_id, table_name.isDeleted == False)
+                                   ^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'FaqVO' has no attribute 'isDeleted'
+2025-05-15 17:00:05,596 - faq_controller.py - MyForeignJob -  delete_faq_controller - INFO - Deleted faq with ID: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 17:00:30,235 - faq_service.py - MyForeignJob -  delete_faq_service - INFO - Deleted faq with ID: 1
+
+2025-05-15 17:00:30,235 - faq_controller.py - MyForeignJob -  delete_faq_controller - INFO - Deleted faq with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.faq_vo.FaqVO object at 0x76dbf710ab50>}
+
+2025-05-15 17:00:54,692 - faq_service.py - MyForeignJob -  delete_faq_service - INFO - Deleted faq with ID: 1
+
+2025-05-15 17:00:54,692 - faq_controller.py - MyForeignJob -  delete_faq_controller - INFO - Deleted faq with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.faq_vo.FaqVO object at 0x76dbf71184d0>}
+
+2025-05-15 17:02:23,685 - faq_service.py - MyForeignJob -  delete_faq_service - INFO - Deleted faq with ID: 1
+
+2025-05-15 17:02:23,686 - faq_controller.py - MyForeignJob -  delete_faq_controller - INFO - Deleted faq with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.faq_vo.FaqVO object at 0x7efcae716710>}
+
