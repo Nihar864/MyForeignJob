@@ -1,18 +1,7 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*.so
+config.ini
+config.py
 
-# Virtual environments
-.venv/
-env/
-venv/
-ENV/
-
-# PyCharm settings
-.idea/
-
-# Environment variables
 .env
+app.log
 
-main.py/
+main.py
