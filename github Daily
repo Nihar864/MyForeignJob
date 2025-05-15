@@ -1,0 +1,15 @@
+✅ 5. Workflow for Daily Collaboration
+🚀 When starting work:
+bash
+
+-> git pull origin master
+
+💾 After making changes:
+bash
+
+git add .
+git commit -m "Your commit message"
+git push origin master
+
+🔄 Repeat:
+Your partner also pulls, edits, commits, and pushes.
