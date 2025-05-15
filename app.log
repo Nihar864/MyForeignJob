@@ -6643,3 +6643,809 @@ AttributeError: 'RegisterDTO' object has no attribute 'registerPassword'
 
 2025-05-15 01:07:07,704 - country_controller.py - MyForeignJob -  update_country_controller - INFO - Updated country with ID: 2
 
+2025-05-15 12:14:03,500 - country_service.py - MyForeignJob -  get_country_by_id_service - INFO - Fetched country detail for ID: 2
+
+2025-05-15 12:14:03,500 - country_controller.py - MyForeignJob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7746cc4d1090>}
+
+2025-05-15 12:28:02,749 - country_service.py - MyForeignJob -  insert_country_service - INFO - Inserted country: USA
+
+2025-05-15 12:28:02,749 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': 201, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7a916464a810>}
+
+2025-05-15 12:32:32,509 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'india' for key 'country_table.ix_country_table_countryName'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 57, in insert_country_service
+    country_insert_data = CountryDAO.insert_country_dao(country_vo)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/dao/country/country_dao.py", line 9, in insert_country_dao
+    country_data = MysqlCommonQuery.insert_query(country_vo)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 18, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'india' for key 'country_table.ix_country_table_countryName'")
+[SQL: INSERT INTO country_table (`countryName`, `countryDescription`, `countryImageNames`, `countryImagePaths`, `countryFlagImageName`, `countryFlagImagePath`, `countryCurrency`, `showOnHomepageStatus`, `countryStatus`, `isDeleted`, `createdAt`, `updatedAt`) VALUES (%(countryName)s, %(countryDescription)s, %(countryImageNames)s, %(countryImagePaths)s, %(countryFlagImageName)s, %(countryFlagImagePath)s, %(countryCurrency)s, %(showOnHomepageStatus)s, %(countryStatus)s, %(isDeleted)s, %(createdAt)s, %(updatedAt)s)]
+[parameters: {'countryName': 'india', 'countryDescription': 'cacac', 'countryImageNames': 'cool.jpg', 'countryImagePaths': 'static/country_image/cool.jpg', 'countryFlagImageName': 'cool.jpg', 'countryFlagImagePath': 'static/country_flag_image/cool.jpg', 'countryCurrency': 'csc', 'showOnHomepageStatus': 0, 'countryStatus': 1, 'isDeleted': 0, 'createdAt': datetime.datetime(2025, 5, 15, 7, 2, 32, 504244, tzinfo=datetime.timezone.utc), 'updatedAt': datetime.datetime(2025, 5, 15, 7, 2, 32, 504256, tzinfo=datetime.timezone.utc)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-05-15 12:32:32,519 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:33:53,359 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'India' for key 'country_table.ix_country_table_countryName'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 57, in insert_country_service
+    country_insert_data = CountryDAO.insert_country_dao(country_vo)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/dao/country/country_dao.py", line 9, in insert_country_dao
+    country_data = MysqlCommonQuery.insert_query(country_vo)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 18, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'India' for key 'country_table.ix_country_table_countryName'")
+[SQL: INSERT INTO country_table (`countryName`, `countryDescription`, `countryImageNames`, `countryImagePaths`, `countryFlagImageName`, `countryFlagImagePath`, `countryCurrency`, `showOnHomepageStatus`, `countryStatus`, `isDeleted`, `createdAt`, `updatedAt`) VALUES (%(countryName)s, %(countryDescription)s, %(countryImageNames)s, %(countryImagePaths)s, %(countryFlagImageName)s, %(countryFlagImagePath)s, %(countryCurrency)s, %(showOnHomepageStatus)s, %(countryStatus)s, %(isDeleted)s, %(createdAt)s, %(updatedAt)s)]
+[parameters: {'countryName': 'India', 'countryDescription': 'Hello', 'countryImageNames': 'cool.jpg', 'countryImagePaths': 'static/country_image/cool.jpg', 'countryFlagImageName': 'cool.jpg', 'countryFlagImagePath': 'static/country_flag_image/cool.jpg', 'countryCurrency': 'INR', 'showOnHomepageStatus': 0, 'countryStatus': 1, 'isDeleted': 0, 'createdAt': datetime.datetime(2025, 5, 15, 7, 3, 53, 357114, tzinfo=datetime.timezone.utc), 'updatedAt': datetime.datetime(2025, 5, 15, 7, 3, 53, 357120, tzinfo=datetime.timezone.utc)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-05-15 12:33:53,364 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:34:14,355 - country_service.py - MyForeignJob -  delete_country_service - ERROR - Error deleting country with ID: undefined
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 113, in delete_country_service
+    delete_country_data = CountryDAO.delete_country_dao(countryId)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/dao/country/country_dao.py", line 28, in delete_country_dao
+    country_data = MysqlCommonQuery.soft_delete_query(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 39, in soft_delete_query
+    table_data.isDeleted = True
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'isDeleted'
+2025-05-15 12:34:14,356 - country_controller.py - MyForeignJob -  delete_country_controller - INFO - Deleted country with ID: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:34:14,880 - country_service.py - MyForeignJob -  delete_country_service - ERROR - Error deleting country with ID: undefined
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 113, in delete_country_service
+    delete_country_data = CountryDAO.delete_country_dao(countryId)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/dao/country/country_dao.py", line 28, in delete_country_dao
+    country_data = MysqlCommonQuery.soft_delete_query(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 39, in soft_delete_query
+    table_data.isDeleted = True
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'isDeleted'
+2025-05-15 12:34:14,881 - country_controller.py - MyForeignJob -  delete_country_controller - INFO - Deleted country with ID: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:34:43,205 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'India' for key 'country_table.ix_country_table_countryName'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 57, in insert_country_service
+    country_insert_data = CountryDAO.insert_country_dao(country_vo)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/dao/country/country_dao.py", line 9, in insert_country_dao
+    country_data = MysqlCommonQuery.insert_query(country_vo)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 18, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'India' for key 'country_table.ix_country_table_countryName'")
+[SQL: INSERT INTO country_table (`countryName`, `countryDescription`, `countryImageNames`, `countryImagePaths`, `countryFlagImageName`, `countryFlagImagePath`, `countryCurrency`, `showOnHomepageStatus`, `countryStatus`, `isDeleted`, `createdAt`, `updatedAt`) VALUES (%(countryName)s, %(countryDescription)s, %(countryImageNames)s, %(countryImagePaths)s, %(countryFlagImageName)s, %(countryFlagImagePath)s, %(countryCurrency)s, %(showOnHomepageStatus)s, %(countryStatus)s, %(isDeleted)s, %(createdAt)s, %(updatedAt)s)]
+[parameters: {'countryName': 'India', 'countryDescription': 'cxc', 'countryImageNames': 'cool.jpg', 'countryImagePaths': 'static/country_image/cool.jpg', 'countryFlagImageName': 'cool.jpg', 'countryFlagImagePath': 'static/country_flag_image/cool.jpg', 'countryCurrency': 'cfascf', 'showOnHomepageStatus': 0, 'countryStatus': 1, 'isDeleted': 0, 'createdAt': datetime.datetime(2025, 5, 15, 7, 4, 43, 196498, tzinfo=datetime.timezone.utc), 'updatedAt': datetime.datetime(2025, 5, 15, 7, 4, 43, 196508, tzinfo=datetime.timezone.utc)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-05-15 12:34:43,210 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:35:29,364 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'india' for key 'country_table.ix_country_table_countryName'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 57, in insert_country_service
+    country_insert_data = CountryDAO.insert_country_dao(country_vo)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/dao/country/country_dao.py", line 9, in insert_country_dao
+    country_data = MysqlCommonQuery.insert_query(country_vo)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 18, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'india' for key 'country_table.ix_country_table_countryName'")
+[SQL: INSERT INTO country_table (`countryName`, `countryDescription`, `countryImageNames`, `countryImagePaths`, `countryFlagImageName`, `countryFlagImagePath`, `countryCurrency`, `showOnHomepageStatus`, `countryStatus`, `isDeleted`, `createdAt`, `updatedAt`) VALUES (%(countryName)s, %(countryDescription)s, %(countryImageNames)s, %(countryImagePaths)s, %(countryFlagImageName)s, %(countryFlagImagePath)s, %(countryCurrency)s, %(showOnHomepageStatus)s, %(countryStatus)s, %(isDeleted)s, %(createdAt)s, %(updatedAt)s)]
+[parameters: {'countryName': 'india', 'countryDescription': 'strin', 'countryImageNames': 'cool.jpg', 'countryImagePaths': 'static/country_image/cool.jpg', 'countryFlagImageName': 'cool.jpg', 'countryFlagImagePath': 'static/country_flag_image/cool.jpg', 'countryCurrency': 'string', 'showOnHomepageStatus': 1, 'countryStatus': 1, 'isDeleted': 0, 'createdAt': datetime.datetime(2025, 5, 15, 7, 5, 29, 360595, tzinfo=datetime.timezone.utc), 'updatedAt': datetime.datetime(2025, 5, 15, 7, 5, 29, 360602, tzinfo=datetime.timezone.utc)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-05-15 12:35:29,367 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:37:45,670 - country_service.py - MyForeignJob -  insert_country_service - INFO - Inserted country: hello
+
+2025-05-15 12:37:45,670 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': 201, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7a9163d23750>}
+
+2025-05-15 12:39:32,078 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'India' for key 'country_table.ix_country_table_countryName'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 57, in insert_country_service
+    country_insert_data = CountryDAO.insert_country_dao(country_vo)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/dao/country/country_dao.py", line 9, in insert_country_dao
+    country_data = MysqlCommonQuery.insert_query(country_vo)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 18, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'India' for key 'country_table.ix_country_table_countryName'")
+[SQL: INSERT INTO country_table (`countryName`, `countryDescription`, `countryImageNames`, `countryImagePaths`, `countryFlagImageName`, `countryFlagImagePath`, `countryCurrency`, `showOnHomepageStatus`, `countryStatus`, `isDeleted`, `createdAt`, `updatedAt`) VALUES (%(countryName)s, %(countryDescription)s, %(countryImageNames)s, %(countryImagePaths)s, %(countryFlagImageName)s, %(countryFlagImagePath)s, %(countryCurrency)s, %(showOnHomepageStatus)s, %(countryStatus)s, %(isDeleted)s, %(createdAt)s, %(updatedAt)s)]
+[parameters: {'countryName': 'India', 'countryDescription': 'sdfsdaf', 'countryImageNames': 'cool.jpg', 'countryImagePaths': 'static/country_image/cool.jpg', 'countryFlagImageName': 'cool.jpg', 'countryFlagImagePath': 'static/country_flag_image/cool.jpg', 'countryCurrency': 'INR', 'showOnHomepageStatus': 0, 'countryStatus': 1, 'isDeleted': 0, 'createdAt': datetime.datetime(2025, 5, 15, 7, 9, 32, 75500, tzinfo=datetime.timezone.utc), 'updatedAt': datetime.datetime(2025, 5, 15, 7, 9, 32, 75507, tzinfo=datetime.timezone.utc)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-05-15 12:39:32,082 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:42:31,900 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': <HttpStatusCodeEnum.NOT_FOUND: 404>, 'success': False, 'message': 'this country already exists.', 'data': {}}
+
+2025-05-15 12:43:01,319 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': <HttpStatusCodeEnum.NOT_FOUND: 404>, 'success': False, 'message': 'this country already exists.', 'data': {}}
+
+2025-05-15 12:43:28,054 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': <HttpStatusCodeEnum.NOT_FOUND: 404>, 'success': False, 'message': 'this country already exists.', 'data': {}}
+
+2025-05-15 12:46:19,316 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': <HttpStatusCodeEnum.NOT_FOUND: 404>, 'success': False, 'message': 'this country already exists.', 'data': {}}
+
+2025-05-15 12:47:15,465 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': <HttpStatusCodeEnum.NOT_FOUND: 404>, 'success': False, 'message': 'this country already exists.', 'data': {}}
+
+2025-05-15 12:47:41,672 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': <HttpStatusCodeEnum.NOT_FOUND: 404>, 'success': False, 'message': 'this country already exists.', 'data': {}}
+
+2025-05-15 12:48:05,109 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': <HttpStatusCodeEnum.NOT_FOUND: 404>, 'success': False, 'message': 'this country already exists.', 'data': {}}
+
+2025-05-15 12:48:18,128 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 33, in insert_country_service
+    return AppServices.handle_exception(f"try another country , "
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/utils/custom_exception.py", line 28, in handle_exception
+    f = tb.tb_frame
+        ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tb_frame'
+2025-05-15 12:48:18,128 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:48:19,699 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 33, in insert_country_service
+    return AppServices.handle_exception(f"try another country , "
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/utils/custom_exception.py", line 28, in handle_exception
+    f = tb.tb_frame
+        ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tb_frame'
+2025-05-15 12:48:19,699 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:48:20,120 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 33, in insert_country_service
+    return AppServices.handle_exception(f"try another country , "
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/utils/custom_exception.py", line 28, in handle_exception
+    f = tb.tb_frame
+        ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tb_frame'
+2025-05-15 12:48:20,120 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:48:37,862 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 33, in insert_country_service
+    return AppServices.handle_exception(f"try another country , {countryName} already exists", is_raise=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/utils/custom_exception.py", line 28, in handle_exception
+    f = tb.tb_frame
+        ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tb_frame'
+2025-05-15 12:48:37,863 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:49:17,923 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 33, in insert_country_service
+    return AppServices.handle_exception(f"try another country , {countryName} already exists", is_raise=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/utils/custom_exception.py", line 28, in handle_exception
+    f = tb.tb_frame
+        ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tb_frame'
+2025-05-15 12:49:17,924 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:50:17,711 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 33, in insert_country_service
+    return AppServices.handle_exception(f"The country name '{countryName}' is already in use. Please choose a different name.", is_raise=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/utils/custom_exception.py", line 28, in handle_exception
+    f = tb.tb_frame
+        ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tb_frame'
+2025-05-15 12:50:17,712 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:50:19,362 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 33, in insert_country_service
+    return AppServices.handle_exception(f"The country name '{countryName}' is already in use. Please choose a different name.", is_raise=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/utils/custom_exception.py", line 28, in handle_exception
+    f = tb.tb_frame
+        ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tb_frame'
+2025-05-15 12:50:19,363 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:51:07,323 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 32, in insert_country_service
+    return AppServices.handle_exception(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/utils/custom_exception.py", line 28, in handle_exception
+    f = tb.tb_frame
+        ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tb_frame'
+2025-05-15 12:51:07,324 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:51:08,528 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 32, in insert_country_service
+    return AppServices.handle_exception(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/utils/custom_exception.py", line 28, in handle_exception
+    f = tb.tb_frame
+        ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tb_frame'
+2025-05-15 12:51:08,528 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:51:20,825 - country_service.py - MyForeignJob -  insert_country_service - ERROR - Error inserting country
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 32, in insert_country_service
+    return AppServices.handle_exception(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/utils/custom_exception.py", line 28, in handle_exception
+    f = tb.tb_frame
+        ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'tb_frame'
+2025-05-15 12:51:20,826 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:52:28,338 - country_service.py - MyForeignJob -  delete_country_service - ERROR - Error deleting country with ID: undefined
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 120, in delete_country_service
+    delete_country_data = CountryDAO.delete_country_dao(countryId)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/dao/country/country_dao.py", line 28, in delete_country_dao
+    country_data = MysqlCommonQuery.soft_delete_query(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 39, in soft_delete_query
+    table_data.isDeleted = True
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'isDeleted'
+2025-05-15 12:52:28,338 - country_controller.py - MyForeignJob -  delete_country_controller - INFO - Deleted country with ID: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:52:28,518 - country_service.py - MyForeignJob -  delete_country_service - ERROR - Error deleting country with ID: undefined
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 120, in delete_country_service
+    delete_country_data = CountryDAO.delete_country_dao(countryId)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/dao/country/country_dao.py", line 28, in delete_country_dao
+    country_data = MysqlCommonQuery.soft_delete_query(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 39, in soft_delete_query
+    table_data.isDeleted = True
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'isDeleted'
+2025-05-15 12:52:28,518 - country_controller.py - MyForeignJob -  delete_country_controller - INFO - Deleted country with ID: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:52:28,694 - country_service.py - MyForeignJob -  delete_country_service - ERROR - Error deleting country with ID: undefined
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/country/country_service.py", line 120, in delete_country_service
+    delete_country_data = CountryDAO.delete_country_dao(countryId)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/dao/country/country_dao.py", line 28, in delete_country_dao
+    country_data = MysqlCommonQuery.soft_delete_query(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 39, in soft_delete_query
+    table_data.isDeleted = True
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'isDeleted'
+2025-05-15 12:52:28,695 - country_controller.py - MyForeignJob -  delete_country_controller - INFO - Deleted country with ID: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:55:35,717 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:55:36,774 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:55:37,059 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:55:37,473 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:55:54,427 - country_service.py - MyForeignJob -  insert_country_service - INFO - Inserted country: usaa
+
+2025-05-15 12:55:54,427 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': 201, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7d0a0e433510>}
+
+2025-05-15 12:55:57,493 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:56:34,128 - country_service.py - MyForeignJob -  insert_country_service - INFO - Inserted country: usaaa
+
+2025-05-15 12:56:34,128 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': 201, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7d0a0e800710>}
+
+2025-05-15 12:56:42,730 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'message': 'Internal server error', 'status_code': 500}
+
+2025-05-15 12:59:18,130 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: ("The country name 'usaaa' is already in use. Please choose a different name.",)
+
+2025-05-15 12:59:46,461 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: ("The country name 'india' is already in use. Please choose a different name.",)
+
+2025-05-15 13:01:00,819 - country_service.py - MyForeignJob -  insert_country_service - INFO - Inserted country: canada
+
+2025-05-15 13:01:00,819 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: {'status_code': 201, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72f52b3cfed0>}
+
+2025-05-15 13:01:02,132 - country_controller.py - MyForeignJob -  insert_country_controller - INFO - Country inserted: ("The country name 'canada' is already in use. Please choose a different name.",)
+

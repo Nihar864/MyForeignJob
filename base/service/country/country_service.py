@@ -1,6 +1,7 @@
-import datetime
 import shutil
 from pathlib import Path
+
+from django.template.defaultfilters import lower
 
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
@@ -15,17 +16,23 @@ class CountryService:
 
     @staticmethod
     def insert_country_service(
-        countryName,
-        countryDescription,
-        showOnHomepageStatus,
-        countryStatus,
-        countryCurrency,
-        countryImage,
-        countryFlagImage,
+            countryName,
+            countryDescription,
+            showOnHomepageStatus,
+            countryStatus,
+            countryCurrency,
+            countryImage,
+            countryFlagImage,
     ):
         """Convert form data to VO & Insert country, including both images."""
 
         try:
+            # lowerCountryName = countryName.strip().lower()
+            existing_country = CountryDAO.check_existing_user(
+                countryName)
+            if existing_country:
+                return (f"The country name '{countryName}' is already in use. Please choose a different name.",)
+
             # Directories for images
             country_image_dir = Path("static/country_image")
             flag_image_dir = Path("static/country_flag_image")
@@ -77,7 +84,8 @@ class CountryService:
             return AppServices.handle_exception(exception)
 
     @staticmethod
-    def get_all_categories_service(pageNumber, pageSize, searchValue, sortBy, sortAs):
+    def get_all_categories_service(pageNumber, pageSize, searchValue, sortBy,
+                                   sortAs):
         try:
             get_all_data_result = CountryDAO.get_all_categories_dao(
                 pageNumber=pageNumber,
@@ -138,7 +146,8 @@ class CountryService:
     def get_country_by_id_service(countryId):
         """Retrieve country details for a given ID."""
         try:
-            country_detail_from_id = CountryDAO.get_country_by_id_dao(countryId)
+            country_detail_from_id = CountryDAO.get_country_by_id_dao(
+                countryId)
 
             if not country_detail_from_id:
                 return AppServices.app_response(
@@ -162,14 +171,14 @@ class CountryService:
 
     @staticmethod
     def update_country_service(
-        countryId,
-        countryName,
-        countryDescription,
-        showOnHomepageStatus,
-        countryCurrency,
-        countryStatus,
-        countryImage,
-        countryFlagImage,
+            countryId,
+            countryName,
+            countryDescription,
+            showOnHomepageStatus,
+            countryCurrency,
+            countryStatus,
+            countryImage,
+            countryFlagImage,
     ):
         try:
             existing_country = CountryDAO.get_country_by_id_dao(countryId)
@@ -241,7 +250,8 @@ class CountryService:
                 existing_country.countryFlagImageName = safe_flag_filename
                 existing_country.countryFlagImagePath = str(flag_file_path)
 
-            updated_country_data = CountryDAO.update_country_dao(existing_country)
+            updated_country_data = CountryDAO.update_country_dao(
+                existing_country)
 
             if not updated_country_data:
                 return AppServices.app_response(

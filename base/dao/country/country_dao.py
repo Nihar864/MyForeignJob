@@ -43,3 +43,11 @@ class CountryDAO:
         """Update an existing country."""
         country_data = MysqlCommonQuery.update_query(country_vo)
         return country_data
+
+    @staticmethod
+    def check_existing_user(countryName):
+        """Check if the username already exists."""
+        get_data = MysqlCommonQuery.get_record_by_field(
+            CountryVO, "countryName", countryName
+        )
+        return get_data

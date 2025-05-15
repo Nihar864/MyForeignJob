@@ -46,7 +46,7 @@ def insert_job_controller(
 
 @job_router.get("/all")
 # @login_required()
-def get_all_job_service(
+def view_job_controller(
         pageNumber: int = Query(1, ge=1),
         pageSize: int = Query(10, ge=1),
         searchValue: str = "",
