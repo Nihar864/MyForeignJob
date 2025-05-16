@@ -13,3 +13,7 @@ git push origin feature_2
 
 🔄 Repeat:
 Your partner also pulls, edits, commits, and pushes.
+
+
+make new branch :
+git checkout -b branch_name
