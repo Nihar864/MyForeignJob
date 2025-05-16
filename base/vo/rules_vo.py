@@ -19,11 +19,11 @@ engine = database.get_db_connection()
 class Rule(Base, StatusMixin, TimestampMixin):
     __tablename__ = "rules"
 
-    ruleId = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    ruleType = Column(String(100), nullable=False)
-    countryId = Column(
+    rule_id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    rule_type = Column(String(100), nullable=False)
+    country_id = Column(
         Integer,
-        ForeignKey("country_table.countryId", onupdate="CASCADE",
+        ForeignKey("country_table.country_id", onupdate="CASCADE",
                    ondelete="RESTRICT"),
         nullable=False,
     )

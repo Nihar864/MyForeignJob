@@ -87,11 +87,11 @@ class CountryService:
                                    sort_as):
         try:
             get_all_data_result = CountryDAO.get_all_categories_dao(
-                page_number=page_number,
-                page_size=page_size,
-                search_value=search_value,
-                sort_by=sort_by,
-                sort_as=sort_as,
+                page_number=dto.page_number,
+                page_size=dto.page_size,
+                search_value=dto.search_value,
+                sort_by=dto.sort_by,
+                sort_as=dto.sort_as.value,
             )
 
             if not get_all_data_result["items"]:
@@ -170,7 +170,7 @@ class CountryService:
 
     @staticmethod
     def update_country_service(
-            countryId,
+            country_id,
             country_name,
             country_description,
             show_on_homepage_status,
@@ -180,7 +180,7 @@ class CountryService:
             country_flag_image,
     ):
         try:
-            existing_country = CountryDAO.get_country_by_id_dao(countryId)
+            existing_country = CountryDAO.get_country_by_id_dao(country_id)
 
             if not existing_country:
                 return AppServices.app_response(
@@ -260,7 +260,7 @@ class CountryService:
                     data={},
                 )
 
-            logger.info("Updated country with ID: %s", countryId)
+            logger.info("Updated country with ID: %s", country_id)
             return AppServices.app_response(
                 HttpStatusCodeEnum.ACCEPTED.value,
                 ResponseMessageEnum.UPDATE_DATA.value,

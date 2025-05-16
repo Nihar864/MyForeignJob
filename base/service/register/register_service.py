@@ -16,7 +16,7 @@ class RegisterService:
         """Handles user registration logic."""
 
         existing_user = RegisterDAO.check_existing_user(
-            register_dto.registerName)
+            register_dto.register_name)
         if existing_user:
             return AppServices.app_response(
                 HttpStatusCodeEnum.NOT_FOUND,
@@ -27,9 +27,9 @@ class RegisterService:
 
         # Create and insert registered user
         register_user = RegisterVO(
-            registerName=register_dto.registerName,
-            registerEmail=register_dto.registerEmail,
-            registerPhone=register_dto.registerPhone,
+            register_name=register_dto.register_name,
+            register_email=register_dto.register_email,
+            register_phone=register_dto.register_phone,
         )
 
         register_record = RegisterDAO.insert_register_user(register_user)

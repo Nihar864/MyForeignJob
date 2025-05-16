@@ -11,19 +11,19 @@ engine = database.get_db_connection()
 class JobVO(Base, StatusMixin, TimestampMixin):
     __tablename__ = "job_table"
 
-    jobId = Column(Integer, primary_key=True, index=True)
-    jobTitle = Column(String(500), unique=True, index=True, nullable=False)
-    jobCountryId = Column(
+    job_id = Column(Integer, primary_key=True, index=True)
+    job_title = Column(String(500), unique=True, index=True, nullable=False)
+    job_country_id = Column(
         Integer,
-        ForeignKey("country_table.countryId", ondelete="CASCADE",
+        ForeignKey("country_table.country_id", ondelete="CASCADE",
                    onupdate="CASCADE"),
         nullable=False,
     )
-    jobDescription = Column(String(500), nullable=False)
-    jobLocation = Column(String(500), nullable=False)
-    jobSalary = Column(Integer, nullable=False)
-    jobStatus = Column(Boolean, nullable=False, default=False)
+    job_description = Column(String(500), nullable=False)
+    job_location = Column(String(500), nullable=False)
+    job_salary = Column(Integer, nullable=False)
+    job_status = Column(Boolean, nullable=False, default=False)
 
 
 country = relationship("Country", back_populates="jobs")
-# Base.metadata.create_all(engine)
+Base.metadata.create_all(engine)

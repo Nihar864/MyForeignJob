@@ -5,7 +5,7 @@ from fastapi import Query
 
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import SortingOrderEnum
-from base.dto.country.country_dto import CountryDTO
+from base.dto.country.country_dto import CountryDTO, GetAllCountryDTO
 from base.service.country.country_service import CountryService
 from base.utils.custom_exception import AppServices
 
@@ -54,36 +54,26 @@ def insert_country_controller(
 
 @country_router.get("/all")
 # @login_required()
-def view_all_countries(
+def get_all_countries(
         request: Request,
-        response: Response,
-        pageNumber: int = Query(1, ge=1),
-        pageSize: int = Query(10, ge=1),
-        searchValue: str = "",
-        sortBy: str = "countryName",
-        sortAs: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
+        response: Response,get_all_dto:GetAllCountryDTO
 ):
     try:
 
         response_payload = CountryService.get_all_categories_service(
-            pageNumber=pageNumber,
-            pageSize=pageSize,
-            searchValue=searchValue,
-            sortBy=sortBy,
-            sortAs=sortAs.value,
-            # Use `.value` to pass the raw string ("asc"/"desc")
-        )
+            get_all_dto)
         return response_payload
     except Exception as exception:
         logger.exception(f"Error view country: {str(exception)}")
         return AppServices.handle_exception(exception)
 
 
-@country_router.delete("/{countryId}")
+@country_router.delete("/{country_id}")
 # @login_required()
-def delete_country_controller(request: Request, response: Response, countryId):
+def delete_country_controller(request: Request, response: Response,
+                              country_id):
     try:
-        response_payload = CountryService.delete_country_service(countryId)
+        response_payload = CountryService.delete_country_service(country_id)
         logger.info(f"Deleted country with ID: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -91,12 +81,12 @@ def delete_country_controller(request: Request, response: Response, countryId):
         return AppServices.handle_exception(exception)
 
 
-@country_router.get("/{countryId}")
+@country_router.get("/{country_id}")
 # @login_required()
 def get_country_by_id_controller(request: Request, response: Response,
-                                 countryId: int):
+                                 country_id: int):
     try:
-        response_payload = CountryService.get_country_by_id_service(countryId)
+        response_payload = CountryService.get_country_by_id_service(country_id)
         logger.info(f"Fetched country details: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -109,7 +99,7 @@ def get_country_by_id_controller(request: Request, response: Response,
 def update_country_controller(
         request: Request,
         response: Response,
-        countryId: int = Form(...),
+        country_id: int = Form(...),
         country_name: Optional[str] = Form(None),
         country_description: Optional[str] = Form(None),
         show_on_homepage_status: Optional[bool] = Form(None),
@@ -120,7 +110,7 @@ def update_country_controller(
 ):
     try:
         response_payload = CountryService.update_country_service(
-            countryId=countryId,
+            country_id=country_id,
             country_name=country_name,
             country_description=country_description,
             show_on_homepage_status=show_on_homepage_status,

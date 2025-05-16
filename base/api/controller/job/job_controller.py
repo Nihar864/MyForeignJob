@@ -19,21 +19,21 @@ job_router = APIRouter(
 @job_router.post("/add")
 # @login_required()
 def insert_job_controller(
-        countryName: str = Form(...),
-        jobTitle: str = Form(...),
-        jobDescription: str = Form(...),
-        joblocation: str = Form(...),
-        jobSalary: int = Form(...),
-        jobStatus: bool = Form(...),
+        country_name: str = Form(...),
+        job_title: str = Form(...),
+        job_description: str = Form(...),
+        job_location: str = Form(...),
+        job_salary: int = Form(...),
+        job_status: bool = Form(...),
 ):
     try:
         response_payload = JobService.insert_job_service(
-            jobTitle=jobTitle,
-            countryName=countryName,
-            jobDescription=jobDescription,
-            joblocation=joblocation,
-            jobSalary=jobSalary,
-            jobStatus=jobStatus,
+            job_title=job_title,
+            country_name=country_name,
+            job_description=job_description,
+            job_location=job_location,
+            job_salary=job_salary,
+            job_status=job_status,
         )
 
         logger.info(f"Job inserted: {response_payload}")
@@ -47,22 +47,22 @@ def insert_job_controller(
 @job_router.get("/all")
 # @login_required()
 def view_job_controller(
-        pageNumber: int = Query(1, ge=1),
-        pageSize: int = Query(10, ge=1),
-        searchValue: str = "",
-        sortBy: str = "jobTitle",
-        sortAs: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING)
+        page_number: int = Query(1, ge=1),
+        page_size: int = Query(10, ge=1),
+        search_value: str = "",
+        sort_by: str = "job_title",
+        sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING)
 ):
     return JobService.get_all_job_service(
-        pageNumber=pageNumber,
-        pageSize=pageSize,
-        searchValue=searchValue,
-        sortBy=sortBy,
-        sortAs=sortAs.value
+        page_number=page_number,
+        page_size=page_size,
+        search_value=search_value,
+        sort_by=sort_by,
+        sort_as=sort_as.value
     )
 
 
-@job_router.delete("/{jobId}")
+@job_router.delete("/{job_id}")
 # @login_required()
 def delete_job_controller(jobId):
     try:
@@ -74,7 +74,7 @@ def delete_job_controller(jobId):
         return AppServices.handle_exception(exception)
 
 
-@job_router.get("/{jobId}")
+@job_router.get("/{job_id}")
 # @login_required()
 def get_job_by_id_controller(jobId: int):
     try:
@@ -90,23 +90,23 @@ def get_job_by_id_controller(jobId: int):
 @job_router.put("/update")
 # @login_required()
 def update_job_controller(
-        jobId: int = Form(...),
-        jobTitle: Optional[str] = Form(...),
-        jobDescription: Optional[str] = Form(...),
-        countryName: Optional[str] = Form(...),
-        jobLocation: Optional[str] = Form(...),
-        jobSalary: Optional[int] = Form(...),
-        jobStatus: Optional[bool] = Form(...),
+        job_id: int = Form(...),
+        job_title: Optional[str] = Form(...),
+        job_description: Optional[str] = Form(...),
+        country_name: Optional[str] = Form(...),
+        job_location: Optional[str] = Form(...),
+        job_salary: Optional[int] = Form(...),
+        job_status: Optional[bool] = Form(...),
 ):
     try:
         response_payload = JobService.update_job_service(
-            jobId=jobId,
-            jobTitle=jobTitle,
-            countryName=countryName,
-            jobDescription=jobDescription,
-            jobLocation=jobLocation,
-            jobSalary=jobSalary,
-            jobStatus=jobStatus,
+            job_id=job_id,
+            job_title=job_title,
+            country_name=country_name,
+            job_description=job_description,
+            job_location=job_location,
+            job_salary=job_salary,
+            job_status=job_status,
         )
         logger.info(f"Updated job with ID: {response_payload}")
         return response_payload

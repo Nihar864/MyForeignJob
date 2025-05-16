@@ -10,13 +10,13 @@ engine = database.get_db_connection()
 class RegisterVO(Base, StatusMixin, TimestampMixin):
     __tablename__ = "register_table"
 
-    registerId = Column(Integer, primary_key=True, index=True)
+    register_id = Column(Integer, primary_key=True, index=True)
 
-    registerName = Column(String(50), nullable=False)
+    register_name = Column(String(50), nullable=False)
 
-    registerEmail = Column(String(100), nullable=False, unique=True)
+    register_email = Column(String(100), nullable=False, unique=True)
 
-    registerPhone = Column(String(15), nullable=False, unique=True)
+    register_phone = Column(String(15), nullable=False, unique=True)
 
 
 # Base.metadata.create_all(engine)

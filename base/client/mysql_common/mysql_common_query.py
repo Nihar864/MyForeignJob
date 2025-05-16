@@ -25,7 +25,7 @@ class MysqlCommonQuery:
         session = database.get_db_session(engine)
         table_data = (
             session.query(table_name).filter(
-                table_name.isDeleted == False).all()
+                table_name.is_deleted == False).all()
         )
         return table_data
 
@@ -34,21 +34,20 @@ class MysqlCommonQuery:
         session = database.get_db_session(engine)
         table_data = (
             session.query(table_name)
-            .filter(table_id == entity_id, table_name.isDeleted == False)
+            .filter(table_id == entity_id, table_name.is_deleted == False)
             .first()
         )
-        table_data.isDeleted = True
+        table_data.is_deleted = True
         session.commit()
         return table_data
 
-    # #
     @staticmethod
     def get_by_id_query(table_name, table_id, entity_id):
         """Retrieve an entity by its ID, excluding soft-deleted entities."""
         session = database.get_db_session(engine)
         table_data = (
             session.query(table_name)
-            .filter(table_id == entity_id, table_name.isDeleted == False)
+            .filter(table_id == entity_id, table_name.is_deleted == False)
             .first()
         )
         return table_data
@@ -90,17 +89,19 @@ class MysqlCommonQuery:
         return existing_user
 
     @staticmethod
-    def get_all_with_filters(
-            model,
-            search_fields,
-            page_number, page_size, search_value, sort_by,
-            sort_as
-    ):
+    def get_all_with_filters(page_info):
         session = database.get_db_session(engine)
+        model = page_info["model"]
+        search_fields = page_info.get("search_fields", [])
+        search_value = page_info.get("search_value", "")
+        page_number = page_info.get("page_number", 1)
+        page_size = page_info.get("page_size", 10)
+        sort_by = page_info.get("sort_by", "id")
+        sort_as = page_info.get("sort_as", "asc")
 
-        query = session.query(model).filter(model.isDeleted == False)
+        query = session.query(model).filter(model.is_deleted == False)
 
-        # Searching (if any field matches search_term)
+        # Search logic
         if search_value and search_fields:
             search_term = f"%{search_value.lower()}%"
             query = query.filter(
@@ -116,10 +117,11 @@ class MysqlCommonQuery:
         if hasattr(model, sort_by):
             sort_column = getattr(model, sort_by)
             query = query.order_by(
-                asc(sort_column) if sort_as == "asc" else desc(sort_column)
+                asc(sort_column) if sort_as.lower() == "asc" else desc(
+                    sort_column)
             )
         else:
-            query = query.order_by(model.id.asc())  # fallback
+            query = query.order_by(model.id.asc())  # default fallback
 
         # Pagination
         total = query.count()
@@ -128,17 +130,58 @@ class MysqlCommonQuery:
 
         session.close()
 
-        return {"items": items, "total": total, "page": page_number,
-                "limit": page_size}
+        return {
+            "items": items,
+            "page_info": {
+                "total": total,
+                "page": page_number,
+                "limit": page_size
+            }
+        }
 
     @staticmethod
-    def update_user_password_by_username(model, username, new_password):
-        session = database.get_db_session(engine)
-        user = session.query(model).filter(
-            model.loginUsername == username).first()
-        user.login_password = new_password
-        session.commit()
-        return True
+    def get_all_pagination_searching_sorting(
+            table_name,
+            skip=None,
+            items_per_page=None,
+            sort_by=None,
+            sort_value=None,
+            search_value=None,
+            search_on=None,
+            search_on_2=None,
+    ):
+        session = database.get_db_session()
+        db_data = session.query(table_name).filter_by(is_deleted=0)
+
+        # Apply search operation if search_value
+        if search_value:
+            db_data = (
+                session.query(table_name)
+                .filter(
+                    or_(
+                        search_on.ilike(f"%{search_value}%"),
+                        search_on_2.ilike(f"%{search_value}%"),
+                    )
+                )
+                .filter_by(is_deleted=0)
+            )
+
+        # Apply sorting
+        if sort_value and sort_by:
+            sort_attr = getattr(table_name, sort_by)
+            if sort_value == "ASC":
+                db_data = db_data.order_by(sort_attr)
+            elif sort_value == "DESC":
+                db_data = db_data.order_by(desc(sort_attr))
+
+        # Apply Pagination
+        if skip is not None and items_per_page is not None:
+            filtered_query = db_data.order_by(table_name.created_on)
+            limited_and_offset_query = filtered_query.limit(
+                items_per_page).offset(skip)
+            db_data = limited_and_offset_query
+
+        return db_data.all()
 
     @staticmethod
     def fetch_email_by_login_username(register_vo, login_vo, username,
@@ -159,8 +202,8 @@ class MysqlCommonQuery:
         try:
             country = (
                 session.query(CountryVO).filter(
-                    CountryVO.countryName == name).first()
+                    CountryVO.country_name == name).first()
             )
-            return country.countryId if country else None
+            return country.country_id if country else None
         finally:
             session.close()

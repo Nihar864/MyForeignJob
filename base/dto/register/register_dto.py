@@ -2,9 +2,9 @@ from pydantic import BaseModel
 
 
 class RegisterDTO(BaseModel):
-    registerName: str
-    registerEmail: str
-    registerPhone: str
+    register_name: str
+    register_email: str
+    register_phone: str
 
     class Config:
         from_attributes = True

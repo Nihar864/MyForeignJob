@@ -11,22 +11,23 @@ class CountryDAO:
 
     @staticmethod
     def get_all_categories_dao(page_number, page_size, search_value, sort_by,
-                                   sort_as):
-        return MysqlCommonQuery.get_all_with_filters(
-            model=CountryVO,
-            search_fields=["countryName"],
-            search_value=search_value,
-            page_number=page_number,
-            page_size=page_size,
-            sort_by=sort_by,
-            sort_as=sort_as,
-        )
+                               sort_as):
+        page_info = {
+            "model": CountryVO,
+            "search_fields": ["country_name"],
+            "page_number": page_number,
+            "page_size": page_size,
+            "search_value": search_value,
+            "sort_by": sort_by,
+            "sort_as": sort_as,
+        }
+        return MysqlCommonQuery.get_all_with_filters(page_info)
 
     @staticmethod
     def delete_country_dao(target_id):
         """Call common delete method for country."""
         country_data = MysqlCommonQuery.soft_delete_query(
-            CountryVO, CountryVO.countryId, target_id
+            CountryVO, CountryVO.country_id, target_id
         )
         return country_data
 
@@ -34,7 +35,7 @@ class CountryDAO:
     def get_country_by_id_dao(target_id):
         """Fetch a single country by ID (excluding soft-deleted records)."""
         country_data = MysqlCommonQuery.get_by_id_query(
-            CountryVO, CountryVO.countryId, target_id
+            CountryVO, CountryVO.country_id, target_id
         )
         return country_data
 
