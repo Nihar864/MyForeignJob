@@ -17,7 +17,7 @@ class LoginDAO:
     @staticmethod
     def get_user_by_username(username):
         get_data = MysqlCommonQuery.get_record_by_field(
-            LoginVO, "loginUsername", username
+            LoginVO, "login_username", username
         )
         print("get_user_by_username", get_data.__dict__)
         return get_data

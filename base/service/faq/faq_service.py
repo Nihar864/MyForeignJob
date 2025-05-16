@@ -1,6 +1,5 @@
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
-from base.dao.country.country_dao import CountryDAO
 from base.dao.faq.faq_dao import FaqDAO
 from base.utils.custom_exception import AppServices
 from base.vo.faq_vo import FaqVO
@@ -14,9 +13,9 @@ class FaqService:
     def insert_faq_service(faq_dto):
 
         try:
-            country_vo = CountryDAO.get_country_by_id_dao(faq_dto.country_id)
-            print(country_vo)
-            if not country_vo:
+            print(faq_dto.country_name, "<<<<<<<<")
+            country_id = FaqDAO.get_country_dao(faq_dto.country_name)
+            if not country_id:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.NOT_FOUND,
                     "try another country",
@@ -25,7 +24,7 @@ class FaqService:
                 )
 
             faq_vo = FaqVO()
-            faq_vo.faq_country_id = country_vo.country_id
+            faq_vo.faq_country_id = country_id
             faq_vo.faq_title = faq_dto.faq_title
             faq_vo.faq_description = faq_dto.faq_description
 
@@ -49,11 +48,10 @@ class FaqService:
 
         except Exception as exception:
             logger.exception("Error inserting faq")
-            return AppServices.handle_exception(exception,is_raise=True)
+            return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
-    def get_all_faq_service(page_number, page_size, search_value, sort_by,
-                            sort_as):
+    def get_all_faq_service(page_number, page_size, search_value, sort_by, sort_as):
         try:
             result = FaqDAO.get_all_faq_dao(
                 page_number=page_number,
@@ -108,7 +106,7 @@ class FaqService:
 
         except Exception as exception:
             logger.exception("Error deleting faq with ID: %s", faq_id)
-            return AppServices.handle_exception(exception,is_raise=True)
+            return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
     def get_faq_by_id_service(faq_id):
@@ -134,7 +132,7 @@ class FaqService:
 
         except Exception as exception:
             logger.exception("Error retrieving faq with ID: %s", faq_id)
-            return AppServices.handle_exception(exception,is_raise=True)
+            return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
     def update_faq_service(faq_dto):
@@ -142,7 +140,6 @@ class FaqService:
             existing_faq = FaqDAO.get_faq_by_id_dao(faq_dto.faq_id)
 
             faq_country_id = FaqDAO.get_country_dao(faq_dto.country_name)
-
 
             if not existing_faq:
                 return AppServices.app_response(
@@ -185,4 +182,4 @@ class FaqService:
 
         except Exception as exception:
             logger.exception("Error updating faq")
-            return AppServices.handle_exception(exception,is_raise=True)
+            return AppServices.handle_exception(exception, is_raise=True)

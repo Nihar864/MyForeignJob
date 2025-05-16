@@ -23,8 +23,7 @@ class Rule(Base, StatusMixin, TimestampMixin):
     rule_type = Column(String(100), nullable=False)
     country_id = Column(
         Integer,
-        ForeignKey("country_table.country_id", onupdate="CASCADE",
-                   ondelete="RESTRICT"),
+        ForeignKey("country_table.country_id", onupdate="CASCADE", ondelete="RESTRICT"),
         nullable=False,
     )
     ruleTitle = Column(String(255), nullable=False)

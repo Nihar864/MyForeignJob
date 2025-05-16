@@ -5,6 +5,7 @@ from base.api.controller.job import job_controller
 from base.api.controller.login import login_controller
 from base.api.controller.register import register_controller
 from base.api.controller.faq import faq_controller
+
 router = APIRouter()
 
 router.include_router(login_controller.login_router)

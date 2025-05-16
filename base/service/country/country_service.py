@@ -4,7 +4,6 @@ from pathlib import Path
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
 from base.dao.country.country_dao import CountryDAO
-from base.dto.country.country_dto import GetAllCountryDTO
 from base.utils.custom_exception import AppServices
 from base.vo.country_vo import CountryVO
 
@@ -27,11 +26,11 @@ class CountryService:
 
         try:
             # lowercountry_name = country_name.strip().lower()
-            existing_country = CountryDAO.check_existing_user(
-                country_name)
+            existing_country = CountryDAO.check_existing_user(country_name)
             if existing_country:
                 return (
-                    f"The country name '{country_name}' is already in use. Please choose a different name.",)
+                    f"The country name '{country_name}' is already in use. Please choose a different name.",
+                )
 
             # Directories for images
             country_image_dir = Path("static/country_image")
@@ -84,14 +83,16 @@ class CountryService:
             return AppServices.handle_exception(exception)
 
     @staticmethod
-    def get_all_categories_service(dto: GetAllCountryDTO):
+    def get_all_categories_service(
+            page_number, page_size, search_value, sort_by, sort_as
+    ):
         try:
             get_all_data_result = CountryDAO.get_all_categories_dao(
-                page_number=dto.page_number,
-                page_size=dto.page_size,
-                search_value=dto.search_value,
-                sort_by=dto.sort_by,
-                sort_as=dto.sort_as.value,
+                page_number=page_number,
+                page_size=page_size,
+                search_value=search_value,
+                sort_by=sort_by,
+                sort_as=sort_as,
             )
 
             if not get_all_data_result["items"]:

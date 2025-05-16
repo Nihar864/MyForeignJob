@@ -22,8 +22,8 @@ login_router = APIRouter(
 def admin_login(login_dto: LoginDTO, response: Response):
     try:
         if (
-                login_dto.loginUsername != Constant.ADMIN_USERNAME
-                or login_dto.loginPassword != Constant.ADMIN_PASSWORD
+            login_dto.login_username != Constant.ADMIN_USERNAME
+            or login_dto.login_password != Constant.ADMIN_PASSWORD
         ):
             return AppServices.app_response(
                 status_code=HttpStatusCodeEnum.BAD_REQUEST.value,

@@ -15,8 +15,7 @@ class FaqVO(Base, StatusMixin, TimestampMixin):
     faq_title = Column(String(500), unique=True, index=True, nullable=False)
     faq_country_id = Column(
         Integer,
-        ForeignKey("country_table.country_id", ondelete="CASCADE",
-                   onupdate="CASCADE"),
+        ForeignKey("country_table.country_id", ondelete="CASCADE", onupdate="CASCADE"),
         nullable=False,
     )
     faq_description = Column(String(500), nullable=False)

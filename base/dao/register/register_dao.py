@@ -7,7 +7,7 @@ class RegisterDAO:
     def check_existing_user(username):
         """Check if the username already exists."""
         get_data = MysqlCommonQuery.get_record_by_field(
-            LoginVO, "loginUsername", username
+            LoginVO, "login_username", username
         )
         return get_data
 

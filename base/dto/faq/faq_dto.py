@@ -11,6 +11,7 @@ class FaqDTO(BaseModel):
     class Config:
         from_attributes = True
 
+
 class UpdateFaqDTO(BaseModel):
     faq_id: int
     country_name: Optional[str] = None

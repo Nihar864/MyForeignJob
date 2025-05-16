@@ -21,25 +21,21 @@ class LoginService:
             "user_id": user_id,
             "username": username,
             "user_role": user_role,
-            "exp": datetime.utcnow() + timedelta(
-                seconds=Constant.ACCESS_TOKEN_EXP),
+            "exp": datetime.utcnow() + timedelta(seconds=Constant.ACCESS_TOKEN_EXP),
         }
 
         refresh_payload = {
             "user_id": user_id,
             "username": username,
             "user_role": user_role,
-            "exp": datetime.utcnow() + timedelta(
-                seconds=Constant.REFRESH_TOKEN_EXP),
+            "exp": datetime.utcnow() + timedelta(seconds=Constant.REFRESH_TOKEN_EXP),
         }
 
         access_token = jwt.encode(
-            access_payload, Constant.SECRET_KEY,
-            algorithm=Constant.HASH_ALGORITHM
+            access_payload, Constant.SECRET_KEY, algorithm=Constant.HASH_ALGORITHM
         )
         refresh_token = jwt.encode(
-            refresh_payload, Constant.SECRET_KEY,
-            algorithm=Constant.HASH_ALGORITHM
+            refresh_payload, Constant.SECRET_KEY, algorithm=Constant.HASH_ALGORITHM
         )
 
         return access_token, refresh_token
@@ -48,8 +44,7 @@ class LoginService:
     def decode_access_token(token: str):
         try:
             return jwt.decode(
-                token, Constant.SECRET_KEY,
-                algorithms=[Constant.HASH_ALGORITHM]
+                token, Constant.SECRET_KEY, algorithms=[Constant.HASH_ALGORITHM]
             )
         except jwt.ExpiredSignatureError:
             raise ValueError("Access token expired")
@@ -61,8 +56,7 @@ def login_required():
     def decorator(route_function):
         @wraps(route_function)
         def wrapper(request: Request, response: Response, *args, **kwargs):
-            token = request.headers.get(
-                "Authorization") or request.cookies.get(
+            token = request.headers.get("Authorization") or request.cookies.get(
                 "access_token"
             )
 
@@ -76,8 +70,7 @@ def login_required():
 
             try:
                 decoded = jwt.decode(
-                    token, Constant.SECRET_KEY,
-                    algorithms=[Constant.HASH_ALGORITHM]
+                    token, Constant.SECRET_KEY, algorithms=[Constant.HASH_ALGORITHM]
                 )
                 request.state.user = decoded
                 logger.info(
@@ -89,8 +82,7 @@ def login_required():
                 refresh_token = request.cookies.get("refresh_token")
                 if not refresh_token:
                     raise HTTPException(
-                        status_code=401,
-                        detail="Session expired. Please login again."
+                        status_code=401, detail="Session expired. Please login again."
                     )
 
                 try:
@@ -121,8 +113,7 @@ def login_required():
 
                 except jwt.ExpiredSignatureError:
                     raise HTTPException(
-                        status_code=401,
-                        detail="Refresh token expired. Login again."
+                        status_code=401, detail="Refresh token expired. Login again."
                     )
                 except jwt.DecodeError:
                     raise HTTPException(
@@ -130,8 +121,7 @@ def login_required():
                     )
 
             except jwt.DecodeError:
-                raise HTTPException(status_code=401,
-                                    detail="Invalid token format")
+                raise HTTPException(status_code=401, detail="Invalid token format")
 
         return wrapper
 

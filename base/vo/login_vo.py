@@ -11,8 +11,7 @@ class LoginVO(Base, StatusMixin, TimestampMixin):
     __tablename__ = "login_table"
 
     login_id = Column(Integer, primary_key=True, index=True)
-    login_username = Column(String(50), unique=True, index=True,
-                            nullable=False)
+    login_username = Column(String(50), unique=True, index=True, nullable=False)
     login_password = Column(String(128), nullable=False)
     login_status = Column(Boolean, nullable=False, default=False)
 

@@ -1,10 +1,9 @@
 from typing import Optional
 
-from fastapi import APIRouter, Form, Request, Response, Depends
+from fastapi import APIRouter, Form, Query
 
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import SortingOrderEnum
-from base.dto.country.country_dto import GetAllCountryDTO
 from base.service.job.job_service import JobService
 from base.utils.custom_exception import AppServices
 
@@ -20,12 +19,12 @@ job_router = APIRouter(
 @job_router.post("/add")
 # @login_required()
 def insert_job_controller(
-        country_name: str = Form(...),
-        job_title: str = Form(...),
-        job_description: str = Form(...),
-        job_location: str = Form(...),
-        job_salary: int = Form(...),
-        job_status: bool = Form(...),
+    country_name: str = Form(...),
+    job_title: str = Form(...),
+    job_description: str = Form(...),
+    job_location: str = Form(...),
+    job_salary: int = Form(...),
+    job_status: bool = Form(...),
 ):
     try:
         response_payload = JobService.insert_job_service(
@@ -48,17 +47,26 @@ def insert_job_controller(
 @job_router.get("/all")
 # @login_required()
 def view_job_controller(
-        request: Request,
-        response: Response, get_all_dto: GetAllCountryDTO = Depends()
+    page_number: int = Query(1, ge=1),
+    page_size: int = Query(10, ge=1),
+    search_value: str = "",
+    sort_by: str = "job_title",
+    sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
 ):
-    return JobService.get_all_job_service(get_all_dto)
+    return JobService.get_all_job_service(
+        page_number=page_number,
+        page_size=page_size,
+        search_value=search_value,
+        sort_by=sort_by,
+        sort_as=sort_as.value,
+    )
 
 
 @job_router.delete("/{job_id}")
 # @login_required()
-def delete_job_controller(jobId):
+def delete_job_controller(job_id):
     try:
-        response_payload = JobService.delete_job_service(jobId)
+        response_payload = JobService.delete_job_service(job_id)
         logger.info(f"Deleted job with ID: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -68,10 +76,10 @@ def delete_job_controller(jobId):
 
 @job_router.get("/{job_id}")
 # @login_required()
-def get_job_by_id_controller(jobId: int):
+def get_job_by_id_controller(job_id: int):
     try:
-        logger.info(f"Fetching job details for ID: {jobId}")
-        response_payload = JobService.get_job_by_id_service(jobId)
+        logger.info(f"Fetching job details for ID: {job_id}")
+        response_payload = JobService.get_job_by_id_service(job_id)
         logger.info(f"Fetched job details: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -82,13 +90,13 @@ def get_job_by_id_controller(jobId: int):
 @job_router.put("/update")
 # @login_required()
 def update_job_controller(
-        job_id: int = Form(...),
-        job_title: Optional[str] = Form(...),
-        job_description: Optional[str] = Form(...),
-        country_name: Optional[str] = Form(...),
-        job_location: Optional[str] = Form(...),
-        job_salary: Optional[int] = Form(...),
-        job_status: Optional[bool] = Form(...),
+    job_id: int = Form(...),
+    job_title: Optional[str] = Form(...),
+    job_description: Optional[str] = Form(...),
+    country_name: Optional[str] = Form(...),
+    job_location: Optional[str] = Form(...),
+    job_salary: Optional[int] = Form(...),
+    job_status: Optional[bool] = Form(...),
 ):
     try:
         response_payload = JobService.update_job_service(

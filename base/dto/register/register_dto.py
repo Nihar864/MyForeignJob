@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 
-
 class RegisterDTO(BaseModel):
     register_name: str
     register_email: str
