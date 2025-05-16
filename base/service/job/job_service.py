@@ -1,6 +1,7 @@
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
 from base.dao.job.job_dao import JobDAO
+from base.dto.job.job_dto import GetAllJobDTO
 from base.utils.custom_exception import AppServices
 from base.vo.job_vo import JobVO
 
@@ -50,14 +51,14 @@ class JobService:
             return AppServices.handle_exception(exception)
 
     @staticmethod
-    def get_all_job_service(page_number, page_size, search_value, sort_by, sort_as):
+    def get_all_job_service(dto: GetAllJobDTO):
         try:
             result = JobDAO.get_all_job_dao(
-                search_value=search_value,
-                page_number=page_number,
-                page_size=page_size,
-                sort_by=sort_by,
-                sort_as=sort_as,
+                search_value=dto.search_value,
+                page_number=dto.page_number,
+                page_size=dto.page_size,
+                sort_by=dto.sort_by,
+                sort_as=dto.sort_as,
             )
 
             if not result["items"]:

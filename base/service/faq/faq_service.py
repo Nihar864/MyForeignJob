@@ -1,5 +1,6 @@
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
+from base.dao.country.country_dao import CountryDAO
 from base.dao.faq.faq_dao import FaqDAO
 from base.utils.custom_exception import AppServices
 from base.vo.faq_vo import FaqVO
@@ -13,9 +14,9 @@ class FaqService:
     def insert_faq_service(faq_dto):
 
         try:
-            print(faq_dto.country_name, "<<<<<<<<")
-            country_id = FaqDAO.get_country_dao(faq_dto.country_name)
-            if not country_id:
+            country_vo = CountryDAO.get_country_by_id_dao(faq_dto.country_id)
+            print(country_vo)
+            if not country_vo:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.NOT_FOUND,
                     "try another country",
@@ -24,7 +25,7 @@ class FaqService:
                 )
 
             faq_vo = FaqVO()
-            faq_vo.faq_country_id = country_id
+            faq_vo.faq_country_id = country_vo.country_id
             faq_vo.faq_title = faq_dto.faq_title
             faq_vo.faq_description = faq_dto.faq_description
 

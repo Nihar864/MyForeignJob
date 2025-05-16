@@ -1,9 +1,10 @@
 from typing import Optional
 
-from fastapi import APIRouter, Form, Query
+from fastapi import APIRouter, Form, Request, Response, Depends
 
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import SortingOrderEnum
+from base.dto.country.country_dto import GetAllCountryDTO
 from base.service.job.job_service import JobService
 from base.utils.custom_exception import AppServices
 
@@ -47,19 +48,10 @@ def insert_job_controller(
 @job_router.get("/all")
 # @login_required()
 def view_job_controller(
-        page_number: int = Query(1, ge=1),
-        page_size: int = Query(10, ge=1),
-        search_value: str = "",
-        sort_by: str = "job_title",
-        sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING)
+        request: Request,
+        response: Response, get_all_dto: GetAllCountryDTO = Depends()
 ):
-    return JobService.get_all_job_service(
-        page_number=page_number,
-        page_size=page_size,
-        search_value=search_value,
-        sort_by=sort_by,
-        sort_as=sort_as.value
-    )
+    return JobService.get_all_job_service(get_all_dto)
 
 
 @job_router.delete("/{job_id}")

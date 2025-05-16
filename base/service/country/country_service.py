@@ -4,6 +4,7 @@ from pathlib import Path
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
 from base.dao.country.country_dao import CountryDAO
+from base.dto.country.country_dto import GetAllCountryDTO
 from base.utils.custom_exception import AppServices
 from base.vo.country_vo import CountryVO
 
@@ -83,8 +84,7 @@ class CountryService:
             return AppServices.handle_exception(exception)
 
     @staticmethod
-    def get_all_categories_service(page_number, page_size, search_value, sort_by,
-                                   sort_as):
+    def get_all_categories_service(dto: GetAllCountryDTO):
         try:
             get_all_data_result = CountryDAO.get_all_categories_dao(
                 page_number=dto.page_number,

@@ -1,11 +1,10 @@
 from typing import Optional
 
-from fastapi import APIRouter, Request, Response, UploadFile, File, Form
-from fastapi import Query
+from fastapi import APIRouter, Request, Response, UploadFile, File, Form, \
+    Depends
 
 from base.config.logger_config import get_logger
-from base.custom_enum.http_enum import SortingOrderEnum
-from base.dto.country.country_dto import CountryDTO, GetAllCountryDTO
+from base.dto.country.country_dto import GetAllCountryDTO
 from base.service.country.country_service import CountryService
 from base.utils.custom_exception import AppServices
 
@@ -56,10 +55,9 @@ def insert_country_controller(
 # @login_required()
 def get_all_countries(
         request: Request,
-        response: Response,get_all_dto:GetAllCountryDTO
+        response: Response, get_all_dto: GetAllCountryDTO = Depends()
 ):
     try:
-
         response_payload = CountryService.get_all_categories_service(
             get_all_dto)
         return response_payload

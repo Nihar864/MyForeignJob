@@ -11264,3 +11264,161 @@ Traceback (most recent call last):
     session = database.get_db_session()
               ^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: Database.get_db_session() missing 1 required positional argument: 'engine'
+2025-05-16 10:39:08,908 - country_service.py - MyForeignJob -  get_country_by_id_service - INFO - Fetched country detail for ID: 1
+
+2025-05-16 10:39:08,908 - country_controller.py - MyForeignJob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x792e15846e50>}
+
+2025-05-16 10:42:52,391 - job_service.py - MyForeignJob -  get_all_job_service - ERROR - Error fetching all jobs
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/job/job_service.py", line 56, in get_all_job_service
+    result = JobDAO.get_all_job_dao(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/dao/job/job_dao.py", line 25, in get_all_job_dao
+    return MysqlCommonQuery.get_all_with_filters(page_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 124, in get_all_with_filters
+    query = query.order_by(model.id.asc())  # default fallback
+                           ^^^^^^^^
+AttributeError: type object 'JobVO' has no attribute 'id'
+2025-05-16 10:43:35,162 - faq_service.py - MyForeignJob -  insert_faq_service - ERROR - Error inserting faq
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/faq/faq_service.py", line 16, in insert_faq_service
+    print(faq_dto.country_name, "<<<<<<<<")
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pydantic/main.py", line 891, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'FaqDTO' object has no attribute 'country_name'
+2025-05-16 10:43:35,183 - faq_controller.py - MyForeignJob -  insert_faq_controller - INFO - Faq inserted: ({'message': 'Internal server error', 'status_code': 500},)
+
+2025-05-16 10:43:39,907 - faq_service.py - MyForeignJob -  insert_faq_service - ERROR - Error inserting faq
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/faq/faq_service.py", line 16, in insert_faq_service
+    print(faq_dto.country_name, "<<<<<<<<")
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pydantic/main.py", line 891, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'FaqDTO' object has no attribute 'country_name'
+2025-05-16 10:43:39,908 - faq_controller.py - MyForeignJob -  insert_faq_controller - INFO - Faq inserted: ({'message': 'Internal server error', 'status_code': 500},)
+
+2025-05-16 10:45:10,776 - faq_controller.py - MyForeignJob -  insert_faq_controller - INFO - Faq inserted: {'status_code': <HttpStatusCodeEnum.NOT_FOUND: 404>, 'success': False, 'message': 'try another country', 'data': {}}
+
+2025-05-16 10:45:58,817 - faq_controller.py - MyForeignJob -  insert_faq_controller - INFO - Faq inserted: {'status_code': <HttpStatusCodeEnum.NOT_FOUND: 404>, 'success': False, 'message': 'try another country', 'data': {}}
+
+2025-05-16 10:46:51,763 - faq_service.py - MyForeignJob -  insert_faq_service - ERROR - Error inserting faq
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.DataError: (1366, "Incorrect integer value: '<base.vo.country_vo.CountryVO object at 0x78c5db7ed8d0>' for column 'faq_country_id' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/faq/faq_service.py", line 32, in insert_faq_service
+    faq_insert_data = FaqDAO.insert_faq_dao(faq_vo)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/dao/faq/faq_dao.py", line 10, in insert_faq_dao
+    faq_data = MysqlCommonQuery.insert_query(faq_vo)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 18, in insert_query
+    session.commit()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.DataError: (pymysql.err.DataError) (1366, "Incorrect integer value: '<base.vo.country_vo.CountryVO object at 0x78c5db7ed8d0>' for column 'faq_country_id' at row 1")
+[SQL: INSERT INTO faq_table (faq_title, faq_country_id, faq_description, is_deleted, created_at, updated_at) VALUES (%(faq_title)s, %(faq_country_id)s, %(faq_description)s, %(is_deleted)s, %(created_at)s, %(updated_at)s)]
+[parameters: {'faq_title': 'sdcsd', 'faq_country_id': <base.vo.country_vo.CountryVO object at 0x78c5db7ed8d0>, 'faq_description': 'string', 'is_deleted': 0, 'created_at': datetime.datetime(2025, 5, 16, 5, 16, 51, 760615, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2025, 5, 16, 5, 16, 51, 760621, tzinfo=datetime.timezone.utc)}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-05-16 10:46:51,769 - faq_controller.py - MyForeignJob -  insert_faq_controller - INFO - Faq inserted: ({'message': 'Internal server error', 'status_code': 500},)
+
+2025-05-16 10:47:23,412 - faq_service.py - MyForeignJob -  insert_faq_service - INFO - Inserted faq: sdcsd
+
+2025-05-16 10:47:23,412 - faq_controller.py - MyForeignJob -  insert_faq_controller - INFO - Faq inserted: {'status_code': 200, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.faq_vo.FaqVO object at 0x7380f8301a50>}
+
