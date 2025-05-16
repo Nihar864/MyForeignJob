@@ -12,6 +12,13 @@ class RegisterDAO:
         return get_data
 
     @staticmethod
+    def check_existing_phone(phone):
+        """Check if the phone number already exists."""
+        from base.vo.login_vo import LoginVO
+        return MysqlCommonQuery.get_record_by_field(LoginVO, "login_phone",
+                                                    phone)
+
+    @staticmethod
     def insert_register_user(register_vo):
         """Insert a new registered user."""
         get_data = MysqlCommonQuery.insert_query(register_vo)

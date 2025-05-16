@@ -14,13 +14,13 @@ class CountryService:
 
     @staticmethod
     def insert_country_service(
-            country_name,
-            country_description,
-            show_on_homepage_status,
-            country_status,
-            country_currency,
-            country_image,
-            country_flag_image,
+        country_name,
+        country_description,
+        show_on_homepage_status,
+        country_status,
+        country_currency,
+        country_image,
+        country_flag_image,
     ):
         """Convert form data to VO & Insert country, including both images."""
 
@@ -84,7 +84,7 @@ class CountryService:
 
     @staticmethod
     def get_all_categories_service(
-            page_number, page_size, search_value, sort_by, sort_as
+        page_number, page_size, search_value, sort_by, sort_as
     ):
         try:
             get_all_data_result = CountryDAO.get_all_categories_dao(
@@ -146,8 +146,7 @@ class CountryService:
     def get_country_by_id_service(countryId):
         """Retrieve country details for a given ID."""
         try:
-            country_detail_from_id = CountryDAO.get_country_by_id_dao(
-                countryId)
+            country_detail_from_id = CountryDAO.get_country_by_id_dao(countryId)
 
             if not country_detail_from_id:
                 return AppServices.app_response(
@@ -171,14 +170,14 @@ class CountryService:
 
     @staticmethod
     def update_country_service(
-            country_id,
-            country_name,
-            country_description,
-            show_on_homepage_status,
-            country_currency,
-            country_status,
-            country_image,
-            country_flag_image,
+        country_id,
+        country_name,
+        country_description,
+        show_on_homepage_status,
+        country_currency,
+        country_status,
+        country_image,
+        country_flag_image,
     ):
         try:
             existing_country = CountryDAO.get_country_by_id_dao(country_id)
@@ -250,8 +249,7 @@ class CountryService:
                 existing_country.country_flag_image_name = safe_flag_filename
                 existing_country.country_flag_image_path = str(flag_file_path)
 
-            updated_country_data = CountryDAO.update_country_dao(
-                existing_country)
+            updated_country_data = CountryDAO.update_country_dao(existing_country)
 
             if not updated_country_data:
                 return AppServices.app_response(

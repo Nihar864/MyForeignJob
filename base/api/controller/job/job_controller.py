@@ -1,9 +1,11 @@
 from typing import Optional
 
-from fastapi import APIRouter, Form, Query
+from fastapi import APIRouter, Form, Request, Response, Depends, Query
 
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import SortingOrderEnum
+from base.dto.country.country_dto import GetAllCountryDTO
+from base.dto.job.job_dto import JobDTO, UpdateJobDTO
 from base.service.job.job_service import JobService
 from base.utils.custom_exception import AppServices
 
@@ -19,22 +21,10 @@ job_router = APIRouter(
 @job_router.post("/add")
 # @login_required()
 def insert_job_controller(
-    country_name: str = Form(...),
-    job_title: str = Form(...),
-    job_description: str = Form(...),
-    job_location: str = Form(...),
-    job_salary: int = Form(...),
-    job_status: bool = Form(...),
+        job_dto: JobDTO,
 ):
     try:
-        response_payload = JobService.insert_job_service(
-            job_title=job_title,
-            country_name=country_name,
-            job_description=job_description,
-            job_location=job_location,
-            job_salary=job_salary,
-            job_status=job_status,
-        )
+        response_payload = JobService.insert_job_service(job_dto)
 
         logger.info(f"Job inserted: {response_payload}")
         return response_payload
@@ -89,25 +79,9 @@ def get_job_by_id_controller(job_id: int):
 
 @job_router.put("/update")
 # @login_required()
-def update_job_controller(
-    job_id: int = Form(...),
-    job_title: Optional[str] = Form(...),
-    job_description: Optional[str] = Form(...),
-    country_name: Optional[str] = Form(...),
-    job_location: Optional[str] = Form(...),
-    job_salary: Optional[int] = Form(...),
-    job_status: Optional[bool] = Form(...),
-):
+def update_job_controller(job_dto: UpdateJobDTO,):
     try:
-        response_payload = JobService.update_job_service(
-            job_id=job_id,
-            job_title=job_title,
-            country_name=country_name,
-            job_description=job_description,
-            job_location=job_location,
-            job_salary=job_salary,
-            job_status=job_status,
-        )
+        response_payload = JobService.update_job_service(job_dto)
         logger.info(f"Updated job with ID: {response_payload}")
         return response_payload
     except Exception as exception:

@@ -18,8 +18,8 @@ faq_router = APIRouter(
 @faq_router.post("/add")
 # @login_required()
 def insert_faq_controller(
-    faq_dto: FaqDTO,
-    response: Response,
+        faq_dto: FaqDTO,
+        response: Response,
 ):
     try:
         if not faq_dto:
@@ -27,8 +27,7 @@ def insert_faq_controller(
             return AppServices.app_response(
                 HttpStatusCodeEnum.BAD_REQUEST.value,
                 ResponseMessageEnum.NOT_FOUND.value,
-                success=False,
-            )
+                success=False, )
 
         response_payload = FaqService.insert_faq_service(faq_dto)
 
@@ -37,17 +36,17 @@ def insert_faq_controller(
 
     except Exception as exception:
         logger.error(f"Error in insert_faq_controller: {e}")
-        return AppServices.handle_exception(exception, is_raise=True)
+        return AppServices.handle_exception(exception,is_raise=True)
 
 
 @faq_router.get("/all")
 # @login_required()
 def view_faq_controller(
-    page_number: int = Query(1, ge=1),
-    page_size: int = Query(10, ge=1),
-    search_value: str = "",
-    sort_by: str = "faq_title",
-    sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
+        page_number: int = Query(1, ge=1),
+        page_size: int = Query(10, ge=1),
+        search_value: str = "",
+        sort_by: str = "faq_title",
+        sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING)
 ):
     return FaqService.get_all_faq_service(
         page_number=page_number,
@@ -67,7 +66,7 @@ def delete_faq_controller(faq_id):
         return response_payload
     except Exception as exception:
         logger.exception("Error deleting faq")
-        return AppServices.handle_exception(exception, is_raise=True)
+        return AppServices.handle_exception(exception,is_raise=True)
 
 
 @faq_router.get("/{faq_id}")
@@ -80,13 +79,13 @@ def get_faq_by_id_controller(faq_id: int):
         return response_payload
     except Exception as exception:
         logger.exception("Error fetching faq details")
-        return AppServices.handle_exception(exception, is_raise=True)
+        return AppServices.handle_exception(exception,is_raise=True)
 
 
 @faq_router.put("/update")
 # @login_required()
 def update_faq_controller(
-    faq_dto: UpdateFaqDTO,
+        faq_dto: UpdateFaqDTO,
 ):
     try:
         response_payload = FaqService.update_faq_service(faq_dto)
@@ -94,4 +93,4 @@ def update_faq_controller(
         return response_payload
     except Exception as exception:
         logger.exception("Error updating job")
-        return AppServices.handle_exception(exception, is_raise=True)
+        return AppServices.handle_exception(exception,is_raise=True)
