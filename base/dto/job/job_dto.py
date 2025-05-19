@@ -17,6 +17,7 @@ class JobDTO(BaseModel):
     class Config:
         from_attributes = True
 
+
 class UpdateJobDTO(BaseModel):
     job_id: int
     country_id: Optional[int] = None
@@ -25,6 +26,7 @@ class UpdateJobDTO(BaseModel):
     job_location: Optional[str] = None
     job_salary: Optional[str] = None
     job_status: Optional[bool] = None
+
 
 class GetAllJobDTO(BaseModel):
     page_number: Optional[int] = 1

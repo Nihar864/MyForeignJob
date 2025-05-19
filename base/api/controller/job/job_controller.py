@@ -21,7 +21,7 @@ job_router = APIRouter(
 @job_router.post("/add")
 # @login_required()
 def insert_job_controller(
-        job_dto: JobDTO,
+    job_dto: JobDTO,
 ):
     try:
         response_payload = JobService.insert_job_service(job_dto)
@@ -79,7 +79,9 @@ def get_job_by_id_controller(job_id: int):
 
 @job_router.put("/update")
 # @login_required()
-def update_job_controller(job_dto: UpdateJobDTO,):
+def update_job_controller(
+    job_dto: UpdateJobDTO,
+):
     try:
         response_payload = JobService.update_job_service(job_dto)
         logger.info(f"Updated job with ID: {response_payload}")

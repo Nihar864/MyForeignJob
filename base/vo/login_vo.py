@@ -1,22 +1,36 @@
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, String, Integer, Boolean, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
 
-from base.db.database import Base, Database
+from base.db.database import Database
+from base.vo.role_vo import RoleVO
+
 from base.mixins import StatusMixin, TimestampMixin
 
+# Create a database connection
 database = Database()
 engine = database.get_db_connection()
+Base = declarative_base()
 
 
-class LoginVO(Base, StatusMixin, TimestampMixin):
-    __tablename__ = "login_table"
+class AdminVO(Base, StatusMixin, TimestampMixin):
 
-    login_id = Column(Integer, primary_key=True, index=True)
-    login_username = Column(String(50), unique=True, index=True, nullable=False)
-    login_password = Column(String(128), nullable=False)
-    login_status = Column(Boolean, nullable=False, default=False)
+    __tablename__ = "admin_table"
+    __table_args__ = {"mysql_engine": "InnoDB"}
+    login_id = Column(Integer, primary_key=True)
+    username = Column(String(500), nullable=False)
+    password = Column(String(500), nullable=False)
+    role = Column(
+        Integer, ForeignKey(RoleVO.role_id, ondelete="CASCADE", onupdate="CASCADE")
+    )
+
+    @staticmethod
+    def serialize(data):
+
+        return {
+            "admin_id": data.login_id,
+            "username": data.username,
+        }
 
 
-# Base.metadata.create_all(engine)
-
-# INSERT INTO login_table (loginUsername, loginPassword, loginStatus, createdAt, updatedAt, isDeleted)
-# VALUES ('new_user', 'secure_password123', TRUE, NOW(), NOW(), FALSE);
+# Create the table in the database
+Base.metadata.create_all(engine)

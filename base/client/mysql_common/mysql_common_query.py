@@ -1,4 +1,5 @@
 from sqlalchemy import or_, asc, desc
+from sqlalchemy.exc import SQLAlchemyError
 
 from base.db.database import Database
 from base.vo.country_vo import CountryVO
@@ -12,12 +13,15 @@ class MysqlCommonQuery:
 
     @staticmethod
     def insert_query(create_object):
-        """Insert a new entity into the database."""
         session = database.get_db_session(engine)
-        session.add(create_object)
-        session.commit()
-        session.refresh(create_object)
-        return create_object
+        try:
+            session.add(create_object)
+            session.commit()
+            session.refresh(create_object)
+            return create_object
+        except SQLAlchemyError as e:
+            session.rollback()
+            raise e
 
     @staticmethod
     def get_all_query(table_name):
@@ -151,3 +155,28 @@ class MysqlCommonQuery:
             return country.country_id if country else None
         finally:
             session.close()
+
+    @staticmethod
+    def get_role(table, pk_column, value):
+        session = database.get_db_session(engine)
+        result = session.query(table).filter(pk_column == value).first()
+        return result
+
+    @staticmethod
+    def get_by_membership_id(table_name, membership_id):
+        """
+        Retrieve a database record by membership ID.
+        Author: Tarun Mondal
+        Designation: Software Engineer
+
+        Args:
+            table_name: The table representing the database entity.
+            membership_id: The membership ID to search for.
+
+        Returns:
+            The retrieved database record or None if not found.
+        """
+        session = database.get_db_session(engine)
+        db_data = session.query(table_name).filter_by(membership_id=membership_id).first()
+
+        return db_data

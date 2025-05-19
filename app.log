@@ -14593,3 +14593,978 @@ sqlalchemy.exc.InvalidRequestError: One or more mappers failed to initialize - c
 
 2025-05-16 12:42:27,717 - job_controller.py - MyForeignJob -  insert_job_controller - INFO - Job inserted: {'status_code': 200, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.job_vo.JobVO object at 0x77a7063b3890>}
 
+2025-05-16 14:53:07,932 - job_controller.py - MyForeignJob -  insert_job_controller - INFO - Job inserted: {'status_code': <HttpStatusCodeEnum.NOT_FOUND: 404>, 'success': False, 'message': 'this country is not exist', 'data': {}}
+
+2025-05-16 16:53:55,682 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 16:55:11,027 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:01:41,126 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:03:57,216 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:06:12,175 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:06:21,336 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:07:10,005 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:07:26,157 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:17:15,416 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:17:25,470 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:17:38,975 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:18:00,238 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:18:05,730 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:18:07,845 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:18:21,967 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:18:22,428 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:18:22,681 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:18:22,896 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:18:48,413 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:19:07,680 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:26:25,946 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:26:37,727 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:31:12,765 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 17:35:59,569 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 17:39:39,613 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 17:41:14,785 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:45:25,691 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:46:27,739 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:46:41,304 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.UNAUTHORIZED: 401>, 'success': False, 'message': <ResponseMessageEnum.LOGIN_FAILED: 'Invalid credentials, please try again'>, 'data': {}}
+
+2025-05-16 17:58:02,786 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 17:59:23,460 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:07:09,146 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:07:21,913 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:08:42,469 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:09:03,357 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:09:26,146 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:09:26,974 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:09:34,495 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:12:39,441 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:14:03,796 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:14:18,824 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:14:43,677 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:15:12,281 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:15:33,380 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:16:02,384 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:17:02,213 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:19:15,113 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:21:05,165 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:21:27,878 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:21:58,875 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:22:12,338 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:22:31,597 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:22:48,425 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:24:26,379 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:26:17,222 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:27:01,374 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:28:53,218 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:29:45,429 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:30:17,870 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-16 18:30:51,258 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc0MDQwNTEsImlhdCI6MTc0NzQwMDQ1MSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.hNm4jNPdJzIoV6FgLDraag12SPUEHHol2GnhxXED5nY', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc0MDA0NTEsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.E__aLAQZGjyT5564Jory2UPdDhAchzwbgoEVGb-DKWQ', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 11:55:50,908 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 11:56:30,274 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 11:57:39,898 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 11:58:04,555 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 11:58:28,101 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 11:58:39,676 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 11:58:58,511 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 11:59:44,448 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 12:22:48,449 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 12:23:46,133 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDEyMjYsImlhdCI6MTc0NzYzNzYyNiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.u9OAGcZsVkhe-GMRfTn7fQBDUkmp3ZXUlyS9dECKlxA', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2Mzc2MjYsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.PaQy50URBM7ysvbyhSGydallW4DhcurD-nui6uhAN6M', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 12:33:53,877 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 12:35:06,342 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDE5MDYsImlhdCI6MTc0NzYzODMwNiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.bEtzH8MhPxFhLwtmwYI8INsGv54nZ3A2auqry7sMtg8', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2MzgzMDYsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.CL7Yp4USiVNqa1PerjM3brSuTy_rsdL9e6xBSUltHEo', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 12:42:06,042 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDIzMjYsImlhdCI6MTc0NzYzODcyNiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.rYfQ1DO3NvaC89igohDL1xU9a7Y1hJie_dO-MEerVZo', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2Mzg3MjYsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.BCouUZRXC3dhTAEtJ_VB9Fnrw4aitDzn6czWKkqV3Bo', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 12:44:07,973 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDI0NDcsImlhdCI6MTc0NzYzODg0NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.5o4eL8VSL8yNv4_3TgA3AGcD5UZPSc1H41pGAVZPj8c', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2Mzg4NDcsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.IpUXBgKnKSsUJOShoak9rAzqOu6nQTlZyg_GfswhpAY', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 12:49:31,499 - login_service.py - MyForeignJob -  wrapper - DEBUG - Entered login_required decorator
+
+2025-05-19 12:49:31,499 - login_service.py - MyForeignJob -  wrapper - DEBUG - Headers - Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDEyMjYsImlhdCI6MTc0NzYzNzYyNiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.u9OAGcZsVkhe-GMRfTn7fQBDUkmp3ZXUlyS9dECKlxA, membershipId: , flag: None
+
+2025-05-19 12:49:31,499 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization token found, decoding JWT
+
+2025-05-19 12:49:31,499 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: user_id=1, user_email=None, user_role=ADMIN
+
+2025-05-19 12:49:31,499 - login_service.py - MyForeignJob -  wrapper - DEBUG - User identifier resolved to: 1
+
+2025-05-19 12:49:31,499 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error in authentication: type object 'LoginService' has no attribute 'get_user_by_identifier'
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 325, in wrapper
+    user_info, user_type = LoginService.get_user_by_identifier(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'LoginService' has no attribute 'get_user_by_identifier'
+2025-05-19 12:49:35,860 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 12:50:35,430 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: admin
+
+2025-05-19 12:50:35,430 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Member user not found, attempting to get admin user
+
+2025-05-19 12:50:35,436 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found: <base.vo.login_vo.AdminVO object at 0x7be6bbaa3d50> with type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 12:50:35,546 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDI4MzUsImlhdCI6MTc0NzYzOTIzNSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.v8jade0TxX22ReSJ4HSQUv3qZZY6MfNOZ9hfPzHdLwQ', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2MzkyMzUsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.WkU1Nu3zbgquWLfBkNfJXYgzFDZZ-wxatzIBZnsdmI8', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 12:50:43,396 - login_service.py - MyForeignJob -  wrapper - DEBUG - Entered login_required decorator
+
+2025-05-19 12:50:43,396 - login_service.py - MyForeignJob -  wrapper - DEBUG - Headers - Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDI4MzUsImlhdCI6MTc0NzYzOTIzNSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.v8jade0TxX22ReSJ4HSQUv3qZZY6MfNOZ9hfPzHdLwQ, membershipId: , flag: None
+
+2025-05-19 12:50:43,396 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization token found, decoding JWT
+
+2025-05-19 12:50:43,396 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: user_id=1, user_email=None, user_role=ADMIN
+
+2025-05-19 12:50:43,396 - login_service.py - MyForeignJob -  wrapper - DEBUG - User identifier resolved to: 1
+
+2025-05-19 12:50:43,396 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 12:50:43,396 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Member user not found, attempting to get admin user
+
+2025-05-19 12:50:43,398 - login_service.py - MyForeignJob -  get_user_by_identifier - WARNING - No user found for identifier: 1
+
+2025-05-19 12:50:43,398 - login_service.py - MyForeignJob -  wrapper - ERROR - User info not found for the given identifier
+
+2025-05-19 12:50:43,398 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error in authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 331, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 12:53:11,099 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 12:53:11,099 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDI4MzUsImlhdCI6MTc0NzYzOTIzNSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.v8jade0TxX22ReSJ4HSQUv3qZZY6MfNOZ9hfPzHdLwQ, Membership ID: , Flag: None
+
+2025-05-19 12:53:11,099 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 12:53:11,099 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747642835, 'iat': 1747639235, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 12:53:11,099 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 12:53:11,099 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 12:53:11,099 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 12:53:11,105 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 12:53:11,105 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 12:53:11,105 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 12:53:11,105 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 12:53:16,933 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: admin
+
+2025-05-19 12:53:16,934 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: admin
+
+2025-05-19 12:53:16,936 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: <base.vo.login_vo.AdminVO object at 0x7a2732bff190>
+
+2025-05-19 12:53:17,056 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDI5OTcsImlhdCI6MTc0NzYzOTM5NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.NAdyt4gA3Kk6hNr0uogxAKUG_YJEWEfg5SPGoQ2gZgY', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2MzkzOTcsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.IDhn_Xl0U8YAAiSb53ipgd5QNIt9fCyMfearfZuaPnk', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 12:53:27,482 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 12:53:27,483 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDI5OTcsImlhdCI6MTc0NzYzOTM5NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.NAdyt4gA3Kk6hNr0uogxAKUG_YJEWEfg5SPGoQ2gZgY, Membership ID: , Flag: None
+
+2025-05-19 12:53:27,483 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 12:53:27,483 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747642997, 'iat': 1747639397, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 12:53:27,483 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 12:53:27,483 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 12:53:27,483 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 12:53:27,486 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 12:53:27,486 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 12:53:27,486 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 12:53:27,486 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 12:56:18,038 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 12:56:18,038 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDI5OTcsImlhdCI6MTc0NzYzOTM5NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.NAdyt4gA3Kk6hNr0uogxAKUG_YJEWEfg5SPGoQ2gZgY, Membership ID: , Flag: None
+
+2025-05-19 12:56:18,038 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 12:56:18,038 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747642997, 'iat': 1747639397, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 12:56:18,038 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 12:56:18,038 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 12:56:18,038 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 12:56:18,041 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 12:56:18,041 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 12:56:18,041 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 12:56:18,041 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 12:58:45,848 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 12:58:45,849 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDI5OTcsImlhdCI6MTc0NzYzOTM5NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.NAdyt4gA3Kk6hNr0uogxAKUG_YJEWEfg5SPGoQ2gZgY, Membership ID: , Flag: None
+
+2025-05-19 12:58:45,849 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 12:58:45,849 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747642997, 'iat': 1747639397, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 12:58:45,849 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 12:58:45,849 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 12:58:45,849 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 12:58:45,857 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 12:58:45,857 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 12:58:45,857 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 12:58:45,857 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 12:58:49,323 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 12:58:49,323 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDI5OTcsImlhdCI6MTc0NzYzOTM5NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.NAdyt4gA3Kk6hNr0uogxAKUG_YJEWEfg5SPGoQ2gZgY, Membership ID: , Flag: None
+
+2025-05-19 12:58:49,323 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 12:58:49,323 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747642997, 'iat': 1747639397, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 12:58:49,323 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 12:58:49,323 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 12:58:49,323 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 12:58:49,325 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 12:58:49,325 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 12:58:49,325 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 12:58:49,325 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 12:59:02,265 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 12:59:02,265 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDI5OTcsImlhdCI6MTc0NzYzOTM5NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.NAdyt4gA3Kk6hNr0uogxAKUG_YJEWEfg5SPGoQ2gZgY, Membership ID: , Flag: None
+
+2025-05-19 12:59:02,265 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 12:59:02,265 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747642997, 'iat': 1747639397, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 12:59:02,265 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 12:59:02,265 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 12:59:02,265 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 12:59:02,271 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 12:59:02,271 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 12:59:02,271 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 12:59:02,271 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 12:59:42,754 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 12:59:42,754 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: None, Membership ID: , Flag: None
+
+2025-05-19 12:59:42,754 - login_service.py - MyForeignJob -  wrapper - WARNING - Authorization credentials missing
+
+2025-05-19 13:00:24,585 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 13:00:24,585 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDI5OTcsImlhdCI6MTc0NzYzOTM5NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.NAdyt4gA3Kk6hNr0uogxAKUG_YJEWEfg5SPGoQ2gZgY, Membership ID: , Flag: None
+
+2025-05-19 13:00:24,585 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:00:24,585 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747642997, 'iat': 1747639397, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:00:24,585 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 13:00:24,585 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:00:24,585 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:00:24,587 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:00:24,588 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 13:00:24,588 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 13:00:24,588 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 13:00:31,829 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: admin
+
+2025-05-19 13:00:31,829 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: admin
+
+2025-05-19 13:00:31,831 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: <base.vo.login_vo.AdminVO object at 0x744fb304a4d0>
+
+2025-05-19 13:00:31,944 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDM0MzEsImlhdCI6MTc0NzYzOTgzMSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.TsMGwVpOZ7PNQFEuJUvV16qTC6Li20HuSvqsmdr8MRQ', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2Mzk4MzEsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.HPiF7PXBD7Zv65voE-DR_7oXf2InPko-eHiYL8PM5Ws', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 13:00:41,099 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 13:00:41,099 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDM0MzEsImlhdCI6MTc0NzYzOTgzMSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.TsMGwVpOZ7PNQFEuJUvV16qTC6Li20HuSvqsmdr8MRQ, Membership ID: , Flag: None
+
+2025-05-19 13:00:41,099 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:00:41,099 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747643431, 'iat': 1747639831, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:00:41,099 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 13:00:41,099 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:00:41,099 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:00:41,102 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:00:41,102 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 13:00:41,102 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 13:00:41,102 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 13:12:22,689 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/test
+
+2025-05-19 13:12:22,689 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: None, Membership ID: , Flag: None
+
+2025-05-19 13:12:22,689 - login_service.py - MyForeignJob -  wrapper - WARNING - Authorization credentials missing
+
+2025-05-19 13:12:38,454 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: admin
+
+2025-05-19 13:12:38,455 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: admin
+
+2025-05-19 13:12:38,461 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: <base.vo.login_vo.AdminVO object at 0x7f3eb277b050>
+
+2025-05-19 13:12:38,575 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQxNTgsImlhdCI6MTc0NzY0MDU1OCwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.fc72L2E9UmL4ohMnKsNJXIh_wWTO5AZWyV1fIDK8Uro', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2NDA1NTgsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.lH65Zbpb0THPzaDKtzT8wAxzPqgGOBQjW4wXm39P6Og', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 13:12:48,144 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/test
+
+2025-05-19 13:12:48,144 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQxNTgsImlhdCI6MTc0NzY0MDU1OCwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.fc72L2E9UmL4ohMnKsNJXIh_wWTO5AZWyV1fIDK8Uro, Membership ID: , Flag: None
+
+2025-05-19 13:12:48,144 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:12:48,145 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747644158, 'iat': 1747640558, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:12:48,145 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 13:12:48,145 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:12:48,145 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:12:48,147 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:12:48,147 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 13:12:48,147 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 13:12:48,147 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+====================================================================================
+2025-05-19 13:13:16,284 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/test
+
+2025-05-19 13:13:16,284 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQxNTgsImlhdCI6MTc0NzY0MDU1OCwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.fc72L2E9UmL4ohMnKsNJXIh_wWTO5AZWyV1fIDK8Uro, Membership ID: , Flag: None
+
+2025-05-19 13:13:16,284 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:13:16,284 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747644158, 'iat': 1747640558, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:13:16,285 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 13:13:16,285 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:13:16,285 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:13:16,286 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:13:16,286 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 13:13:16,286 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 13:13:16,286 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 13:15:36,353 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/test
+
+2025-05-19 13:15:36,353 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQxNTgsImlhdCI6MTc0NzY0MDU1OCwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.fc72L2E9UmL4ohMnKsNJXIh_wWTO5AZWyV1fIDK8Uro, Membership ID: , Flag: None
+
+2025-05-19 13:15:36,353 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:15:36,353 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747644158, 'iat': 1747640558, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:15:36,353 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 13:15:36,353 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:15:36,353 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:15:36,359 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:15:36,359 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 13:15:36,359 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 13:15:36,359 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 13:17:48,665 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/test
+
+2025-05-19 13:17:48,665 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQxNTgsImlhdCI6MTc0NzY0MDU1OCwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.fc72L2E9UmL4ohMnKsNJXIh_wWTO5AZWyV1fIDK8Uro
+
+2025-05-19 13:17:48,665 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:17:48,665 - login_service.py - MyForeignJob -  wrapper - WARNING - Invalid JWT token
+
+2025-05-19 13:17:54,127 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: admin
+
+2025-05-19 13:17:54,128 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: admin
+
+2025-05-19 13:17:54,128 - login_service.py - MyForeignJob -  get_user_by_identifier - WARNING - No user found for identifier: admin
+
+2025-05-19 13:17:54,128 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 13:20:38,713 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 13:21:27,356 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: admin
+
+2025-05-19 13:21:27,356 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: admin
+
+2025-05-19 13:21:27,365 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: <base.vo.login_vo.AdminVO object at 0x74b0d09cedd0>
+
+2025-05-19 13:21:27,484 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQ2ODcsImlhdCI6MTc0NzY0MTA4NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.wKzF1iNgH93FAT4qlyPDR5he4ckHGNJHgoVTUnUpEIA', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2NDEwODcsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.PzpU0xypuzbZfxknj20qtICOoISdeDR7Bie4P84sYtk', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 13:21:47,411 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 13:21:47,411 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQ2ODcsImlhdCI6MTc0NzY0MTA4NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.wKzF1iNgH93FAT4qlyPDR5he4ckHGNJHgoVTUnUpEIA, Membership ID: , Flag: None
+
+2025-05-19 13:21:47,411 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:21:47,411 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747644687, 'iat': 1747641087, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:21:47,411 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 13:21:47,411 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:21:47,411 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:21:47,415 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:21:47,415 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 13:21:47,415 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 13:21:47,415 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 13:23:09,097 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 13:23:09,097 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQ2ODcsImlhdCI6MTc0NzY0MTA4NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.wKzF1iNgH93FAT4qlyPDR5he4ckHGNJHgoVTUnUpEIA, Membership ID: , Flag: None
+
+2025-05-19 13:23:09,097 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:23:09,097 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747644687, 'iat': 1747641087, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:23:09,097 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 13:23:09,097 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:23:09,097 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:23:09,103 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:23:09,103 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 13:23:09,103 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 13:23:09,103 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 13:23:23,045 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 13:23:23,045 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQ2ODcsImlhdCI6MTc0NzY0MTA4NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.wKzF1iNgH93FAT4qlyPDR5he4ckHGNJHgoVTUnUpEIA, Membership ID: , Flag: None
+
+2025-05-19 13:23:23,045 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:23:23,045 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747644687, 'iat': 1747641087, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:23:23,045 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 13:23:23,046 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:23:23,046 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:23:23,052 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:23:23,052 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 13:23:23,052 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 13:23:23,052 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 337, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 13:23:44,241 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 13:23:44,241 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQ2ODcsImlhdCI6MTc0NzY0MTA4NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.wKzF1iNgH93FAT4qlyPDR5he4ckHGNJHgoVTUnUpEIA, Membership ID: , Flag: None
+
+2025-05-19 13:23:44,241 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:23:44,241 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747644687, 'iat': 1747641087, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:23:44,241 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 13:23:44,242 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:23:44,242 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:23:44,248 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:23:44,248 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 13:23:44,248 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 13:23:44,248 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 338, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 13:23:54,527 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 13:23:54,527 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQ2ODcsImlhdCI6MTc0NzY0MTA4NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.wKzF1iNgH93FAT4qlyPDR5he4ckHGNJHgoVTUnUpEIA, Membership ID: , Flag: None
+
+2025-05-19 13:23:54,527 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:23:54,527 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747644687, 'iat': 1747641087, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:23:54,527 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 13:23:54,527 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:23:54,527 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:23:54,533 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:23:54,534 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 13:23:54,534 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 13:23:54,534 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 339, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 13:24:03,121 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 13:24:03,121 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQ2ODcsImlhdCI6MTc0NzY0MTA4NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.wKzF1iNgH93FAT4qlyPDR5he4ckHGNJHgoVTUnUpEIA, Membership ID: , Flag: None
+
+2025-05-19 13:24:03,121 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:24:03,121 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747644687, 'iat': 1747641087, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:24:03,121 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 13:24:03,121 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:24:03,121 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:24:03,127 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:24:03,127 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 13:24:03,127 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 13:24:03,127 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 339, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 13:25:24,556 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 13:25:24,556 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQ2ODcsImlhdCI6MTc0NzY0MTA4NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.wKzF1iNgH93FAT4qlyPDR5he4ckHGNJHgoVTUnUpEIA, Membership ID: , Flag: None
+
+2025-05-19 13:25:24,556 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:25:24,556 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747644687, 'iat': 1747641087, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:25:24,557 - login_service.py - MyForeignJob -  wrapper - DEBUG - Using user identifier: 1
+
+2025-05-19 13:25:24,557 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:25:24,557 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:25:24,562 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:25:24,562 - login_service.py - MyForeignJob -  wrapper - DEBUG - User info retrieved: None, User type: StaticVariables.ADMIN_ROLE_ENUM
+
+2025-05-19 13:25:24,562 - login_service.py - MyForeignJob -  wrapper - WARNING - No user found for identifier: 1
+
+2025-05-19 13:25:24,562 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication: 401: User not found
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 338, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: User not found
+2025-05-19 13:26:57,088 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 13:26:57,088 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDQ2ODcsImlhdCI6MTc0NzY0MTA4NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.wKzF1iNgH93FAT4qlyPDR5he4ckHGNJHgoVTUnUpEIA, Membership ID: , Flag: None
+
+2025-05-19 13:26:57,088 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:26:57,089 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747644687, 'iat': 1747641087, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:26:57,089 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:26:57,089 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:26:57,095 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:27:04,989 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: admin
+
+2025-05-19 13:27:04,989 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: admin
+
+2025-05-19 13:27:04,991 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: <base.vo.login_vo.AdminVO object at 0x7dad49fc8bd0>
+
+2025-05-19 13:27:05,107 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDUwMjUsImlhdCI6MTc0NzY0MTQyNSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.EP7aAGfDnB-t4SdHz7I-8kYSN4ujVPrmaJe-egXpgTY', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2NDE0MjUsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.YqW_L2_wzS4oN122FfdG1euQp9h0TifIdmq--wM1OIQ', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 13:27:19,712 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/test
+
+2025-05-19 13:27:19,712 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDUwMjUsImlhdCI6MTc0NzY0MTQyNSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.EP7aAGfDnB-t4SdHz7I-8kYSN4ujVPrmaJe-egXpgTY, Membership ID: , Flag: None
+
+2025-05-19 13:27:19,712 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:27:19,712 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747645025, 'iat': 1747641425, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:27:19,712 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:27:19,712 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:27:19,714 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:29:33,669 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/test
+
+2025-05-19 13:29:33,669 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDUwMjUsImlhdCI6MTc0NzY0MTQyNSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.EP7aAGfDnB-t4SdHz7I-8kYSN4ujVPrmaJe-egXpgTY, Membership ID: , Flag: None
+
+2025-05-19 13:29:33,669 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:29:33,670 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747645025, 'iat': 1747641425, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:29:33,670 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:29:33,670 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:29:33,676 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:30:26,066 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/test
+
+2025-05-19 13:30:26,066 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDUwMjUsImlhdCI6MTc0NzY0MTQyNSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.EP7aAGfDnB-t4SdHz7I-8kYSN4ujVPrmaJe-egXpgTY, Membership ID: , Flag: None
+
+2025-05-19 13:30:26,066 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:30:26,067 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747645025, 'iat': 1747641425, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:30:26,067 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:30:26,067 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:30:26,072 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:31:08,060 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/test
+
+2025-05-19 13:31:08,060 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDUwMjUsImlhdCI6MTc0NzY0MTQyNSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.EP7aAGfDnB-t4SdHz7I-8kYSN4ujVPrmaJe-egXpgTY, Membership ID: , Flag: None
+
+2025-05-19 13:31:08,060 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:31:08,060 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747645025, 'iat': 1747641425, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:31:08,060 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:31:08,060 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:31:08,067 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:34:33,769 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/test
+
+2025-05-19 13:34:33,769 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDUwMjUsImlhdCI6MTc0NzY0MTQyNSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.EP7aAGfDnB-t4SdHz7I-8kYSN4ujVPrmaJe-egXpgTY, Membership ID: , Flag: None
+
+2025-05-19 13:34:33,769 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:34:33,769 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747645025, 'iat': 1747641425, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:34:33,769 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:34:33,769 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:34:33,777 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:34:46,116 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: admin
+
+2025-05-19 13:34:46,116 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: admin
+
+2025-05-19 13:34:46,119 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: <base.vo.login_vo.AdminVO object at 0x72a4662bccd0>
+
+2025-05-19 13:34:46,232 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDU0ODYsImlhdCI6MTc0NzY0MTg4NiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.T1S5cGxx7bHPf6AUAv0BHYppBRUt6Hl0WtZ-Zl5kzH0', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2NDE4ODYsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.ODO2wRru-VIQ0nMDYtyh4dIzr4GsvAmlgsoy13mxO6Q', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 13:37:44,104 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: admin
+
+2025-05-19 13:37:44,105 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: admin
+
+2025-05-19 13:37:44,110 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: <base.vo.login_vo.AdminVO object at 0x72f2c0e799d0>
+
+2025-05-19 13:37:44,221 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDU2NjQsImlhdCI6MTc0NzY0MjA2NCwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.TvQ8ExkkWOXYHt4AK_TWlSh-NOjidW19-psbDgeLQsA', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2NDIwNjQsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.HNERV2HdirxbU5HTKehfly7QxRhzY20LhSxI1OAfkeM', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 13:38:47,320 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 13:38:47,320 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDU2NjQsImlhdCI6MTc0NzY0MjA2NCwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.TvQ8ExkkWOXYHt4AK_TWlSh-NOjidW19-psbDgeLQsA, Membership ID: , Flag: None
+
+2025-05-19 13:38:47,320 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:38:47,320 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747645664, 'iat': 1747642064, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:38:47,320 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:38:47,320 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:38:47,326 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:39:16,726 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authorization check started for path: /country/all
+
+2025-05-19 13:39:16,726 - login_service.py - MyForeignJob -  wrapper - DEBUG - Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDU2NjQsImlhdCI6MTc0NzY0MjA2NCwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.TvQ8ExkkWOXYHt4AK_TWlSh-NOjidW19-psbDgeLQsA, Membership ID: , Flag: None
+
+2025-05-19 13:39:16,726 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoding JWT token
+
+2025-05-19 13:39:16,726 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token data: {'exp': 1747645664, 'iat': 1747642064, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:39:16,727 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:39:16,727 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:39:16,734 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:42:20,087 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authenticating path: /country/all
+
+2025-05-19 13:42:20,087 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token: {'exp': 1747645664, 'iat': 1747642064, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:42:20,087 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:42:20,087 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:42:20,094 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:42:31,318 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: admin
+
+2025-05-19 13:42:31,318 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: admin
+
+2025-05-19 13:42:31,321 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: <base.vo.login_vo.AdminVO object at 0x795d8bbb1090>
+
+2025-05-19 13:42:31,438 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDU5NTEsImlhdCI6MTc0NzY0MjM1MSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.AhLiV1j_fywnrqxwPhAnlYyrJ5Ms81VsQwP8J8B-tLo', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2NDIzNTEsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.1q3Yr2NWLxF0f3c7phFKgAdy4e6F7-QCcaS_qDv5gfg', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 13:42:39,468 - login_service.py - MyForeignJob -  wrapper - DEBUG - Authenticating path: /country/all
+
+2025-05-19 13:42:39,468 - login_service.py - MyForeignJob -  wrapper - DEBUG - Decoded token: {'exp': 1747645951, 'iat': 1747642351, 'username': 'admin', 'user_id': 1, 'user_role': 'ADMIN'}
+
+2025-05-19 13:42:39,468 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Attempting to get user by identifier: 1
+
+2025-05-19 13:42:39,468 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - Falling back to admin lookup for identifier: 1
+
+2025-05-19 13:42:39,471 - login_service.py - MyForeignJob -  get_user_by_identifier - DEBUG - User found as admin: None
+
+2025-05-19 13:43:37,759 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDYwMTcsImlhdCI6MTc0NzY0MjQxNywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.sjQ9ovN9fqcdA6qkzFfd-8MU_TEewmtH9T5C9zgD_DA', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2NDI0MTcsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.EQjeGo3Cv5lPa1mKXG8Vv8cdEWAxLu7zX-_Gc0Ui41A', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 13:47:55,335 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 265, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: Invalid token payload
+2025-05-19 13:48:04,319 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDYyODQsImlhdCI6MTc0NzY0MjY4NCwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.foBv6Mgz4IBwYG8xZ4wF0Ki9o6u1QZ7PJYXRrtKf-KY', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2NDI2ODQsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.cf0VZTfXt5KgQlrporQuzOh2tpdLtsyz5McX7NaoONQ', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 13:48:14,632 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 265, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: Invalid token payload
+2025-05-19 13:49:55,543 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-19 13:50:13,950 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDY0MTMsImlhdCI6MTc0NzY0MjgxMywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.uIMIZ4mNYRAGMVdLAokVyfI_dQH2UI1YVNdJbtk0BI8', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2NDI4MTMsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.-rcWhMiTM7pUK-HMn-4PCAxlydNdsWjLBZvkqjmqWyM', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 13:50:30,483 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 265, in wrapper
+    raise HTTPException(
+fastapi.exceptions.HTTPException: 401: Invalid token payload
+2025-05-19 13:52:02,166 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 317, in wrapper
+    return await route_function(data, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object dict can't be used in 'await' expression
+2025-05-19 13:52:03,432 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 317, in wrapper
+    return await route_function(data, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object dict can't be used in 'await' expression
+2025-05-19 13:52:04,029 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 317, in wrapper
+    return await route_function(data, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object dict can't be used in 'await' expression
+2025-05-19 13:52:05,100 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 317, in wrapper
+    return await route_function(data, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object dict can't be used in 'await' expression
+2025-05-19 13:52:19,574 - country_service.py - MyForeignJob -  insert_country_service - INFO - Inserted country: testxx
+
+2025-05-19 13:52:47,764 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDY1NjcsImlhdCI6MTc0NzY0Mjk2NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.nu3fOTo6qFQQ-zUcCX4dK-KAQys20-bTTH-JlXjx5Uw', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2NDI5NjcsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.eiRVhqDe3YLJin_K3o7w3FuXusRaxVMrNFX4Tj4NRiE', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 13:53:00,308 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 317, in wrapper
+    return await route_function(data, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: insert_country_controller() got multiple values for argument 'response'
+2025-05-19 13:54:22,301 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 317, in wrapper
+    return await route_function(data=data, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: insert_country_controller() got an unexpected keyword argument 'data'
+2025-05-19 13:55:00,997 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 318, in wrapper
+    return await route_function(data=data, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: insert_country_controller() got an unexpected keyword argument 'data'
+=============================================================================================
+
+2025-05-19 13:55:31,261 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc2NDY3MzEsImlhdCI6MTc0NzY0MzEzMSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.yiYgqRwkS8H0yYV3g1vfCs4hnur3hw358ocBXtTu1ZE', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc2NDMxMzEsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.LsZzwqxgNMqL2MIo869tIgtcKXRn-YCMmO5mGnwz-kA', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 13:55:58,460 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 318, in wrapper
+    return await route_function(data=data, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: insert_country_controller() got an unexpected keyword argument 'data'
+2025-05-19 13:58:29,062 - country_service.py - MyForeignJob -  insert_country_service - INFO - Inserted country: testxxasdc
+
+2025-05-19 13:58:35,159 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 316, in wrapper
+    return await route_function(request=request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object dict can't be used in 'await' expression
+2025-05-19 13:58:54,269 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 316, in wrapper
+    return await route_function(request=request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object dict can't be used in 'await' expression
+2025-05-19 13:58:55,416 - login_service.py - MyForeignJob -  wrapper - ERROR - Unexpected error during authentication
+Traceback (most recent call last):
+  File "/home/prince/PycharmProjects/MyForeignJob/MyForeignJob/MyForeignJob/base/service/login/login_service.py", line 316, in wrapper
+    return await route_function(request=request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object dict can't be used in 'await' expression

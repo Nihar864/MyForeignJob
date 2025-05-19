@@ -14,8 +14,7 @@ class JobVO(Base, StatusMixin, TimestampMixin):
     job_title = Column(String(500), unique=True, index=True, nullable=False)
     job_country_id = Column(
         Integer,
-        ForeignKey("country_table.country_id", ondelete="CASCADE",
-                   onupdate="CASCADE"),
+        ForeignKey("country_table.country_id", ondelete="CASCADE", onupdate="CASCADE"),
         nullable=False,
     )
     job_country_name = Column(String(500), nullable=False)

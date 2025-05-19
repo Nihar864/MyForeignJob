@@ -55,8 +55,7 @@ class JobService:
             return AppServices.handle_exception(exception)
 
     @staticmethod
-    def get_all_job_service(page_number, page_size, search_value, sort_by,
-                            sort_as):
+    def get_all_job_service(page_number, page_size, search_value, sort_by, sort_as):
         try:
             result = JobDAO.get_all_job_dao(
                 search_value=search_value,
@@ -156,8 +155,7 @@ class JobService:
                 existing_job.job_title = job_dto.job_title
 
             if job_dto.country_id is not None:
-                country_vo = CountryDAO.get_country_by_id_dao(
-                    job_dto.country_id)
+                country_vo = CountryDAO.get_country_by_id_dao(job_dto.country_id)
                 if not country_vo:
                     return AppServices.app_response(
                         HttpStatusCodeEnum.NOT_FOUND,

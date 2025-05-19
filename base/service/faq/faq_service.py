@@ -49,11 +49,10 @@ class FaqService:
 
         except Exception as exception:
             logger.exception("Error inserting faq")
-            return AppServices.handle_exception(exception,is_raise=True)
+            return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
-    def get_all_faq_service(page_number, page_size, search_value, sort_by,
-                            sort_as):
+    def get_all_faq_service(page_number, page_size, search_value, sort_by, sort_as):
         try:
             result = FaqDAO.get_all_faq_dao(
                 page_number=page_number,
@@ -108,7 +107,7 @@ class FaqService:
 
         except Exception as exception:
             logger.exception("Error deleting faq with ID: %s", faq_id)
-            return AppServices.handle_exception(exception,is_raise=True)
+            return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
     def get_faq_by_id_service(faq_id):
@@ -134,7 +133,7 @@ class FaqService:
 
         except Exception as exception:
             logger.exception("Error retrieving faq with ID: %s", faq_id)
-            return AppServices.handle_exception(exception,is_raise=True)
+            return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
     def update_faq_service(faq_dto):
@@ -153,8 +152,7 @@ class FaqService:
                 existing_faq.faq_id = faq_dto.faq_id
 
             if faq_dto.country_id is not None:
-                country_vo = CountryDAO.get_country_by_id_dao(
-                    faq_dto.country_id)
+                country_vo = CountryDAO.get_country_by_id_dao(faq_dto.country_id)
                 if not country_vo:
                     return AppServices.app_response(
                         HttpStatusCodeEnum.NOT_FOUND,
@@ -192,4 +190,4 @@ class FaqService:
 
         except Exception as exception:
             logger.exception("Error updating faq")
-            return AppServices.handle_exception(exception,is_raise=True)
+            return AppServices.handle_exception(exception, is_raise=True)

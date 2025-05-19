@@ -11,8 +11,7 @@ class JobDAO:
         return job_data
 
     @staticmethod
-    def get_all_job_dao(page_number, page_size, search_value, sort_by,
-                        sort_as):
+    def get_all_job_dao(page_number, page_size, search_value, sort_by, sort_as):
         page_info = {
             "model": JobVO,
             "search_fields": ["job_title", "job_description", "job_location"],
@@ -32,15 +31,13 @@ class JobDAO:
     @staticmethod
     def delete_job_dao(target_id):
         """Call common delete method for job."""
-        job_data = MysqlCommonQuery.soft_delete_query(JobVO, JobVO.job_id,
-                                                      target_id)
+        job_data = MysqlCommonQuery.soft_delete_query(JobVO, JobVO.job_id, target_id)
         return job_data
 
     @staticmethod
     def get_job_by_id_dao(target_id):
         """Fetch a single job by ID (excluding soft-deleted records)."""
-        job_data = MysqlCommonQuery.get_by_id_query(JobVO, JobVO.job_id,
-                                                    target_id)
+        job_data = MysqlCommonQuery.get_by_id_query(JobVO, JobVO.job_id, target_id)
         return job_data
 
     @staticmethod

@@ -1,12 +1,14 @@
 from typing import Optional
 
-from fastapi import APIRouter, Request, Response, UploadFile, File, Form
+from fastapi import APIRouter, Request, Response, UploadFile, File, Form, Security
 from fastapi import Query
 
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import SortingOrderEnum
+from base.custom_enum.static_enum import StaticVariables
 from base.dto.country.country_dto import CountryDTO
 from base.service.country.country_service import CountryService
+from base.service.login.login_service import LoginService, login_required
 from base.utils.custom_exception import AppServices
 
 logger = get_logger()
@@ -19,9 +21,11 @@ country_router = APIRouter(
 
 
 # Insert Country
+
+
 @country_router.post("/add")
-# @login_required()
-def insert_country_controller(
+@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+async def insert_country_controller(
     response: Response,
     request: Request,
     country_name: str = Form(...),
@@ -32,9 +36,8 @@ def insert_country_controller(
     country_image: UploadFile = File(...),
     country_flag_image: UploadFile = File(...),
 ):
-    """insert country controller"""
+    """Insert country controller (requires admin scope)"""
     try:
-
         response_payload = CountryService.insert_country_service(
             country_name,
             country_description,
@@ -44,16 +47,15 @@ def insert_country_controller(
             country_image,
             country_flag_image,
         )
-
-        logger.info(f"Country inserted: {response_payload}")
         return response_payload
+
     except Exception as exception:
         logger.exception(f"Error inserting country: {str(exception)}")
         return AppServices.handle_exception(exception)
 
 
 @country_router.get("/all")
-# @login_required()
+@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def get_all_countries(
     request: Request,
     response: Response,

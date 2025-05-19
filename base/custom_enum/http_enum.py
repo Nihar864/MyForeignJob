@@ -25,21 +25,32 @@ class ResponseMessageEnum(str, Enum):
     USER_LOGIN_FAILED = "User login failed"
     USER_LOGGED_OUT = "User logged out successfully"
     USER_PASSWORD_CHANGED = "User password changed successfully"
-
+    LOGIN_FAILED = "Invalid credentials, please try again"
+    LOGIN_SUCCESS = "Welcome! You've successfully logged in"
+    UNAUTHORIZED = "Access denied. You are not authorized to view this"
     GET_DATA = "Data fetched successfully"
-    UPDATE_DATA = "Data updated successfully"
-    INSERT_DATA = "Data inserted successfully"
-    DELETE_DATA = "Data deleted successfully"
-
+    UPDATE_DATA = "Data Updated successfully"
     NOT_FOUND = "Data not found"
     FILE_NOT_FOUND = "File not found"
     ID_NOT_FOUND = "ID not found"
+    BAD_REQUEST = "Invalid request, please provide the correct information"
+    INTERNAL_SERVER_ERROR = "Oops! Something went wrong"
+    GET_ACCESS_TOKEN = "New access token obtained successfully"
+    REFRESH_TOKEN_DOES_NOT_MATCH = "Refresh token doesn't match with your account"
+    TOKEN_MISSING = "Token is missing, please provide your credentials"
+    INVALID_ACCESS_TOKEN = "Oops! Invalid access token"
+    ACCESS_TOKEN_EXPIRED = "Access token has expired, please log in again"
+    VERIFICATION_FAILED = (
+        "Your account verification is pending. Please contact support Team"
+    )
+    INSERT_DATA = "Data inserted successfully"
+    DELETE_DATA = "Data deleted successfully"
+
     DUPLICATE_PDF = "PDF already exists"
     FILE_STATUS = "File process is currently in progress, so it can't be downloaded. Please try again later."
     FILE_RESTART_STATUS = "Restart is starting now."
     UPDATE_FAILED = "Update failed"
 
-    INTERNAL_SERVER_ERROR = "Internal server error"
     UNEXPECTED_ERROR_MESSAGE = "An unexpected error occurred."
 
     ALREADY_EXISTS = "User already exists"
