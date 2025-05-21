@@ -1,6 +1,5 @@
 from typing import Optional
 
-from fastapi import UploadFile, File, Form
 from pydantic import BaseModel
 
 from base.custom_enum.http_enum import SortingOrderEnum

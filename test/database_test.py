@@ -9,6 +9,7 @@ hashed_password = argon2.hash(plain_password)
 
 print("Hashed Password:", hashed_password)
 
+
 def verify_password(hashed_password, input_password):
     print("varify")
     try:

@@ -3,7 +3,7 @@ from logging.handlers import RotatingFileHandler
 
 
 def get_logger():
-    logger = logging.getLogger("MyForeignJob")
+    logger = logging.getLogger("myforeignjob")
 
     if logger.hasHandlers():
         logger.handlers.clear()

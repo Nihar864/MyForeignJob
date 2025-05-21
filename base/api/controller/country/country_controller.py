@@ -1,14 +1,11 @@
 from typing import Optional
 
-from fastapi import APIRouter, Request, Response, UploadFile, File, Form, Security
+from fastapi import APIRouter, Request, Response, UploadFile, File, Form
 from fastapi import Query
 
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import SortingOrderEnum
-from base.custom_enum.static_enum import StaticVariables
-from base.dto.country.country_dto import CountryDTO
 from base.service.country.country_service import CountryService
-from base.service.login.login_service import LoginService, login_required
 from base.utils.custom_exception import AppServices
 
 logger = get_logger()
@@ -24,17 +21,17 @@ country_router = APIRouter(
 
 
 @country_router.post("/add")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 async def insert_country_controller(
-    response: Response,
-    request: Request,
-    country_name: str = Form(...),
-    country_description: str = Form(...),
-    show_on_homepage_status: bool = Form(...),
-    country_status: bool = Form(...),
-    country_currency: str = Form(...),
-    country_image: UploadFile = File(...),
-    country_flag_image: UploadFile = File(...),
+        response: Response,
+        request: Request,
+        country_name: str = Form(...),
+        country_description: str = Form(...),
+        show_on_homepage_status: bool = Form(...),
+        country_status: bool = Form(...),
+        country_currency: str = Form(...),
+        country_image: UploadFile = File(...),
+        country_flag_image: UploadFile = File(...),
 ):
     """Insert country controller (requires admin scope)"""
     try:
@@ -55,15 +52,15 @@ async def insert_country_controller(
 
 
 @country_router.get("/all")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def get_all_countries(
-    request: Request,
-    response: Response,
-    page_number: int = Query(1, ge=1),
-    page_size: int = Query(10, ge=1),
-    search_value: str = "",
-    sort_by: str = "country_name",
-    sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
+        request: Request,
+        response: Response,
+        page_number: int = Query(1, ge=1),
+        page_size: int = Query(10, ge=1),
+        search_value: str = "",
+        sort_by: str = "country_name",
+        sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
 ):
     try:
 
@@ -81,8 +78,9 @@ def get_all_countries(
 
 
 @country_router.delete("/{country_id}")
-# @login_required()
-def delete_country_controller(request: Request, response: Response, country_id):
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def delete_country_controller(request: Request, response: Response,
+                              country_id):
     try:
         response_payload = CountryService.delete_country_service(country_id)
         logger.info(f"Deleted country with ID: {response_payload}")
@@ -93,8 +91,9 @@ def delete_country_controller(request: Request, response: Response, country_id):
 
 
 @country_router.get("/{country_id}")
-# @login_required()
-def get_country_by_id_controller(request: Request, response: Response, country_id: int):
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def get_country_by_id_controller(request: Request, response: Response,
+                                 country_id: int):
     try:
         response_payload = CountryService.get_country_by_id_service(country_id)
         logger.info(f"Fetched country details: {response_payload}")
@@ -105,18 +104,18 @@ def get_country_by_id_controller(request: Request, response: Response, country_i
 
 
 @country_router.put("/update")
-# @login_required()
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def update_country_controller(
-    request: Request,
-    response: Response,
-    country_id: int = Form(...),
-    country_name: Optional[str] = Form(None),
-    country_description: Optional[str] = Form(None),
-    show_on_homepage_status: Optional[bool] = Form(None),
-    country_currency: str = Form(None),
-    country_status: Optional[bool] = Form(None),
-    country_image: Optional[UploadFile] = File(None),
-    country_flag_image: Optional[UploadFile] = File(None),
+        request: Request,
+        response: Response,
+        country_id: int = Form(...),
+        country_name: Optional[str] = Form(None),
+        country_description: Optional[str] = Form(None),
+        show_on_homepage_status: Optional[bool] = Form(None),
+        country_currency: Optional[str] = Form(None),
+        country_status: Optional[bool] = Form(None),
+        country_image: Optional[UploadFile] = File(None),
+        country_flag_image: Optional[UploadFile] = File(None),
 ):
     try:
         response_payload = CountryService.update_country_service(

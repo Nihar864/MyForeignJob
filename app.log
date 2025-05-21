@@ -15568,3 +15568,721 @@ Traceback (most recent call last):
     return await route_function(request=request, *args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: object dict can't be used in 'await' expression
+2025-05-19 15:29:47,424 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc2NTIzODcsImlhdCI6MTc0NzY0ODc4NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.lMIxdluC6yF2rvEu-kloGi1R_JlCix6uwyoOTT-mgA4', 'Refresh_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDc2NDg3ODcsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.tKj-w-1SzKiNlnLaDNDAgagwvJItOLCQAJQK94BUNGI', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 15:43:03,225 - country_service.py - MyForeignJob -  insert_country_service - INFO - Inserted country: chaina
+
+2025-05-19 16:27:07,993 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc2NTU4MjcsImlhdCI6MTc0NzY1MjIyNywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.NoP7IJq3fSycmsxKClMj8wusHqWnATbwgO3K8N5SO3g', 'Refresh_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDc2NTIyMjcsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.yvGs3eS9Qwlz79d7IAVStuZsTwyNtNecxtLWnVhU5A8', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-19 16:27:20,468 - country_service.py - MyForeignJob -  insert_country_service - INFO - Inserted country: russia
+
+2025-05-19 16:46:27,775 - country_service.py - MyForeignJob -  delete_country_service - ERROR - Error deleting country with ID: 2
+Traceback (most recent call last):
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/service/country/country_service.py", line 121, in delete_country_service
+    delete_country_data = CountryDAO.delete_country_dao(countryId)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/dao/country/country_dao.py", line 28, in delete_country_dao
+    country_data = MysqlCommonQuery.soft_delete_query(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 44, in soft_delete_query
+    table_data.is_deleted = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'is_deleted'
+2025-05-19 16:46:27,777 - country_controller.py - MyForeignJob -  delete_country_controller - INFO - Deleted country with ID: {'message': 'Oops! Something went wrong', 'status_code': 500}
+
+2025-05-19 16:47:09,325 - country_service.py - MyForeignJob -  delete_country_service - ERROR - Error deleting country with ID: country_id=1
+Traceback (most recent call last):
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/service/country/country_service.py", line 121, in delete_country_service
+    delete_country_data = CountryDAO.delete_country_dao(countryId)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/dao/country/country_dao.py", line 28, in delete_country_dao
+    country_data = MysqlCommonQuery.soft_delete_query(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 44, in soft_delete_query
+    table_data.is_deleted = True
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'is_deleted'
+2025-05-19 16:47:09,327 - country_controller.py - MyForeignJob -  delete_country_controller - INFO - Deleted country with ID: {'message': 'Oops! Something went wrong', 'status_code': 500}
+
+2025-05-19 16:47:22,206 - country_service.py - MyForeignJob -  delete_country_service - INFO - Deleted country with ID: 1
+
+2025-05-19 16:47:22,206 - country_controller.py - MyForeignJob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x757ae382d4d0>}
+
+2025-05-19 16:48:22,086 - country_service.py - MyForeignJob -  delete_country_service - INFO - Deleted country with ID: 4
+
+2025-05-19 16:48:22,086 - country_controller.py - MyForeignJob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x757ae382ec90>}
+
+2025-05-19 16:50:54,679 - country_service.py - MyForeignJob -  get_country_by_id_service - INFO - Fetched country detail for ID: 2
+
+2025-05-19 16:50:54,679 - country_controller.py - MyForeignJob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x757ae38386d0>}
+
+2025-05-19 16:51:00,379 - country_service.py - MyForeignJob -  get_country_by_id_service - INFO - Fetched country detail for ID: 2
+
+2025-05-19 16:51:00,380 - country_controller.py - MyForeignJob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x757ae382fa90>}
+
+2025-05-19 16:51:42,828 - country_service.py - MyForeignJob -  get_country_by_id_service - INFO - Fetched country detail for ID: 1
+
+2025-05-19 16:51:42,829 - country_controller.py - MyForeignJob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x757ae383b0d0>}
+
+2025-05-19 17:09:50,427 - country_service.py - MyForeignJob -  update_country_service - INFO - Updated country with ID: 2
+
+2025-05-19 17:09:50,427 - country_controller.py - MyForeignJob -  update_country_controller - INFO - Updated country with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x757ae3841390>}
+
+2025-05-19 17:46:23,101 - news_service.py - MyForeignJob -  insert_news_service - INFO - Inserted news: afadfadf
+
+2025-05-19 17:46:23,102 - news_controller.py - MyForeignJob -  insert_news_controller - INFO - social media inserted: {'status_code': 200, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.news_vo.NewsVO object at 0x7b31b3c71390>}
+
+2025-05-20 10:28:02,768 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 10:28:02,768 - user_service.py - MyForeignJob -  insert_user_service - WARNING - Invalid phone format received: 123456789
+
+2025-05-20 10:28:08,741 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 10:28:08,802 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Checking if user already exists: test
+
+2025-05-20 10:28:08,804 - user_controller.py - MyForeignJob -  insert_user_controller - ERROR - Error inserting User
+Traceback (most recent call last):
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/api/controller/user/user_controller.py", line 34, in insert_user_controller
+    result = UserService.insert_user_service(user_dto)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/service/user/user_service.py", line 60, in insert_user_service
+    existing_user = UserDAO.check_existing_user(name)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/dao/user/user_dao.py", line 9, in check_existing_user
+    get_data = MysqlCommonQuery.get_record_by_field(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 73, in get_record_by_field
+    session.query(model).filter(getattr(model, field_name) == value).first()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'AdminVO' has no attribute 'login_username'
+2025-05-20 10:30:08,805 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 10:30:08,831 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Checking if user already exists: test
+
+2025-05-20 10:30:08,838 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Creating UserVO and inserting into database...
+
+2025-05-20 10:30:08,852 - user_service.py - MyForeignJob -  insert_user_service - INFO - User registration successful for: test
+
+2025-05-20 10:34:59,171 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 10:34:59,201 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Creating UserVO and inserting into database...
+
+2025-05-20 10:34:59,214 - user_controller.py - MyForeignJob -  insert_user_controller - ERROR - Error inserting User
+Traceback (most recent call last):
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '1234567890' for key 'user_table.user_phone'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/api/controller/user/user_controller.py", line 34, in insert_user_controller
+    result = UserService.insert_user_service(user_dto)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/service/user/user_service.py", line 67, in insert_user_service
+    user_record = UserDAO.insert_user_dao(user_vo)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/dao/user/user_dao.py", line 10, in insert_user_dao
+    get_data = MysqlCommonQuery.insert_query(user_vo)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 25, in insert_query
+    raise e
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/client/mysql_common/mysql_common_query.py", line 20, in insert_query
+    session.commit()
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry '1234567890' for key 'user_table.user_phone'")
+[SQL: INSERT INTO user_table (user_name, user_email, user_phone, user_country_id, user_country_name, is_deleted, created_at, updated_at) VALUES (%(user_name)s, %(user_email)s, %(user_phone)s, %(user_country_id)s, %(user_country_name)s, %(is_deleted)s, %(created_at)s, %(updated_at)s)]
+[parameters: {'user_name': 'test', 'user_email': 'tests@gmail.com', 'user_phone': '1234567890', 'user_country_id': 1, 'user_country_name': 'us', 'is_deleted': 0, 'created_at': datetime.datetime(2025, 5, 20, 5, 4, 59, 206841, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2025, 5, 20, 5, 4, 59, 206848, tzinfo=datetime.timezone.utc)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-05-20 10:47:58,279 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 10:47:58,310 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Checking if user already exists: 1234567890
+
+2025-05-20 10:47:58,315 - user_service.py - MyForeignJob -  insert_user_service - INFO - Phone already exists: test
+
+2025-05-20 10:50:43,931 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 10:50:43,962 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Checking if user already exists: 1234567870
+
+2025-05-20 10:50:43,974 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Checking if user already exists: test@gmail.com
+
+2025-05-20 10:50:43,984 - user_service.py - MyForeignJob -  insert_user_service - INFO - Email already exists: test@gmail.com
+
+2025-05-20 10:50:50,813 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 10:50:50,818 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Checking if user already exists: 1234567870
+
+2025-05-20 10:50:50,826 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Checking if user already exists: tests@gmail.com
+
+2025-05-20 10:50:50,829 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Creating UserVO and inserting into database...
+
+2025-05-20 10:50:50,851 - user_service.py - MyForeignJob -  insert_user_service - INFO - User registration successful for: test
+
+2025-05-20 11:09:27,040 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 11:09:27,056 - user_service.py - MyForeignJob -  Validation_service - INFO - Email already exists: tests@gmail.com
+
+2025-05-20 11:09:27,056 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Creating UserVO and inserting into database...
+
+2025-05-20 11:09:27,056 - user_controller.py - MyForeignJob -  insert_user_controller - ERROR - Error inserting User
+Traceback (most recent call last):
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/api/controller/user/user_controller.py", line 34, in insert_user_controller
+    result = UserService.insert_user_service(user_dto)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/service/user/user_service.py", line 93, in insert_user_service
+    user_vo.user_country_id = country_vo.country_id,
+                              ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'country_id'
+2025-05-20 11:10:49,045 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 11:10:49,049 - user_service.py - MyForeignJob -  Validation_service - INFO - Email already exists: tests@gmail.com
+
+2025-05-20 11:10:49,049 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Creating UserVO and inserting into database...
+
+2025-05-20 11:10:49,050 - user_controller.py - MyForeignJob -  insert_user_controller - ERROR - Error inserting User
+Traceback (most recent call last):
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/api/controller/user/user_controller.py", line 34, in insert_user_controller
+    result = UserService.insert_user_service(user_dto)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/service/user/user_service.py", line 93, in insert_user_service
+    user_vo.user_country_id = country_vo.country_id,
+                              ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'country_id'
+2025-05-20 11:11:38,938 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 11:11:38,962 - user_service.py - MyForeignJob -  Validation_service - INFO - Email already exists: tests@gmail.com
+
+2025-05-20 11:11:38,962 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Creating UserVO and inserting into database...
+
+2025-05-20 11:11:38,963 - user_controller.py - MyForeignJob -  insert_user_controller - ERROR - Error inserting User
+Traceback (most recent call last):
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/api/controller/user/user_controller.py", line 34, in insert_user_controller
+    result = UserService.insert_user_service(user_dto)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/service/user/user_service.py", line 94, in insert_user_service
+    user_vo.user_country_id = country_vo.country_id,
+                              ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'country_id'
+2025-05-20 11:13:00,985 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 11:13:01,006 - user_service.py - MyForeignJob -  Validation_service - INFO - Email already exists: test@gmail.com
+
+2025-05-20 11:13:01,006 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Creating UserVO and inserting into database...
+
+2025-05-20 11:13:01,006 - user_controller.py - MyForeignJob -  insert_user_controller - ERROR - Error inserting User
+Traceback (most recent call last):
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/api/controller/user/user_controller.py", line 35, in insert_user_controller
+    result = UserService.insert_user_service(user_dto)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/service/user/user_service.py", line 94, in insert_user_service
+    user_vo.user_country_id = country_vo.country_id,
+                              ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'country_id'
+2025-05-20 11:21:14,812 - user_service.py - MyForeignJob -  Validation_service - INFO - Email already exists: test@gmail.com
+
+2025-05-20 11:21:49,017 - user_service.py - MyForeignJob -  Validation_service - INFO - Email already exists: test@gmail.com
+
+2025-05-20 11:24:14,846 - user_service.py - MyForeignJob -  Validation_service - INFO - Email already exists: test@gmail.com
+
+2025-05-20 11:25:51,504 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 11:25:51,521 - user_service.py - MyForeignJob -  Validation_service - INFO - Email already exists: test@gmail.com
+
+2025-05-20 11:25:51,521 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Creating UserVO and inserting into database...
+
+2025-05-20 11:25:51,521 - user_controller.py - MyForeignJob -  insert_user_controller - ERROR - Error inserting User
+Traceback (most recent call last):
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/api/controller/user/user_controller.py", line 34, in insert_user_controller
+    result = UserService.insert_user_service(user_dto)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/service/user/user_service.py", line 93, in insert_user_service
+    user_vo.user_country_id = country_vo.country_id,
+                              ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'country_id'
+2025-05-20 11:26:01,756 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 11:26:01,772 - user_service.py - MyForeignJob -  Validation_service - INFO - Email already exists: test@gmail.com
+
+2025-05-20 11:26:01,772 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Creating UserVO and inserting into database...
+
+2025-05-20 11:26:01,772 - user_controller.py - MyForeignJob -  insert_user_controller - ERROR - Error inserting User
+Traceback (most recent call last):
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/api/controller/user/user_controller.py", line 34, in insert_user_controller
+    result = UserService.insert_user_service(user_dto)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/service/user/user_service.py", line 93, in insert_user_service
+    user_vo.user_country_id = country_vo.country_id,
+                              ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'country_id'
+2025-05-20 11:37:58,134 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 11:37:58,164 - user_service.py - MyForeignJob -  Validation_service - INFO - Email already exists: test@gmail.com
+
+2025-05-20 11:38:17,010 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 11:38:17,014 - user_service.py - MyForeignJob -  Validation_service - WARNING - Invalid phone format received: 12345
+
+2025-05-20 11:38:22,626 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 11:38:22,626 - user_service.py - MyForeignJob -  Validation_service - WARNING - Invalid email format received: testtgmail.com
+
+2025-05-20 11:38:34,373 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 11:38:34,379 - user_service.py - MyForeignJob -  Validation_service - INFO - Phone already exists: 1234567890
+
+2025-05-20 11:38:39,591 - user_service.py - MyForeignJob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-20 11:38:39,602 - user_service.py - MyForeignJob -  insert_user_service - DEBUG - Creating UserVO and inserting into database...
+
+2025-05-20 11:38:39,616 - user_service.py - MyForeignJob -  insert_user_service - INFO - User registration successful for: test
+
+2025-05-20 11:56:17,960 - user_service.py - MyForeignJob -  delete_user_service - INFO - Deleted user with ID: 1
+
+2025-05-20 11:56:17,961 - user_controller.py - MyForeignJob -  delete_user_controller - INFO - Deleted user with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.user_vo.UserVO object at 0x7b0e57ac8850>}
+
+2025-05-20 11:56:37,168 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetching user details for ID: 1
+
+2025-05-20 11:56:37,174 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetched user details: {'status_code': 400, 'success': False, 'message': 'Data not found', 'data': {}}
+
+2025-05-20 11:56:41,593 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetching user details for ID: 2
+
+2025-05-20 11:56:41,597 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetched user details: {'status_code': 400, 'success': False, 'message': 'Data not found', 'data': {}}
+
+2025-05-20 11:56:48,392 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetching user details for ID: 2
+
+2025-05-20 11:56:48,412 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetched user details: {'status_code': 400, 'success': False, 'message': 'Data not found', 'data': {}}
+
+2025-05-20 11:56:51,260 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetching user details for ID: 3
+
+2025-05-20 11:56:51,265 - user_service.py - MyForeignJob -  get_user_by_id_service - INFO - Fetched user detail for ID: 3
+
+2025-05-20 11:56:51,265 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetched user details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.user_vo.UserVO object at 0x7d7ce47fd3d0>}
+
+2025-05-20 11:57:13,067 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetching user details for ID: 4
+
+2025-05-20 11:57:13,073 - user_service.py - MyForeignJob -  get_user_by_id_service - INFO - Fetched user detail for ID: 4
+
+2025-05-20 11:57:13,073 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetched user details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.user_vo.UserVO object at 0x7d7ce3bfe890>}
+
+2025-05-20 11:57:22,921 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetching user details for ID: 1
+
+2025-05-20 11:57:22,925 - user_service.py - MyForeignJob -  get_user_by_id_service - INFO - Fetched user detail for ID: 1
+
+2025-05-20 11:57:22,925 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetched user details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.user_vo.UserVO object at 0x7d7ce3c08c90>}
+
+2025-05-20 12:03:53,242 - user_service.py - MyForeignJob -  update_user_service - INFO - Updated user with ID: 1
+
+2025-05-20 12:03:53,242 - user_controller.py - MyForeignJob -  update_user_controller - INFO - Updated user with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.user_vo.UserVO object at 0x707a05a0ee50>}
+
+2025-05-20 12:04:01,057 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetching user details for ID: 1
+
+2025-05-20 12:04:01,061 - user_service.py - MyForeignJob -  get_user_by_id_service - INFO - Fetched user detail for ID: 1
+
+2025-05-20 12:04:01,061 - user_controller.py - MyForeignJob -  get_user_by_id_controller - INFO - Fetched user details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.user_vo.UserVO object at 0x707a05bb2150>}
+
+2025-05-20 12:31:42,621 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc3MjgxMDIsImlhdCI6MTc0NzcyNDUwMiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.VXesXbBjvmf1kzCfJNNxTnAh_4-YjCrV8eDOZ9eYAdw', 'Refresh_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDc3MjQ1MDIsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.uRIE9X7vhhl7fJ6LM3b0tlhWLG0RQjiwmFcdEF2tchU', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-20 12:32:10,364 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc3MjgxMzAsImlhdCI6MTc0NzcyNDUzMCwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.LpYNN4WU0NVk4T-9va6Br1Vb3MpzVtU9jSVaeMhdaY4', 'Refresh_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDc3MjQ1MzAsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.iPLI8b_eDi7-nTJuOYVonY9vDVi5exWZGC9YcQcWpEw', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-20 12:32:50,951 - login_controller.py - MyForeignJob -  update_password - ERROR - Error updating password
+Traceback (most recent call last):
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/starlette/datastructures.py", line 673, in __getattr__
+    return self._state[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'payload'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nihar/Desktop/New Folder/MyForeignJob/base/api/controller/login/login_controller.py", line 42, in update_password
+    payload = request.state.payload  # Extracted by @login_required decorator
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nihar/anaconda3/envs/MyForeignJob/lib/python3.11/site-packages/starlette/datastructures.py", line 676, in __getattr__
+    raise AttributeError(message.format(self.__class__.__name__, key))
+AttributeError: 'State' object has no attribute 'payload'
+2025-05-20 12:35:21,370 - login_controller.py - MyForeignJob -  update_password - INFO - Password updated for user: admin
+
+2025-05-20 12:35:29,745 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-20 12:35:40,325 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-20 12:35:47,148 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc3MjgzNDcsImlhdCI6MTc0NzcyNDc0NywidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.caU_KsiN3pH2VBudiN_WH1V7GYf_dxrfLsIqLBXvxQg', 'Refresh_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDc3MjQ3NDcsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.Qz2jy1Q3kzHFrLhgQSnk5sSTiDMSnpcGeypqLk78fkk', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-20 12:51:22,881 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc3MjkyODIsImlhdCI6MTc0NzcyNTY4MiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.4UFSxAuY9RHfp6lfoKMpxutSnC9NVlqW2tLAMS_IMVQ', 'Refresh_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDc3MjU2ODIsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.-d6yQf2Z14x7SPAEj87vFn9Dxr4xjm7jbiQjA30F2dc', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-20 12:53:06,214 - login_controller.py - MyForeignJob -  update_password - INFO - Updated password for user: admin
+
+2025-05-20 12:53:21,125 - login_controller.py - MyForeignJob -  update_password - INFO - Updated password for user: admin
+
+2025-05-20 12:53:26,070 - login_controller.py - MyForeignJob -  update_password - INFO - Updated password for user: admin
+
+2025-05-20 12:53:41,497 - login_controller.py - MyForeignJob -  update_password - INFO - Updated password for user: admin
+
+2025-05-20 12:53:46,771 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is None
+
+2025-05-20 12:53:52,335 - login_controller.py - MyForeignJob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc3Mjk0MzIsImlhdCI6MTc0NzcyNTgzMiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.o90EJMyBx4uwqcv_y8GGKt3wGn4on6H_0Hj86n45yVg', 'Refresh_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDc3MjU4MzIsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.7Fu5T3UQ_8NnEnxcWJlLc7n6Q13YThGsmJ-dhqpAaK0', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-20 12:56:34,300 - login_controller.py - MyForeignJob -  update_password - INFO - Updated password for user: admin
+
+2025-05-20 12:58:03,073 - login_controller.py - MyForeignJob -  update_password - INFO - Updated password for user: admin
+
+2025-05-20 12:59:02,530 - login_controller.py - MyForeignJob -  update_password - INFO - Updated password for user: admin
+
+2025-05-20 15:44:59,725 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test4
+
+2025-05-20 15:50:20,941 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: India
+
+2025-05-20 15:52:35,677 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: Russia
+
+2025-05-20 15:54:35,315 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: Israel
+
+2025-05-20 15:56:31,977 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: Australia
+
+2025-05-20 15:59:04,330 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 1
+
+2025-05-20 15:59:04,330 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e4ee650>}
+
+2025-05-20 16:00:45,441 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 2
+
+2025-05-20 16:00:45,442 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e520050>}
+
+2025-05-20 16:02:49,487 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 3
+
+2025-05-20 16:02:49,488 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e522c10>}
+
+2025-05-20 16:05:21,519 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: China
+
+2025-05-20 16:10:43,938 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: Afghanistan
+
+2025-05-20 16:12:05,741 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: Belgium
+
+2025-05-20 16:14:31,604 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: Nepal
+
+2025-05-20 16:15:55,665 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: Ukraine
+
+2025-05-20 16:55:54,454 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 15
+
+2025-05-20 16:55:54,454 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e678d50>}
+
+2025-05-20 16:56:05,559 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 3
+
+2025-05-20 16:56:05,559 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e512850>}
+
+2025-05-20 16:56:41,627 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 1
+
+2025-05-20 16:56:41,627 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e509350>}
+
+2025-05-20 17:07:34,218 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test5
+
+2025-05-20 17:20:19,905 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test
+
+2025-05-20 17:21:24,697 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 19
+
+2025-05-20 17:21:24,697 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e50a210>}
+
+2025-05-20 17:21:36,986 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 20
+
+2025-05-20 17:21:36,986 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e4f60d0>}
+
+2025-05-20 17:22:34,199 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test6
+
+2025-05-20 17:23:46,990 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test
+
+2025-05-20 17:26:13,560 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 22
+
+2025-05-20 17:26:13,560 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e4e0150>}
+
+2025-05-20 17:26:37,937 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test1
+
+2025-05-20 17:29:13,966 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test3
+
+2025-05-20 17:31:31,750 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test5
+
+2025-05-20 17:38:07,817 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test6
+
+2025-05-20 17:40:48,195 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test7
+
+2025-05-20 17:42:34,489 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 23
+
+2025-05-20 17:42:34,489 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e4def50>}
+
+2025-05-20 17:42:37,582 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 24
+
+2025-05-20 17:42:37,582 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e511290>}
+
+2025-05-20 17:42:44,921 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 25
+
+2025-05-20 17:42:44,922 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e4e0b90>}
+
+2025-05-20 17:42:48,163 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 26
+
+2025-05-20 17:42:48,163 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e5130d0>}
+
+2025-05-20 17:42:54,828 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 27
+
+2025-05-20 17:42:54,829 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e510590>}
+
+2025-05-20 17:43:51,694 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test9
+
+2025-05-20 17:46:41,954 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: aaaa
+
+2025-05-20 17:47:22,627 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 18
+
+2025-05-20 17:47:22,628 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x76397e6abf90>}
+
+2025-05-20 17:48:34,016 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test
+
+2025-05-21 10:01:41,626 - login_controller.py - myforeignjob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc4MDU1MDEsImlhdCI6MTc0NzgwMTkwMSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.keCS4hNGip4InLECaGvqmor13UhQ9ZFyYwfF2D6j1_8', 'Refresh_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDc4MDE5MDEsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.TJ3gCU4faUCP27b-ZeXljOXLcllQz-m3lT2ejYi59a8', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-21 10:02:36,928 - login_controller.py - myforeignjob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc4MDU1NTYsImlhdCI6MTc0NzgwMTk1NiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.qCFsksuUA82A6j_pj-4YyfLQPPEIcK1cdFNyoM27ubw', 'Refresh_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDc4MDE5NTYsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.C9stfuS8-EniJ8SkXokpGO2tpxyaB3dYxGsdejQwth0', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-21 10:03:30,929 - login_controller.py - myforeignjob -  update_password - INFO - Updated password for user: admin
+
+2025-05-21 10:03:36,489 - login_controller.py - myforeignjob -  update_password - INFO - Updated password for user: admin
+
+2025-05-21 10:03:44,836 - login_controller.py - myforeignjob -  update_password - INFO - Updated password for user: admin
+
+2025-05-21 10:03:49,213 - login_controller.py - myforeignjob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc4MDU2MjksImlhdCI6MTc0NzgwMjAyOSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.iyHnrm9epZ7scMslhohVddrGabiD64-rwHaM4wLOAXk', 'Refresh_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDc4MDIwMjksInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.WMirCRz5AMprDzEKamR1SO0qlgnB3zBNI7EYDZBVKMY', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-21 10:04:39,026 - login_controller.py - myforeignjob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc4MDU2NzksImlhdCI6MTc0NzgwMjA3OSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.JyAmr_y2YsAiclB1jtELhJMIwHktuu4iWWN2T1nKQSQ', 'Refresh_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDc4MDIwNzksInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.8ssHuRLnQN5gxhUvaghh7aPm62g3PJiCtBH97S0CGJo', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-21 10:09:06,894 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test
+
+2025-05-21 10:10:33,134 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: india
+
+2025-05-21 10:10:52,836 - country_service.py - myforeignjob -  get_country_by_id_service - INFO - Fetched country detail for ID: 1
+
+2025-05-21 10:10:52,836 - country_controller.py - myforeignjob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x74407bd1cfd0>}
+
+2025-05-21 10:10:56,984 - country_service.py - myforeignjob -  get_country_by_id_service - INFO - Fetched country detail for ID: 2
+
+2025-05-21 10:10:56,984 - country_controller.py - myforeignjob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x74407bd26410>}
+
+2025-05-21 10:16:50,426 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 1
+
+2025-05-21 10:16:50,426 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x74407bd2d590>}
+
+2025-05-21 10:17:07,561 - country_service.py - myforeignjob -  update_country_service - ERROR - Error updating country
+Traceback (most recent call last):
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'US' for key 'country_table.ix_country_table_country_name'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/prince/Desktop/myforeignjob_final/myforeignjob/base/service/country/country_service.py", line 252, in update_country_service
+    updated_country_data = CountryDAO.update_country_dao(existing_country)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/Desktop/myforeignjob_final/myforeignjob/base/dao/country/country_dao.py", line 44, in update_country_dao
+    country_data = MysqlCommonQuery.update_query(country_vo)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/Desktop/myforeignjob_final/myforeignjob/base/client/mysql_common/mysql_common_query.py", line 64, in update_query
+    session.flush()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4353, in flush
+    self._flush(objects)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4488, in _flush
+    with util.safe_reraise():
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4449, in _flush
+    flush_context.execute()
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 912, in _emit_update_statements
+    c = connection.execute(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/prince/.local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/prince/.local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'US' for key 'country_table.ix_country_table_country_name'")
+[SQL: UPDATE country_table SET country_name=%(country_name)s, country_description=%(country_description)s, country_image_names=%(country_image_names)s, country_image_paths=%(country_image_paths)s, country_flag_image_name=%(country_flag_image_name)s, country_flag_image_path=%(country_flag_image_path)s, country_currency=%(country_currency)s, country_status=%(country_status)s, updated_at=%(updated_at)s WHERE country_table.country_id = %(country_table_country_id)s]
+[parameters: {'country_name': 'US', 'country_description': 'USUSUSUSUS', 'country_image_names': 'usa.jpg', 'country_image_paths': 'static/country_image/usa.jpg', 'country_flag_image_name': 'usa.png', 'country_flag_image_path': 'static/country_flag_image/usa.png', 'country_currency': '$', 'country_status': 0, 'updated_at': datetime.datetime(2025, 5, 21, 4, 47, 7, 558685, tzinfo=datetime.timezone.utc), 'country_table_country_id': 2}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-05-21 10:17:07,566 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'message': 'Oops! Something went wrong', 'status_code': 500}
+
+2025-05-21 10:17:19,956 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 1
+
+2025-05-21 10:17:19,956 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x74407bd2f0d0>}
+
+2025-05-21 10:24:18,462 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 1
+
+2025-05-21 10:24:18,462 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x74407bd2fd90>}
+
+2025-05-21 10:24:45,587 - country_service.py - myforeignjob -  get_country_by_id_service - INFO - Fetched country detail for ID: 2
+
+2025-05-21 10:24:45,587 - country_controller.py - myforeignjob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x74407bb29b10>}
+
+2025-05-21 10:24:57,594 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 400, 'success': False, 'message': 'Data not found', 'data': {}}
+
+2025-05-21 10:25:01,927 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 2
+
+2025-05-21 10:25:01,927 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x74407bd3cfd0>}
+
+2025-05-21 10:25:47,160 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 2
+
+2025-05-21 10:25:47,160 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x74407bd2f6d0>}
+
+2025-05-21 10:27:02,476 - login_controller.py - myforeignjob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc4MDcwMjIsImlhdCI6MTc0NzgwMzQyMiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.x7MAdeBlKUT8zxlH_4wRQ6BBUgRYboOyin6ldyVIuiI', 'Refresh_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDc4MDM0MjIsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.HqgXBVO5vtpL7UBdD006G-6_JR2TPIGQS0kq4dri_0o', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-21 10:31:56,729 - job_service.py - myforeignjob -  insert_job_service - INFO - Inserted job: Painter
+
+2025-05-21 10:31:56,729 - job_controller.py - myforeignjob -  insert_job_controller - INFO - Job inserted: {'status_code': 200, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.job_vo.JobVO object at 0x74407beea410>}
+
+2025-05-21 10:36:39,310 - user_service.py - myforeignjob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-21 10:36:39,317 - user_service.py - myforeignjob -  insert_user_service - DEBUG - Creating UserVO and inserting into database...
+
+2025-05-21 10:36:39,323 - user_service.py - myforeignjob -  insert_user_service - INFO - User registration successful for: prince
+

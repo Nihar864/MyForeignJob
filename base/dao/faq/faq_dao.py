@@ -16,7 +16,8 @@ class FaqDAO:
         return faq_country_id
 
     @staticmethod
-    def get_all_faq_dao(page_number, page_size, search_value, sort_by, sort_as):
+    def get_all_faq_dao(page_number, page_size, search_value, sort_by,
+                        sort_as):
         page_info = {
             "model": FaqVO,
             "search_fields": ["faq_title", "faq_description"],
@@ -31,18 +32,19 @@ class FaqDAO:
     @staticmethod
     def delete_faq_dao(target_id):
         """Call common delete method for faq."""
-        faq_data = MysqlCommonQuery.soft_delete_query(FaqVO, FaqVO.faq_id, target_id)
+        faq_data = MysqlCommonQuery.soft_delete_query(FaqVO, FaqVO.faq_id,
+                                                      target_id)
         return faq_data
 
     @staticmethod
     def get_faq_by_id_dao(target_id):
         """Fetch a single faq by ID (excluding soft-deleted records)."""
-        faq_data = MysqlCommonQuery.get_by_id_query(FaqVO, FaqVO.faq_id, target_id)
+        faq_data = MysqlCommonQuery.get_by_id_query(FaqVO, FaqVO.faq_id,
+                                                    target_id)
         return faq_data
 
     @staticmethod
     def update_faq_dao(faq_vo):
         """Update an existing faq."""
         faq_data = MysqlCommonQuery.update_query(faq_vo)
-
         return faq_data

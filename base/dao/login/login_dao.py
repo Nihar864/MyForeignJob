@@ -21,9 +21,9 @@ class AuthLoginDAO:
 
     @staticmethod
     def get_member_by_membership_id(membership_id):
-
-        get_data = MysqlCommonQuery.get_by_membership_id(AdminVO, membership_id)
-        print("2000",get_data)
+        get_data = MysqlCommonQuery.get_by_membership_id(AdminVO,
+                                                         membership_id)
+        print("2000", get_data)
         return get_data
 
     @staticmethod
@@ -38,8 +38,14 @@ class AuthLoginDAO:
 
     @staticmethod
     def get_admin_by_username(username):
-        print("username",username)
+        print("username", username)
         get_data = MysqlCommonQuery.get_record_by_field(
             AdminVO, "username", username
         )
         return get_data
+
+    @staticmethod
+    def update_password_dao(login_vo):
+        """Update an existing password."""
+        user_data = MysqlCommonQuery.update_query(login_vo)
+        return user_data

@@ -14,3 +14,8 @@ class LoginDTO(BaseModel):
 
     username: str
     password: str
+
+
+class PasswordDTO(BaseModel):
+    old_password: str
+    new_password: str

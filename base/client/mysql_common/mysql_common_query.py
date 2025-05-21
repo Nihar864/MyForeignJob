@@ -2,6 +2,7 @@ from sqlalchemy import or_, asc, desc
 from sqlalchemy.exc import SQLAlchemyError
 
 from base.db.database import Database
+from base.utils.pagination import get_page_info
 from base.vo.country_vo import CountryVO
 
 database = Database()
@@ -28,7 +29,8 @@ class MysqlCommonQuery:
         """Retrieve all non-deleted entities of a given model."""
         session = database.get_db_session(engine)
         table_data = (
-            session.query(table_name).filter(table_name.is_deleted == False).all()
+            session.query(table_name).filter(
+                table_name.is_deleted == False).all()
         )
         return table_data
 
@@ -69,18 +71,20 @@ class MysqlCommonQuery:
     def get_record_by_field(model, field_name, value):
         session = database.get_db_session(engine)
         user_data = (
-            session.query(model).filter(getattr(model, field_name) == value).first()
+            session.query(model).filter(
+                getattr(model, field_name) == value).first()
         )
         session.close()
         return user_data
 
     @staticmethod
     def update_login_status(
-        model_class, table_id, model_id, current_login_status: bool
+            model_class, table_id, model_id, current_login_status: bool
     ):
         session = database.get_db_session(engine)
 
-        existing_user = session.query(model_class).filter(table_id == model_id).first()
+        existing_user = session.query(model_class).filter(
+            table_id == model_id).first()
 
         if existing_user:
             existing_user.login_status = current_login_status
@@ -130,11 +134,12 @@ class MysqlCommonQuery:
 
         return {
             "items": items,
-            "page_info": {"total": total, "page": page_number, "limit": page_size},
+            "page_info": get_page_info(total, page_number, page_size),
         }
 
     @staticmethod
-    def fetch_email_by_login_username(register_vo, login_vo, username, loginId):
+    def fetch_email_by_login_username(register_vo, login_vo, username,
+                                      loginId):
         session = database.get_db_session(engine)
         result = (
             session.query(register_vo.register_email)
@@ -150,7 +155,8 @@ class MysqlCommonQuery:
         session = database.get_db_session(engine)
         try:
             country = (
-                session.query(CountryVO).filter(CountryVO.country_name == name).first()
+                session.query(CountryVO).filter(
+                    CountryVO.country_name == name).first()
             )
             return country.country_id if country else None
         finally:
@@ -177,6 +183,7 @@ class MysqlCommonQuery:
             The retrieved database record or None if not found.
         """
         session = database.get_db_session(engine)
-        db_data = session.query(table_name).filter_by(membership_id=membership_id).first()
+        db_data = session.query(table_name).filter_by(
+            membership_id=membership_id).first()
 
         return db_data

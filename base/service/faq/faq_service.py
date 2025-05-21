@@ -18,7 +18,7 @@ class FaqService:
             if not country_vo:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.NOT_FOUND,
-                    "this country is not exist",
+                    "try another country",
                     success=False,
                     data={},
                 )
@@ -52,7 +52,8 @@ class FaqService:
             return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
-    def get_all_faq_service(page_number, page_size, search_value, sort_by, sort_as):
+    def get_all_faq_service(page_number, page_size, search_value, sort_by,
+                            sort_as):
         try:
             result = FaqDAO.get_all_faq_dao(
                 page_number=page_number,
@@ -152,7 +153,8 @@ class FaqService:
                 existing_faq.faq_id = faq_dto.faq_id
 
             if faq_dto.country_id is not None:
-                country_vo = CountryDAO.get_country_by_id_dao(faq_dto.country_id)
+                country_vo = CountryDAO.get_country_by_id_dao(
+                    faq_dto.country_id)
                 if not country_vo:
                     return AppServices.app_response(
                         HttpStatusCodeEnum.NOT_FOUND,

@@ -2,37 +2,31 @@ from sqlalchemy import (
     Column,
     Integer,
     String,
-    Text,
-    Boolean,
-    Date,
     ForeignKey,
 )
-from sqlalchemy.orm import relationship
 
 from base.db.database import Base, Database
 from base.mixins import StatusMixin, TimestampMixin
+
+# model
 
 database = Database()
 engine = database.get_db_connection()
 
 
-class Rule(Base, StatusMixin, TimestampMixin):
-    __tablename__ = "rules"
+class RuleVO(Base, StatusMixin, TimestampMixin):
+    __tablename__ = "rules_table"
 
     rule_id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    rule_type = Column(String(100), nullable=False)
-    country_id = Column(
+    rule_country_id = Column(
         Integer,
-        ForeignKey("country_table.country_id", onupdate="CASCADE", ondelete="RESTRICT"),
+        ForeignKey("country_table.country_id", onupdate="CASCADE",
+                   ondelete="RESTRICT"),
         nullable=False,
     )
-    ruleTitle = Column(String(255), nullable=False)
-    ruleDescription = Column(Text)
-    effectiveDate = Column(Date, nullable=False)
-    rulePublishStatus = Column(Boolean, default=False, nullable=False)
-
-    country = relationship("Country", back_populates="rules")
-    # only if Country model has `rules = relationship("Rule", back_populates="country")`
+    rule_country_name = Column(String(500), nullable=False)
+    rule_title = Column(String(255), nullable=False)
+    rule_description = Column(String(255), nullable=False)
 
 
-# Base.metadata.create_all(engine)
+Base.metadata.create_all(engine)

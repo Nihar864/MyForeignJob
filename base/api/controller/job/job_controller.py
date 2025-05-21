@@ -1,12 +1,11 @@
-from typing import Optional
-
-from fastapi import APIRouter, Form, Request, Response, Depends, Query
+from fastapi import APIRouter, Request, Query
 
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import SortingOrderEnum
-from base.dto.country.country_dto import GetAllCountryDTO
+from base.custom_enum.static_enum import StaticVariables
 from base.dto.job.job_dto import JobDTO, UpdateJobDTO
 from base.service.job.job_service import JobService
+from base.service.login.login_service import login_required
 from base.utils.custom_exception import AppServices
 
 logger = get_logger()
@@ -19,10 +18,10 @@ job_router = APIRouter(
 
 
 @job_router.post("/add")
-# @login_required()
-def insert_job_controller(
-    job_dto: JobDTO,
-):
+@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def insert_job_controller(request: Request,
+                          job_dto: JobDTO,
+                          ):
     try:
         response_payload = JobService.insert_job_service(job_dto)
 
@@ -35,14 +34,15 @@ def insert_job_controller(
 
 
 @job_router.get("/all")
-# @login_required()
-def view_job_controller(
-    page_number: int = Query(1, ge=1),
-    page_size: int = Query(10, ge=1),
-    search_value: str = "",
-    sort_by: str = "job_title",
-    sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
-):
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def view_job_controller(request: Request,
+                        page_number: int = Query(1, ge=1),
+                        page_size: int = Query(10, ge=1),
+                        search_value: str = "",
+                        sort_by: str = "job_title",
+                        sort_as: SortingOrderEnum = Query(
+                            SortingOrderEnum.ASCENDING),
+                        ):
     return JobService.get_all_job_service(
         page_number=page_number,
         page_size=page_size,
@@ -53,8 +53,8 @@ def view_job_controller(
 
 
 @job_router.delete("/{job_id}")
-# @login_required()
-def delete_job_controller(job_id):
+@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def delete_job_controller(request: Request, job_id):
     try:
         response_payload = JobService.delete_job_service(job_id)
         logger.info(f"Deleted job with ID: {response_payload}")
@@ -65,8 +65,8 @@ def delete_job_controller(job_id):
 
 
 @job_router.get("/{job_id}")
-# @login_required()
-def get_job_by_id_controller(job_id: int):
+@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def get_job_by_id_controller(request: Request, job_id: int):
     try:
         logger.info(f"Fetching job details for ID: {job_id}")
         response_payload = JobService.get_job_by_id_service(job_id)
@@ -78,10 +78,8 @@ def get_job_by_id_controller(job_id: int):
 
 
 @job_router.put("/update")
-# @login_required()
-def update_job_controller(
-    job_dto: UpdateJobDTO,
-):
+@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def update_job_controller(request: Request, job_dto: UpdateJobDTO, ):
     try:
         response_payload = JobService.update_job_service(job_dto)
         logger.info(f"Updated job with ID: {response_payload}")

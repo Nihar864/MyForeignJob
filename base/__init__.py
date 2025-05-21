@@ -9,7 +9,9 @@ SECRET_KEY = constant.SECRET_KEY
 
 
 def get_app() -> FastAPI:
-    app = FastAPI()
+    app = FastAPI(title="My Foreign Job",
+                  description="This is a custom Swagger UI for my API.",
+                  version="1.0.0")
     origins = ["*"]
     app.add_middleware(
         CORSMiddleware,

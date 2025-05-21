@@ -1,15 +1,15 @@
 import base64
 import hashlib
+import inspect
 import re
 import uuid
 from datetime import datetime, timedelta
 from functools import wraps
-from fastapi import HTTPException, Request, status
+
 import jwt
 import pyotp
-import inspect
+from fastapi import HTTPException, Request, status
 
-from base import constant
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
 from base.custom_enum.static_enum import StaticVariables
@@ -29,6 +29,7 @@ SECRET_KEY = Constant.SECRET_KEY
 
 OTP_SECRET_KEY = base64.b32encode(b"SECRET_KEY").decode("utf-8")
 logger = get_logger()
+
 
 class LoginService:
     @staticmethod
@@ -52,14 +53,16 @@ class LoginService:
     def generate_tokens(username, user_id, role_name):
         access_token_payload = {
             "exp": datetime.utcnow()
-            + timedelta(minutes=int(StaticVariables.ACCESS_TOKEN_EXPIRE_MINUTES)),
+                   + timedelta(
+                minutes=int(StaticVariables.ACCESS_TOKEN_EXPIRE_MINUTES)),
             "iat": datetime.utcnow(),
             "username": username,
             "user_id": user_id,
             "user_role": role_name,
         }
         access_token = jwt.encode(
-            access_token_payload, SECRET_KEY, algorithm=StaticVariables.ALGORITHM
+            access_token_payload, SECRET_KEY,
+            algorithm=StaticVariables.ALGORITHM
         )
 
         refresh_token_payload = {
@@ -69,7 +72,8 @@ class LoginService:
             "user_role": role_name,
         }
         refresh_token = jwt.encode(
-            refresh_token_payload, SECRET_KEY, algorithm=StaticVariables.ALGORITHM
+            refresh_token_payload, SECRET_KEY,
+            algorithm=StaticVariables.ALGORITHM
         )
 
         return {"Access_Token": access_token, "Refresh_Token": refresh_token}
@@ -98,7 +102,7 @@ class LoginService:
     @staticmethod
     def login_admin(user_info, login_pass, role_name):
         admin_vo = AdminVO()
-        print("98>>>>>>>>",user_info.password)
+        print("98>>>>>>>>", user_info.password)
         if user_info.is_deleted:
             print("99>>>>>>>>")
             return AppServices.app_response(
@@ -107,17 +111,17 @@ class LoginService:
                 success=False,
                 data={},
             )
-        print("100>>>>>>>>",user_info.password)
-        print("101>>>>>>>>",login_pass)
+        print("100>>>>>>>>", user_info.password)
+        print("101>>>>>>>>", login_pass)
 
-        if verify_password(login_pass,user_info.password):
+        if verify_password(login_pass, user_info.password):
             print("117>>>>>>>>>>>>>>")
             token_data = LoginService.generate_tokens(
                 username=user_info.username,
                 user_id=user_info.login_id,
                 role_name=role_name,
             )
-            print(">>>>>>>>>>>>>>",token_data)
+            print(">>>>>>>>>>>>>>", token_data)
             token_data.update(Role=role_name)
             logged_in_member_details = admin_vo.serialize(user_info)
             token_data.update(user_details=logged_in_member_details)
@@ -141,7 +145,8 @@ class LoginService:
 
             # Validate a username pattern and retrieve user information
             # from the database
-            user_info, user_type = LoginService.get_user_by_identifier(login_username)
+            user_info, user_type = LoginService.get_user_by_identifier(
+                login_username)
 
             if user_info is None:
                 return AppServices.app_response(
@@ -162,7 +167,8 @@ class LoginService:
                 )
 
             if user_type == StaticVariables.ADMIN_ROLE_ENUM:
-                return LoginService.login_admin(user_info, login_pass, role_name)
+                return LoginService.login_admin(user_info, login_pass,
+                                                role_name)
             else:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.UNAUTHORIZED,
@@ -230,6 +236,55 @@ class LoginService:
         except Exception as exception:
             AppServices.handle_exception(exception, is_raise=True)
 
+    @staticmethod
+    def update_password_service(request_data):
+        try:
+            auth_dao = AuthLoginDAO()
+            username = request_data.get("username")
+            old_password = request_data.get("old_password")
+            new_password = request_data.get("new_password")
+
+            user_info, _ = LoginService.get_user_by_identifier(username)
+
+            if user_info is None or user_info.is_deleted:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.NOT_FOUND,
+                    ResponseMessageEnum.USER_NOT_FOUND,
+                    success=False,
+                    data={},
+                )
+
+            if not verify_password(old_password, user_info.password):
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.UNAUTHORIZED,
+                    ResponseMessageEnum.INVALID_PASSWORD,
+                    success=False,
+                    data={},
+                )
+
+            if verify_password(new_password, user_info.password):
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.BAD_REQUEST,
+                    "New password must be different from the old password",
+                    success=False,
+                    data={},
+                )
+
+            hashed_new_password = hash_password(new_password)
+            user_info.password = hashed_new_password
+
+            auth_dao.update_password_dao(user_info)
+
+            return AppServices.app_response(
+                HttpStatusCodeEnum.OK,
+                ResponseMessageEnum.PASSWORD_UPDATED,
+                success=True,
+                data={},
+            )
+
+        except Exception as e:
+            AppServices.handle_exception(e, is_raise=True)
+
 
 def login_required(required_roles=None):
     if required_roles is None:
@@ -252,7 +307,8 @@ def login_required(required_roles=None):
                 user_role = None
 
                 if token:
-                    decoded_data = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+                    decoded_data = jwt.decode(token, SECRET_KEY,
+                                              algorithms=["HS256"])
                     user_identifier = decoded_data.get("username")
                     user_role = decoded_data.get("user_role")
 
@@ -267,6 +323,7 @@ def login_required(required_roles=None):
                             status_code=status.HTTP_403_FORBIDDEN,
                             detail=f"Access denied for role: {user_role}"
                         )
+                    request.state.payload = decoded_data
 
                 elif membership_id:
                     user_identifier = membership_id
@@ -279,7 +336,8 @@ def login_required(required_roles=None):
 
                 # Get user information
                 result = LoginService.get_user_by_identifier(user_identifier)
-                if not result or not isinstance(result, tuple) or len(result) != 2:
+                if not result or not isinstance(result, tuple) or len(
+                        result) != 2:
                     raise HTTPException(
                         status_code=status.HTTP_401_UNAUTHORIZED,
                         detail="Invalid user information"
@@ -332,11 +390,13 @@ def login_required(required_roles=None):
                 )
 
             except Exception as e:
-                logger.error("Unexpected error during authentication", exc_info=True)
+                logger.error("Unexpected error during authentication",
+                             exc_info=True)
                 raise HTTPException(
                     status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                     detail="Authentication failure"
                 )
 
         return wrapper
+
     return decorator

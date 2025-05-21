@@ -12,7 +12,8 @@ logger = logging.getLogger("FlaskMVCProject")  # Ensure your logger is set up
 class AppServices:
     @staticmethod
     def app_response(
-        status_code: int, message: str, success: bool = None, data: any = None
+            status_code: int, message: str, success: bool = None,
+            data: any = None
     ) -> dict:
         response = {
             "status_code": status_code,
@@ -42,10 +43,10 @@ class AppServices:
             exception.detail
             if hasattr(exception, "detail") and bool(exception.detail)
             else f"Exception type: {exc_type}, "
-            f"Exception message: {str(exception)}, "
-            f"Filename: {filename}, "
-            f"Function name: {function_name} "
-            f"Line number: {line_no}"
+                 f"Exception message: {str(exception)}, "
+                 f"Filename: {filename}, "
+                 f"Function name: {function_name} "
+                 f"Line number: {line_no}"
         )
 
         logger.error(f"Exception error message: {message}")

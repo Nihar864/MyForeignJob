@@ -4,10 +4,12 @@ from configparser import ConfigParser, NoSectionError
 # Initialize config parser
 configure = ConfigParser()
 
-# ✅ Correct path: move up from 'base/utils' to 'MyForeignJob'
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))  # /MyForeignJob/base/utils
-PROJECT_ROOT = os.path.dirname(os.path.dirname(CURRENT_DIR))  # /MyForeignJob
-CONFIG_PATH = os.path.join(PROJECT_ROOT, "config.ini")  # /MyForeignJob/config.ini
+# ✅ Correct path: move up from 'base/utils' to 'myforeignjob'
+CURRENT_DIR = os.path.dirname(
+    os.path.abspath(__file__))  # /myforeignjob/base/utils
+PROJECT_ROOT = os.path.dirname(os.path.dirname(CURRENT_DIR))  # /myforeignjob
+CONFIG_PATH = os.path.join(PROJECT_ROOT,
+                           "config.ini")  # /myforeignjob/config.ini
 
 # Check config file existence
 if not os.path.exists(CONFIG_PATH):
@@ -33,9 +35,12 @@ class Constant:
 
         ACCESS_TOKEN = configure.get("TOKEN_CONFIG", "ACCESS_TOKEN")
         REFRESH_TOKEN = configure.get("TOKEN_CONFIG", "REFRESH_TOKEN")
-        ACCESS_TOKEN_EXP = int(configure.get("TOKEN_CONFIG", "ACCESS_TOKEN_EXP"))
-        REFRESH_TOKEN_EXP = int(configure.get("TOKEN_CONFIG", "REFRESH_TOKEN_EXP"))
-        TIME_OUT_MAX_AGE = int(configure.get("TOKEN_CONFIG", "TIME_OUT_MAX_AGE"))
+        ACCESS_TOKEN_EXP = int(
+            configure.get("TOKEN_CONFIG", "ACCESS_TOKEN_EXP"))
+        REFRESH_TOKEN_EXP = int(
+            configure.get("TOKEN_CONFIG", "REFRESH_TOKEN_EXP"))
+        TIME_OUT_MAX_AGE = int(
+            configure.get("TOKEN_CONFIG", "TIME_OUT_MAX_AGE"))
 
         ENCODING = configure.get("SECURITY_CONFIG", "ENCODING")
         HASH_ALGORITHM = configure.get("SECURITY_CONFIG", "HASH_ALGORITHM")

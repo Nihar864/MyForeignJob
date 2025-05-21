@@ -10,7 +10,8 @@ class CountryDAO:
         return country_data
 
     @staticmethod
-    def get_all_categories_dao(page_number, page_size, search_value, sort_by, sort_as):
+    def get_all_categories_dao(page_number, page_size, search_value, sort_by,
+                               sort_as):
         page_info = {
             "model": CountryVO,
             "search_fields": ["country_name"],

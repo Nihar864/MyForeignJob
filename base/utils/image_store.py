@@ -27,10 +27,12 @@ class ProductImageUploader:
                     image_path = os.path.join(UPLOAD_DIR, original_filename)
 
                     with open(image_path, "wb") as buffer:
-                        buffer.write(image.file.read())  # ✅ Fix from previous issue
+                        buffer.write(
+                            image.file.read())  # ✅ Fix from previous issue
 
                     file_paths.append(image_path)
-                    file_names.append(original_filename)  # ✅ Store only clean filename
+                    file_names.append(
+                        original_filename)  # ✅ Store only clean filename
 
                 return file_names, file_paths
 
@@ -73,10 +75,12 @@ class ProductImageUploader:
                     image_path = os.path.join(UPLOAD_DIR, original_filename)
 
                     with open(image_path, "wb") as buffer:
-                        buffer.write(image.file.read())  # ✅ Fix from previous issue
+                        buffer.write(
+                            image.file.read())  # ✅ Fix from previous issue
 
                     file_paths.append(image_path)
-                    file_names.append(original_filename)  # ✅ Store only clean filename
+                    file_names.append(
+                        original_filename)  # ✅ Store only clean filename
 
                 return file_names, file_paths
 
