@@ -9,10 +9,31 @@ logger = get_logger()
 
 
 class NewsService:
+    """
+    Service layer handling all business logic related to news management.
+    Company Name: Softvan Pvt Ltd
+    """
 
     @staticmethod
     def insert_news_service(news_dto):
+        """
+        Purpose:
+            Insert a new news record into the database.
 
+        Request:
+            news_dto (object): Data transfer object containing news details such as
+                - country_id (int)
+                - news_title (str)
+                - news_description (str)
+                - news_url (str)
+                - news_status (str)
+
+        Response:
+            dict: Standardized response with status code, message, success flag, and data.
+
+        Company Name:
+            Softvan Pvt Ltd
+        """
         try:
             country_vo = CountryDAO.get_country_by_id_dao(news_dto.country_id)
             if not country_vo:
@@ -41,8 +62,7 @@ class NewsService:
                     data={},
                 )
 
-            logger.info("Inserted news: %s",
-                        news_vo.news_title)
+            logger.info("Inserted news: %s", news_vo.news_title)
             return AppServices.app_response(
                 HttpStatusCodeEnum.OK.value,
                 ResponseMessageEnum.INSERT_DATA.value,
@@ -51,12 +71,27 @@ class NewsService:
             )
 
         except Exception as exception:
-            logger.exception("Error inserting news")
             return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
-    def get_all_news_service(page_number, page_size, search_value, sort_by,
-                             sort_as):
+    def get_all_news_service(page_number, page_size, search_value, sort_by, sort_as):
+        """
+        Purpose:
+            Retrieve paginated, searchable, and sortable list of all news records.
+
+        Request:
+            page_number (int): Page number for pagination.
+            page_size (int): Number of records per page.
+            search_value (str): Search string to filter news records.
+            sort_by (str): Field name to sort results.
+            sort_as (str): Sort direction, e.g., 'asc' or 'desc'.
+
+        Response:
+            dict: Standardized response containing paginated list of news data.
+
+        Company Name:
+            Softvan Pvt Ltd
+        """
         try:
             result = NewsDAO.get_all_news_dao(
                 page_number=page_number,
@@ -82,12 +117,23 @@ class NewsService:
             )
 
         except Exception as exception:
-            logger.exception("Error fetching all news")
             return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
     def delete_news_service(news_id):
-        """Soft delete a news by ID."""
+        """
+        Purpose:
+            Soft delete a news record by its ID.
+
+        Request:
+            news_id (int): Unique identifier of the news to be deleted.
+
+        Response:
+            dict: Standardized response confirming deletion or failure.
+
+        Company Name:
+            Softvan Pvt Ltd
+        """
         try:
             delete_news_data = NewsDAO.delete_news_dao(news_id)
 
@@ -99,7 +145,7 @@ class NewsService:
                     data={},
                 )
 
-            delete_news_data.is_deleted = True  # Soft delete
+            delete_news_data.is_deleted = True  # Soft delete flag
 
             logger.info("Deleted news with ID: %s", news_id)
             return AppServices.app_response(
@@ -110,13 +156,23 @@ class NewsService:
             )
 
         except Exception as exception:
-            logger.exception("Error deleting news with ID: %s",
-                             news_id)
             return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
     def get_news_by_id_service(news_id):
-        """Retrieve news details for a given ID."""
+        """
+        Purpose:
+            Retrieve detailed information for a news record by its ID.
+
+        Request:
+            news_id (int): Unique identifier of the news.
+
+        Response:
+            dict: Standardized response containing news details or error message.
+
+        Company Name:
+            Softvan Pvt Ltd
+        """
         try:
             news_detail = NewsDAO.get_news_by_id_dao(news_id)
 
@@ -137,12 +193,29 @@ class NewsService:
             )
 
         except Exception as exception:
-            logger.exception("Error retrieving news with ID: %s",
-                             news_id)
             return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
     def update_news_service(news_dto):
+        """
+        Purpose:
+            Update an existing news record with new information.
+
+        Request:
+            news_dto (object): Data transfer object containing updated news details including
+                - news_id (int)
+                - country_id (int)
+                - news_title (str)
+                - news_description (str)
+                - news_url (str)
+                - news_status (str)
+
+        Response:
+            dict: Standardized response confirming update success or failure.
+
+        Company Name:
+            Softvan Pvt Ltd
+        """
         try:
             existing_news = NewsDAO.get_news_by_id_dao(news_dto.news_id)
 
@@ -158,8 +231,7 @@ class NewsService:
                 existing_news.news_id = news_dto.news_id
 
             if news_dto.country_id is not None:
-                country_vo = CountryDAO.get_country_by_id_dao(
-                    news_dto.country_id)
+                country_vo = CountryDAO.get_country_by_id_dao(news_dto.country_id)
                 if not country_vo:
                     return AppServices.app_response(
                         HttpStatusCodeEnum.NOT_FOUND,
@@ -182,7 +254,6 @@ class NewsService:
             if news_dto.news_status is not None:
                 existing_news.news_status = news_dto.news_status
 
-            # Step 3: Persist updated data
             updated_news = NewsDAO.update_news_dao(existing_news)
 
             if not updated_news:
@@ -193,8 +264,7 @@ class NewsService:
                     data={},
                 )
 
-            logger.info("Updated news with ID: %s",
-                        news_dto.news_id)
+            logger.info("Updated news with ID: %s", news_dto.news_id)
             return AppServices.app_response(
                 HttpStatusCodeEnum.ACCEPTED.value,
                 ResponseMessageEnum.UPDATE_DATA.value,
@@ -203,5 +273,4 @@ class NewsService:
             )
 
         except Exception as exception:
-            logger.exception("Error updating news")
             return AppServices.handle_exception(exception, is_raise=True)

@@ -1,54 +1,39 @@
-version: '3.9'
+#version: "3.9"
 
 services:
-  db:
-    image: mysql:8.0
-    container_name: myforeignjob_mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: myforeignjob_dbs
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-    networks:
-      - app-network
-
-  backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    container_name: myforeignjob_backend
-    restart: always
-    volumes:
-      - ./backend:/app
+  fastapi:
+    build: .
+    container_name: fastapi-app
     ports:
       - "8000:8000"
     depends_on:
-      - db
-    networks:
-      - app-network
+      - mysql-db
     environment:
-      CONFIG_PATH: myforeignjob/config.ini
+      - DATABASE_URL=${DATABASE_URL}
 
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    container_name: myforeignjob_frontend
-    restart: always
     volumes:
-      - ./frontend:/app
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
+      - .:/myforeignjob
     networks:
-      - app-network
+      - myforeignjob_app-network
+
+  mysql-db:
+    image: mysql:5.7
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root#123
+      MYSQL_DATABASE: myforeignjob_dbs
+    restart: always
+    ports:
+      - "3307:3306"
+    env_file:
+      - .env
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - myforeignjob_app-network
 
 volumes:
   mysql_data:
 
 networks:
-  app-network:
+  myforeignjob_app-network:

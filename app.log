@@ -16286,3 +16286,325 @@ sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate en
 
 2025-05-21 10:36:39,323 - user_service.py - myforeignjob -  insert_user_service - INFO - User registration successful for: prince
 
+2025-05-21 11:33:47,338 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test
+
+2025-05-21 11:57:35,508 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test2
+
+2025-05-21 12:08:22,678 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test3
+
+2025-05-21 12:10:09,957 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test4
+
+2025-05-21 12:11:03,668 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test5
+
+2025-05-21 12:18:44,494 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test6
+
+2025-05-21 12:21:55,016 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test7
+
+2025-05-21 12:36:54,753 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test8
+
+2025-05-21 12:39:54,426 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test9
+
+2025-05-21 12:49:08,005 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test10
+
+2025-05-21 12:51:48,894 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test12
+
+2025-05-21 14:20:22,210 - login_controller.py - myforeignjob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc4MjEwMjIsImlhdCI6MTc0NzgxNzQyMiwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.p4yWa-_YtsK6Rt7Tqqc_Qq2BxsHoJ3tDrk7ZGdK1Xh4', 'Refresh_Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc4MTc0MjIsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.VB9mQ7hnCeogwvkAx-7CkVkOKlejLoYZXgMOdTX6xCY', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-21 14:20:48,036 - user_service.py - myforeignjob -  insert_user_service - INFO - Initiating user registration process...
+
+2025-05-21 14:20:48,044 - user_service.py - myforeignjob -  insert_user_service - DEBUG - Creating UserVO and inserting into database...
+
+2025-05-21 14:20:48,083 - user_service.py - myforeignjob -  insert_user_service - INFO - User registration successful for: nihar
+
+2025-05-21 14:20:48,083 - user_controller.py - myforeignjob -  insert_user_controller - INFO - User inserted: {'status_code': <HttpStatusCodeEnum.CREATED: 201>, 'success': True, 'message': <ResponseMessageEnum.INSERT_DATA: 'Data inserted successfully'>, 'data': {<base.vo.user_vo.UserVO object at 0x7d1bee94cd10>}}
+
+2025-05-21 14:21:04,236 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: testtt
+
+2025-05-21 14:22:58,760 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 12
+
+2025-05-21 14:22:58,760 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7d1bedb60210>}
+
+2025-05-21 14:41:03,295 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 1
+
+2025-05-21 14:41:03,295 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7c119fcc0a50>}
+
+2025-05-21 14:41:09,913 - country_service.py - myforeignjob -  get_country_by_id_service - INFO - Fetched country detail for ID: 3
+
+2025-05-21 14:41:09,913 - country_controller.py - myforeignjob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7c119fead0d0>}
+
+2025-05-21 14:43:57,486 - job_controller.py - myforeignjob -  get_job_by_id_controller - INFO - Fetching job details for ID: 1
+
+2025-05-21 14:43:57,496 - job_service.py - myforeignjob -  get_job_by_id_service - INFO - Fetched job detail for ID: 1
+
+2025-05-21 14:43:57,496 - job_controller.py - myforeignjob -  get_job_by_id_controller - INFO - Fetched job details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.job_vo.JobVO object at 0x7b661b99dc10>}
+
+2025-05-21 14:58:22,360 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'message': 'Oops! Something went wrong', 'status_code': 500}
+
+2025-05-21 14:58:25,700 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 2
+
+2025-05-21 14:58:25,700 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 200, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7ca49507c890>}
+
+2025-05-21 14:58:31,298 - country_service.py - myforeignjob -  get_country_by_id_service - INFO - Fetched country detail for ID: 3
+
+2025-05-21 14:58:31,299 - country_controller.py - myforeignjob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7ca4946d2810>}
+
+2025-05-21 14:59:08,680 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 3
+
+2025-05-21 14:59:08,680 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 200, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7ca4946d0550>}
+
+2025-05-21 14:59:13,312 - country_service.py - myforeignjob -  get_country_by_id_service - INFO - Fetched country detail for ID: 3
+
+2025-05-21 14:59:13,312 - country_controller.py - myforeignjob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7ca4946e5f90>}
+
+2025-05-21 15:00:23,180 - job_service.py - myforeignjob -  insert_job_service - INFO - Inserted job: worker
+
+2025-05-21 15:00:23,180 - job_controller.py - myforeignjob -  insert_job_controller - INFO - Job inserted: {'status_code': 200, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.job_vo.JobVO object at 0x713dab454110>}
+
+2025-05-21 15:00:37,936 - job_controller.py - myforeignjob -  get_job_by_id_controller - INFO - Fetching job details for ID: 1
+
+2025-05-21 15:00:37,938 - job_service.py - myforeignjob -  get_job_by_id_service - INFO - Fetched job detail for ID: 1
+
+2025-05-21 15:00:37,938 - job_controller.py - myforeignjob -  get_job_by_id_controller - INFO - Fetched job details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.job_vo.JobVO object at 0x713daa3cbb90>}
+
+2025-05-21 15:01:00,122 - job_service.py - myforeignjob -  update_job_service - INFO - Updated job with ID: 1
+
+2025-05-21 15:01:00,123 - job_controller.py - myforeignjob -  update_job_controller - INFO - Updated job with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.job_vo.JobVO object at 0x713daa3dedd0>}
+
+2025-05-21 15:01:09,959 - job_controller.py - myforeignjob -  get_job_by_id_controller - INFO - Fetching job details for ID: 1
+
+2025-05-21 15:01:09,961 - job_service.py - myforeignjob -  get_job_by_id_service - INFO - Fetched job detail for ID: 1
+
+2025-05-21 15:01:09,961 - job_controller.py - myforeignjob -  get_job_by_id_controller - INFO - Fetched job details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.job_vo.JobVO object at 0x713daa3eead0>}
+
+2025-05-21 15:01:49,229 - faq_controller.py - myforeignjob -  insert_faq_controller - INFO - Faq inserted: {'status_code': <HttpStatusCodeEnum.NOT_FOUND: 404>, 'success': False, 'message': 'try another country', 'data': {}}
+
+2025-05-21 15:01:55,137 - faq_service.py - myforeignjob -  insert_faq_service - INFO - Inserted faq: string
+
+2025-05-21 15:01:55,137 - faq_controller.py - myforeignjob -  insert_faq_controller - INFO - Faq inserted: {'status_code': 200, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.faq_vo.FaqVO object at 0x74209065c9d0>}
+
+2025-05-21 15:02:14,888 - faq_controller.py - myforeignjob -  get_faq_by_id_controller - INFO - Fetching faq details for ID: 1
+
+2025-05-21 15:02:14,890 - faq_service.py - myforeignjob -  get_faq_by_id_service - INFO - Fetched faq detail for ID: 1
+
+2025-05-21 15:02:14,891 - faq_controller.py - myforeignjob -  get_faq_by_id_controller - INFO - Fetched faq details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.faq_vo.FaqVO object at 0x74208f610dd0>}
+
+2025-05-21 15:02:38,376 - faq_service.py - myforeignjob -  update_faq_service - INFO - Updated faq with ID: 1
+
+2025-05-21 15:02:38,376 - faq_controller.py - myforeignjob -  update_faq_controller - INFO - Updated job with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.faq_vo.FaqVO object at 0x74208f62d250>}
+
+2025-05-21 15:02:46,111 - faq_service.py - myforeignjob -  delete_faq_service - INFO - Deleted faq with ID: 1
+
+2025-05-21 15:02:46,111 - faq_controller.py - myforeignjob -  delete_faq_controller - INFO - Deleted faq with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.faq_vo.FaqVO object at 0x74208f613690>}
+
+2025-05-21 15:02:50,377 - faq_controller.py - myforeignjob -  get_faq_by_id_controller - INFO - Fetching faq details for ID: 1
+
+2025-05-21 15:02:50,379 - faq_controller.py - myforeignjob -  get_faq_by_id_controller - INFO - Fetched faq details: {'status_code': 400, 'success': False, 'message': 'Data not found', 'data': {}}
+
+2025-05-21 15:03:33,514 - benefit_service.py - myforeignjob -  insert_benefit_service - INFO - Inserted benefit: string
+
+2025-05-21 15:03:33,514 - benefit_controller.py - myforeignjob -  insert_benefit_controller - INFO - benefit inserted: {'status_code': 200, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.benefit_vo.BenefitVO object at 0x7e97bac1f550>}
+
+2025-05-21 15:03:49,789 - benefit_controller.py - myforeignjob -  get_benefit_by_id_controller - INFO - Fetching benefit details for ID: 1
+
+2025-05-21 15:03:49,791 - benefit_service.py - myforeignjob -  get_benefit_by_id_service - INFO - Fetched benefit detail for ID: 1
+
+2025-05-21 15:03:49,791 - benefit_controller.py - myforeignjob -  get_benefit_by_id_controller - INFO - Fetched benefit details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.benefit_vo.BenefitVO object at 0x7e97ba327390>}
+
+2025-05-21 15:04:00,445 - benefit_service.py - myforeignjob -  update_benefit_service - INFO - Updated benefit with ID: 1
+
+2025-05-21 15:04:00,445 - benefit_controller.py - myforeignjob -  update_benefit_controller - INFO - Updated benefit with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.benefit_vo.BenefitVO object at 0x7e97ba33a2d0>}
+
+2025-05-21 15:04:04,375 - benefit_controller.py - myforeignjob -  get_benefit_by_id_controller - INFO - Fetching benefit details for ID: 1
+
+2025-05-21 15:04:04,377 - benefit_service.py - myforeignjob -  get_benefit_by_id_service - INFO - Fetched benefit detail for ID: 1
+
+2025-05-21 15:04:04,377 - benefit_controller.py - myforeignjob -  get_benefit_by_id_controller - INFO - Fetched benefit details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.benefit_vo.BenefitVO object at 0x7e97ba34cc50>}
+
+2025-05-21 15:04:24,110 - benefit_service.py - myforeignjob -  update_benefit_service - INFO - Updated benefit with ID: 1
+
+2025-05-21 15:04:24,111 - benefit_controller.py - myforeignjob -  update_benefit_controller - INFO - Updated benefit with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.benefit_vo.BenefitVO object at 0x7e97ba350150>}
+
+2025-05-21 15:04:28,629 - benefit_service.py - myforeignjob -  update_benefit_service - INFO - Updated benefit with ID: 1
+
+2025-05-21 15:04:28,629 - benefit_controller.py - myforeignjob -  update_benefit_controller - INFO - Updated benefit with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.benefit_vo.BenefitVO object at 0x7e97ba34cb10>}
+
+2025-05-21 15:04:40,430 - benefit_service.py - myforeignjob -  delete_benefit_service - INFO - Deleted benefit with ID: 1
+
+2025-05-21 15:04:40,430 - benefit_controller.py - myforeignjob -  delete_benefit_controller - INFO - Deleted benefit with ID: {'status_code': 202, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.benefit_vo.BenefitVO object at 0x7e97ba34da50>}
+
+2025-05-21 15:05:13,606 - rules_service.py - myforeignjob -  insert_rule_service - INFO - Inserted rule: string
+
+2025-05-21 15:05:13,606 - rules_controller.py - myforeignjob -  insert_rule_controller - INFO - rule inserted: {'status_code': 200, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.rules_vo.RuleVO object at 0x71384ba23a90>}
+
+2025-05-21 15:05:25,683 - rules_controller.py - myforeignjob -  get_rule_by_id_controller - INFO - Fetching rule details for ID: 1
+
+2025-05-21 15:05:25,685 - rules_service.py - myforeignjob -  get_rule_by_id_service - INFO - Fetched rule detail for ID: 1
+
+2025-05-21 15:05:25,685 - rules_controller.py - myforeignjob -  get_rule_by_id_controller - INFO - Fetched rule details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.rules_vo.RuleVO object at 0x71384ab59dd0>}
+
+2025-05-21 15:05:49,956 - rules_service.py - myforeignjob -  update_rule_service - INFO - Updated rule with ID: 1
+
+2025-05-21 15:05:49,956 - rules_controller.py - myforeignjob -  update_rule_controller - INFO - Updated job with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.rules_vo.RuleVO object at 0x71384ab48910>}
+
+2025-05-21 15:06:20,218 - social_media_service.py - myforeignjob -  insert_social_media_service - INFO - Inserted social media: string
+
+2025-05-21 15:06:20,219 - social_media_controller.py - myforeignjob -  insert_social_media_controller - INFO - social media inserted: {'status_code': 200, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.social_media_vo.SocialMediaVO object at 0x764d80c535d0>}
+
+2025-05-21 15:06:35,148 - social_media_controller.py - myforeignjob -  get_social_media_by_id_controller - INFO - Fetching social media details for ID: 1
+
+2025-05-21 15:06:35,150 - social_media_service.py - myforeignjob -  get_social_media_by_id_service - INFO - Fetched social_media detail for ID: 1
+
+2025-05-21 15:06:35,151 - social_media_controller.py - myforeignjob -  get_social_media_by_id_controller - INFO - Fetched social media details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.social_media_vo.SocialMediaVO object at 0x764d7fe613d0>}
+
+2025-05-21 15:06:46,719 - social_media_controller.py - myforeignjob -  get_social_media_by_id_controller - INFO - Fetching social media details for ID: 1
+
+2025-05-21 15:06:46,722 - social_media_service.py - myforeignjob -  get_social_media_by_id_service - INFO - Fetched social_media detail for ID: 1
+
+2025-05-21 15:06:46,722 - social_media_controller.py - myforeignjob -  get_social_media_by_id_controller - INFO - Fetched social media details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.social_media_vo.SocialMediaVO object at 0x764d7fe63b90>}
+
+2025-05-21 15:07:05,682 - social_media_service.py - myforeignjob -  update_social_media_service - INFO - Updated social media with ID: 1
+
+2025-05-21 15:07:05,683 - social_media_controller.py - myforeignjob -  update_social_media_controller - INFO - Updated social media with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.social_media_vo.SocialMediaVO object at 0x764d7fe68a90>}
+
+2025-05-21 15:07:47,292 - news_service.py - myforeignjob -  insert_news_service - INFO - Inserted news: string
+
+2025-05-21 15:07:47,293 - news_controller.py - myforeignjob -  insert_news_controller - INFO - social media inserted: {'status_code': 200, 'success': True, 'message': 'Data inserted successfully', 'data': <base.vo.news_vo.NewsVO object at 0x77143eef5c10>}
+
+2025-05-21 15:07:58,539 - news_controller.py - myforeignjob -  get_news_by_id_controller - INFO - Fetching social media details for ID: 1
+
+2025-05-21 15:07:58,541 - news_service.py - myforeignjob -  get_news_by_id_service - INFO - Fetched news detail for ID: 1
+
+2025-05-21 15:07:58,541 - news_controller.py - myforeignjob -  get_news_by_id_controller - INFO - Fetched social media details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.news_vo.NewsVO object at 0x77143df5dd50>}
+
+2025-05-21 15:08:16,470 - news_service.py - myforeignjob -  update_news_service - INFO - Updated news with ID: 1
+
+2025-05-21 15:08:16,470 - news_controller.py - myforeignjob -  update_news_controller - INFO - Updated news with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.news_vo.NewsVO object at 0x77143df60f50>}
+
+2025-05-21 15:08:33,766 - news_service.py - myforeignjob -  update_news_service - INFO - Updated news with ID: 1
+
+2025-05-21 15:08:33,766 - news_controller.py - myforeignjob -  update_news_controller - INFO - Updated news with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.news_vo.NewsVO object at 0x77143df7ce90>}
+
+2025-05-21 15:08:50,489 - news_controller.py - myforeignjob -  get_news_by_id_controller - INFO - Fetching social media details for ID: 1
+
+2025-05-21 15:08:50,491 - news_service.py - myforeignjob -  get_news_by_id_service - INFO - Fetched news detail for ID: 1
+
+2025-05-21 15:08:50,491 - news_controller.py - myforeignjob -  get_news_by_id_controller - INFO - Fetched social media details: {'status_code': 202, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.news_vo.NewsVO object at 0x77143df849d0>}
+
+2025-05-21 15:09:36,860 - news_service.py - myforeignjob -  update_news_service - INFO - Updated news with ID: 1
+
+2025-05-21 15:09:36,860 - news_controller.py - myforeignjob -  update_news_controller - INFO - Updated news with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.news_vo.NewsVO object at 0x77143df621d0>}
+
+2025-05-21 15:09:50,589 - news_service.py - myforeignjob -  update_news_service - INFO - Updated news with ID: 1
+
+2025-05-21 15:09:50,589 - news_controller.py - myforeignjob -  update_news_controller - INFO - Updated news with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.news_vo.NewsVO object at 0x77143df85650>}
+
+2025-05-21 15:10:03,104 - news_service.py - myforeignjob -  update_news_service - INFO - Updated news with ID: 1
+
+2025-05-21 15:10:03,105 - news_controller.py - myforeignjob -  update_news_controller - INFO - Updated news with ID: {'status_code': 202, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.news_vo.NewsVO object at 0x77143df7f290>}
+
+2025-05-21 15:16:46,703 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test
+
+2025-05-21 15:23:13,074 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: test2
+
+2025-05-21 15:30:26,969 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: United States
+
+2025-05-22 10:01:18,195 - login_controller.py - myforeignjob -  member_login - INFO - Response for login is {'status_code': <HttpStatusCodeEnum.OK: 200>, 'success': True, 'message': <ResponseMessageEnum.LOGIN_SUCCESS: "Welcome! You've successfully logged in">, 'data': {'Access_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDc4OTE4NzgsImlhdCI6MTc0Nzg4ODI3OCwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJfcm9sZSI6IkFETUlOIn0.S_8yvfDNLWS4ugcXqHxiRY6uSXtLHNVIzAAATVWzrug', 'Refresh_Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDc4ODgyNzgsInVzZXJuYW1lIjoiYWRtaW4iLCJ1c2VyX2lkIjoxLCJ1c2VyX3JvbGUiOiJBRE1JTiJ9.CLN5QeeNmA1HvsZowL1TZOkgRamNTndwQFM0Vfzt8Bs', 'Role': 'ADMIN', 'user_details': {'admin_id': 1, 'username': 'admin'}}}
+
+2025-05-22 15:24:50,762 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: stringefgdhry65tg4rfedc
+
+2025-05-22 17:00:36,624 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: poiuytrsersdfghjb
+
+2025-05-22 17:01:09,064 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: zpoiuytrsersdfghjb
+
+2025-05-22 17:01:22,489 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: azpoiuytrsersdfghjb
+
+2025-05-22 17:08:02,128 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: indiaaa
+
+2025-05-22 17:59:52,760 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: tset
+
+2025-05-22 18:00:51,692 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country: sadndfo;aj
+
+2025-05-23 15:45:21,445 - country_service.py - myforeignjob -  get_country_by_id_service - INFO - Fetched country detail for ID: 16
+
+2025-05-23 15:45:21,446 - country_controller.py - myforeignjob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7374edda0c50>}
+
+2025-05-23 15:55:21,574 - country_service.py - myforeignjob -  get_country_by_id_service - INFO - Fetched country detail for ID: 16
+
+2025-05-23 15:55:21,574 - country_controller.py - myforeignjob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x70ef3bd4d6d0>}
+
+2025-05-23 15:57:51,835 - country_service.py - myforeignjob -  insert_country_service - INFO - Inserted country:  csdCsdstring
+
+2025-05-23 17:30:33,476 - country_service.py - myforeignjob -  get_country_by_id_service - INFO - Fetched country detail for ID: 16
+
+2025-05-23 17:30:33,476 - country_controller.py - myforeignjob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7f2ae7e7dad0>}
+
+2025-05-23 17:30:34,066 - country_service.py - myforeignjob -  get_country_by_id_service - INFO - Fetched country detail for ID: 16
+
+2025-05-23 17:30:34,066 - country_controller.py - myforeignjob -  get_country_by_id_controller - INFO - Fetched country details: {'status_code': 200, 'success': True, 'message': 'Data fetched successfully', 'data': <base.vo.country_vo.CountryVO object at 0x7f2ae7e73b50>}
+
+2025-05-26 11:17:01,755 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 25
+
+2025-05-26 11:17:01,755 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 200, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x70de3d84c910>}
+
+2025-05-26 13:07:07,358 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 21
+
+2025-05-26 13:07:07,359 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 200, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x785638e9ead0>}
+
+2025-05-26 13:07:17,510 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 22
+
+2025-05-26 13:07:17,511 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 200, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x785638d8d710>}
+
+2025-05-26 14:09:42,028 - job_controller.py - myforeignjob -  insert_job_controller - INFO - Job inserted: {'status_code': <HttpStatusCodeEnum.NOT_FOUND: 404>, 'success': False, 'message': 'try another country', 'data': {}}
+
+2025-05-26 14:10:26,008 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 21
+
+2025-05-26 14:10:26,008 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 200, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72612f853d90>}
+
+2025-05-26 14:10:28,572 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 21
+
+2025-05-26 14:10:28,573 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 200, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72612f6b3b50>}
+
+2025-05-26 14:33:41,087 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 16
+
+2025-05-26 14:33:41,087 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 200, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72612ed6af10>}
+
+2025-05-26 14:33:59,673 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 23
+
+2025-05-26 14:33:59,673 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 200, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72612ed69d50>}
+
+2025-05-26 14:34:47,293 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 21
+
+2025-05-26 14:34:47,294 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 200, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72612ed5c610>}
+
+2025-05-26 14:51:30,503 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 24
+
+2025-05-26 14:51:30,504 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 200, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72612f6dc9d0>}
+
+2025-05-26 15:25:46,748 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 21
+
+2025-05-26 15:25:46,749 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 200, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72612f6dff50>}
+
+2025-05-26 15:32:38,601 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 17
+
+2025-05-26 15:32:38,602 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 200, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72612f6ce2d0>}
+
+2025-05-26 16:00:10,345 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 1
+
+2025-05-26 16:00:10,345 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 200, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72612ed4f910>}
+
+2025-05-26 16:00:22,096 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 1
+
+2025-05-26 16:00:22,097 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 200, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72612edce350>}
+
+2025-05-26 16:02:02,207 - country_service.py - myforeignjob -  update_country_service - INFO - Updated country with ID: 17
+
+2025-05-26 16:02:02,208 - country_controller.py - myforeignjob -  update_country_controller - INFO - Updated country with ID: {'status_code': 200, 'success': True, 'message': 'Data Updated successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72612ecf0f10>}
+
+2025-05-26 16:07:11,093 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 25
+
+2025-05-26 16:07:11,093 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 200, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72612edcfa90>}
+
+2025-05-26 16:09:22,490 - country_service.py - myforeignjob -  delete_country_service - INFO - Deleted country with ID: 1
+
+2025-05-26 16:09:22,490 - country_controller.py - myforeignjob -  delete_country_controller - INFO - Deleted country with ID: {'status_code': 200, 'success': True, 'message': 'Data deleted successfully', 'data': <base.vo.country_vo.CountryVO object at 0x72612fa9ecd0>}
+

@@ -11,13 +11,12 @@ class NewsVO(Base, StatusMixin, TimestampMixin):
     __tablename__ = "news_table"
 
     news_id = Column(Integer, primary_key=True, index=True)
-    news_title = Column(String(500), unique=True, index=True,
-                        nullable=False)
+    news_title = Column(String(500), unique=True, index=True, nullable=False)
     news_country_id = Column(
         Integer,
-        ForeignKey("country_table.country_id", ondelete="CASCADE",
-                   onupdate="CASCADE"),
-        nullable=False, )
+        ForeignKey("country_table.country_id", ondelete="CASCADE", onupdate="CASCADE"),
+        nullable=False,
+    )
     news_country_name = Column(String(50), nullable=False)
     news_description = Column(String(500), nullable=False)
     news_url = Column(String(500), nullable=False)

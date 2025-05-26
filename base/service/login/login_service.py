@@ -53,16 +53,14 @@ class LoginService:
     def generate_tokens(username, user_id, role_name):
         access_token_payload = {
             "exp": datetime.utcnow()
-                   + timedelta(
-                minutes=int(StaticVariables.ACCESS_TOKEN_EXPIRE_MINUTES)),
+            + timedelta(minutes=int(StaticVariables.ACCESS_TOKEN_EXPIRE_MINUTES)),
             "iat": datetime.utcnow(),
             "username": username,
             "user_id": user_id,
             "user_role": role_name,
         }
         access_token = jwt.encode(
-            access_token_payload, SECRET_KEY,
-            algorithm=StaticVariables.ALGORITHM
+            access_token_payload, SECRET_KEY, algorithm=StaticVariables.ALGORITHM
         )
 
         refresh_token_payload = {
@@ -72,8 +70,7 @@ class LoginService:
             "user_role": role_name,
         }
         refresh_token = jwt.encode(
-            refresh_token_payload, SECRET_KEY,
-            algorithm=StaticVariables.ALGORITHM
+            refresh_token_payload, SECRET_KEY, algorithm=StaticVariables.ALGORITHM
         )
 
         return {"Access_Token": access_token, "Refresh_Token": refresh_token}
@@ -145,8 +142,7 @@ class LoginService:
 
             # Validate a username pattern and retrieve user information
             # from the database
-            user_info, user_type = LoginService.get_user_by_identifier(
-                login_username)
+            user_info, user_type = LoginService.get_user_by_identifier(login_username)
 
             if user_info is None:
                 return AppServices.app_response(
@@ -167,8 +163,7 @@ class LoginService:
                 )
 
             if user_type == StaticVariables.ADMIN_ROLE_ENUM:
-                return LoginService.login_admin(user_info, login_pass,
-                                                role_name)
+                return LoginService.login_admin(user_info, login_pass, role_name)
             else:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.UNAUTHORIZED,
@@ -299,7 +294,7 @@ def login_required(required_roles=None):
             if not token and not membership_id:
                 raise HTTPException(
                     status_code=status.HTTP_401_UNAUTHORIZED,
-                    detail="Authorization credentials missing"
+                    detail="Authorization credentials missing",
                 )
 
             try:
@@ -307,21 +302,20 @@ def login_required(required_roles=None):
                 user_role = None
 
                 if token:
-                    decoded_data = jwt.decode(token, SECRET_KEY,
-                                              algorithms=["HS256"])
+                    decoded_data = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
                     user_identifier = decoded_data.get("username")
                     user_role = decoded_data.get("user_role")
 
                     if not user_identifier or not user_role:
                         raise HTTPException(
                             status_code=status.HTTP_401_UNAUTHORIZED,
-                            detail="Invalid token payload"
+                            detail="Invalid token payload",
                         )
 
                     if required_roles and user_role not in required_roles:
                         raise HTTPException(
                             status_code=status.HTTP_403_FORBIDDEN,
-                            detail=f"Access denied for role: {user_role}"
+                            detail=f"Access denied for role: {user_role}",
                         )
                     request.state.payload = decoded_data
 
@@ -331,16 +325,15 @@ def login_required(required_roles=None):
                 if not user_identifier:
                     raise HTTPException(
                         status_code=status.HTTP_401_UNAUTHORIZED,
-                        detail="User identifier missing"
+                        detail="User identifier missing",
                     )
 
                 # Get user information
                 result = LoginService.get_user_by_identifier(user_identifier)
-                if not result or not isinstance(result, tuple) or len(
-                        result) != 2:
+                if not result or not isinstance(result, tuple) or len(result) != 2:
                     raise HTTPException(
                         status_code=status.HTTP_401_UNAUTHORIZED,
-                        detail="Invalid user information"
+                        detail="Invalid user information",
                     )
 
                 user_info, user_type = result
@@ -348,14 +341,14 @@ def login_required(required_roles=None):
                 if not user_info:
                     raise HTTPException(
                         status_code=status.HTTP_401_UNAUTHORIZED,
-                        detail="User not found"
+                        detail="User not found",
                     )
 
                 role_id = getattr(user_info, "role", None)
                 if role_id is None:
                     raise HTTPException(
                         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                        detail="User role information missing"
+                        detail="User role information missing",
                     )
 
                 auth_dao = AuthLoginDAO()
@@ -363,7 +356,7 @@ def login_required(required_roles=None):
                 if not role_obj:
                     raise HTTPException(
                         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                        detail="Role not found"
+                        detail="Role not found",
                     )
 
                 role_name = role_obj.role_name
@@ -371,30 +364,27 @@ def login_required(required_roles=None):
                 # Store user context in request.state
                 if inspect.iscoroutinefunction(route_function):
                     # Async route function
-                    return await route_function(request=request, *args,
-                                                **kwargs)
+                    return await route_function(request=request, *args, **kwargs)
                 else:
                     # Sync route function
                     return route_function(request=request, *args, **kwargs)
 
             except jwt.ExpiredSignatureError:
                 raise HTTPException(
-                    status_code=status.HTTP_401_UNAUTHORIZED,
-                    detail="Token has expired"
+                    status_code=status.HTTP_401_UNAUTHORIZED, detail="Token has expired"
                 )
 
             except jwt.DecodeError:
                 raise HTTPException(
                     status_code=status.HTTP_401_UNAUTHORIZED,
-                    detail="Token decoding failed"
+                    detail="Token decoding failed",
                 )
 
             except Exception as e:
-                logger.error("Unexpected error during authentication",
-                             exc_info=True)
+                logger.error("Unexpected error during authentication", exc_info=True)
                 raise HTTPException(
                     status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                    detail="Authentication failure"
+                    detail="Authentication failure",
                 )
 
         return wrapper

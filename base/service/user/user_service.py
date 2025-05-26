@@ -15,9 +15,29 @@ app = FastAPI()
 
 
 class UserService:
-
     @staticmethod
     def Validation_service(user_dto):
+        """
+        Validate user input data.
+
+        Request:
+            user_dto (UserVO): Data transfer object containing user input fields
+                               such as user_name, user_email, user_phone, country_id.
+
+        Response:
+            On validation failure, returns a formatted error response indicating
+            the specific invalid field (name, email, phone, or country).
+            On success, returns a tuple of validated fields:
+            (name, email, phone, country_vo).
+
+        Purpose:
+            Ensures that user data complies with format requirements and that
+            user email and phone do not already exist in the database.
+            Also verifies the validity of the country ID.
+
+        Company:
+            Softvan Pvt Ltd
+        """
         # Name Validation
         name = user_dto.user_name.strip()
         if not re.fullmatch(r"[A-Za-z ]{3,}", name):
@@ -33,8 +53,7 @@ class UserService:
         if not re.fullmatch(r"[^@]+@[^@]+\.[^@]+", email):
             logger.warning("Invalid email format received: %s", email)
             return AppServices.app_response(
-                HttpStatusCodeEnum.BAD_REQUEST, "Invalid email format.",
-                success=False
+                HttpStatusCodeEnum.BAD_REQUEST, "Invalid email format.", success=False
             )
 
         # Check Existing User Email
@@ -80,7 +99,23 @@ class UserService:
 
     @staticmethod
     def insert_user_service(user_dto):
-        """Validates and registers a user."""
+        """
+        Validate user data and insert a new user into the system.
+
+        Request:
+            user_dto (UserVO): Data transfer object containing user details to be inserted.
+
+        Response:
+            On validation failure, returns the corresponding error response.
+            On success, returns a success response with the inserted user data.
+
+        Purpose:
+            To register a new user by validating inputs and persisting the user
+            record into the database.
+
+        Company:
+            Softvan Pvt Ltd
+        """
         logger.info("Initiating user registration process...")
 
         validated_data = UserService.Validation_service(user_dto)
@@ -118,8 +153,26 @@ class UserService:
         )
 
     @staticmethod
-    def get_all_user_service(page_number, page_size, search_value, sort_by,
-                             sort_as):
+    def get_all_user_service(page_number, page_size, search_value, sort_by, sort_as):
+        """
+        Retrieve a paginated, sorted, and searchable list of users.
+
+        Request:
+            page_number (int): Page number for pagination.
+            page_size (int): Number of records per page.
+            search_value (str): Search keyword for filtering users.
+            sort_by (str): Field name to sort by.
+            sort_as (str): Sort direction, e.g., 'asc' or 'desc'.
+
+        Response:
+            Returns a paginated list of users matching search criteria, or an error response if none found.
+
+        Purpose:
+            Provides a flexible endpoint to query user records with pagination, searching, and sorting.
+
+        Company:
+            Softvan Pvt Ltd
+        """
         try:
             result = UserDAO.get_all_user_dao(
                 search_value=search_value,
@@ -145,12 +198,25 @@ class UserService:
             )
 
         except Exception as exception:
-            logger.exception("Error fetching all users")
             return AppServices.handle_exception(exception)
 
     @staticmethod
     def delete_user_service(user_id):
-        """Soft delete a user by ID."""
+        """
+        Soft delete a user by marking their record as deleted.
+
+        Request:
+            user_id (int): Identifier of the user to be deleted.
+
+        Response:
+            Success response if user is soft deleted; error response if user not found or failure occurs.
+
+        Purpose:
+            Implements a non-destructive deletion method by marking the user record as deleted without physically removing it.
+
+        Company:
+            Softvan Pvt Ltd
+        """
         try:
             delete_user_data = UserDAO.delete_user_dao(user_id)
 
@@ -173,12 +239,25 @@ class UserService:
             )
 
         except Exception as exception:
-            logger.exception("Error deleting user with ID: %s", user_id)
             return AppServices.handle_exception(exception)
 
     @staticmethod
     def get_user_by_id_service(user_id):
-        """Retrieve user details for a given ID."""
+        """
+        Retrieve details of a user given their ID.
+
+        Request:
+            user_id (int): Unique identifier of the user.
+
+        Response:
+            Returns user details if found; error response if user does not exist.
+
+        Purpose:
+            Facilitates fetching individual user information for viewing or editing.
+
+        Company:
+            Softvan Pvt Ltd
+        """
         try:
             user_detail = UserDAO.get_user_by_id_dao(user_id)
 
@@ -199,11 +278,25 @@ class UserService:
             )
 
         except Exception as exception:
-            logger.exception("Error retrieving user with ID: %s", user_id)
             return AppServices.handle_exception(exception)
 
     @staticmethod
     def update_user_service(user_dto):
+        """
+        Update an existing user's information.
+
+        Request:
+            user_dto (UserVO): Data transfer object containing updated user fields including user_id.
+
+        Response:
+            Returns success response with updated user data on success; error response if user does not exist or update fails.
+
+        Purpose:
+            Allows modification of user attributes while validating linked data like country.
+
+        Company:
+            Softvan Pvt Ltd
+        """
         try:
             existing_user = UserDAO.get_user_by_id_dao(user_dto.user_id)
 
@@ -219,8 +312,7 @@ class UserService:
                 existing_user.user_name = user_dto.user_name
 
             if user_dto.country_id is not None:
-                country_vo = CountryDAO.get_country_by_id_dao(
-                    user_dto.country_id)
+                country_vo = CountryDAO.get_country_by_id_dao(user_dto.country_id)
                 if not country_vo:
                     return AppServices.app_response(
                         HttpStatusCodeEnum.NOT_FOUND,
@@ -257,5 +349,4 @@ class UserService:
             )
 
         except Exception as exception:
-            logger.exception("Error updating user")
             return AppServices.handle_exception(exception)

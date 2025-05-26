@@ -9,10 +9,44 @@ logger = get_logger()
 
 
 class FaqService:
+    """
+    Service class for managing FAQ operations including CRUD functionalities.
+
+    Purpose:
+        To provide a robust business logic layer that handles FAQ data manipulation,
+        validation, and interaction with the persistence layer.
+
+    Company Name:
+        Softvan Pvt Ltd
+
+    """
 
     @staticmethod
     def insert_faq_service(faq_dto):
+        """
+        Insert a new FAQ entry.
 
+
+        Request:
+            faq_dto (object): DTO containing the FAQ data to be inserted.
+                - country_id: int
+                - faq_title: str
+                - faq_description: str
+
+        Response:
+            dict: Standardized response dictionary containing:
+                - HTTP status code
+                - Response message
+                - Success flag (bool)
+                - Data payload (inserted FAQ object or empty dict)
+
+        Purpose:
+            To add a new FAQ record associated with a valid country, ensuring data integrity
+            and returning an appropriate standardized response.
+
+        Company Name:
+            Softvan Pvt Ltd
+        """
         try:
             country_vo = CountryDAO.get_country_by_id_dao(faq_dto.country_id)
             if not country_vo:
@@ -48,12 +82,35 @@ class FaqService:
             )
 
         except Exception as exception:
-            logger.exception("Error inserting faq")
             return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
-    def get_all_faq_service(page_number, page_size, search_value, sort_by,
-                            sort_as):
+    def get_all_faq_service(page_number, page_size, search_value, sort_by, sort_as):
+        """
+        Retrieve all FAQs with pagination, searching, and sorting.
+
+
+        Request:
+            page_number (int): Current page number.
+            page_size (int): Number of FAQs per page.
+            search_value (str): Search keyword to filter FAQs.
+            sort_by (str): Field name to sort the FAQs.
+            sort_as (str): Sort order direction ('asc' or 'desc').
+
+        Response:
+            dict: Standardized response including:
+                - HTTP status code
+                - Message
+                - Success flag
+                - Data containing paginated FAQ items or empty dict if none found.
+
+        Purpose:
+            To fetch FAQs in a paginated manner with optional search and sorting,
+            facilitating efficient data retrieval for client applications.
+
+        Company Name:
+            Softvan Pvt Ltd
+        """
         try:
             result = FaqDAO.get_all_faq_dao(
                 page_number=page_number,
@@ -79,12 +136,31 @@ class FaqService:
             )
 
         except Exception as exception:
-            logger.exception("Error fetching all faq")
             return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
     def delete_faq_service(faq_id):
-        """Soft delete a faq by ID."""
+        """
+        Perform a soft delete on a FAQ by its ID.
+
+
+        Request:
+            faq_id (int): Unique identifier of the FAQ to be soft deleted.
+
+        Response:
+            dict: Response indicating success or failure with:
+                - HTTP status code
+                - Message
+                - Success flag
+                - Data containing the updated FAQ object marked as deleted.
+
+        Purpose:
+            To mark a FAQ record as deleted without physical removal,
+            maintaining historical integrity of the data.
+
+        Company Name:
+            Softvan Pvt Ltd
+        """
         try:
             delete_faq_data = FaqDAO.delete_faq_dao(faq_id)
 
@@ -107,12 +183,30 @@ class FaqService:
             )
 
         except Exception as exception:
-            logger.exception("Error deleting faq with ID: %s", faq_id)
             return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
     def get_faq_by_id_service(faq_id):
-        """Retrieve faq details for a given ID."""
+        """
+        Retrieve detailed FAQ information by ID.
+
+        Request:
+            faq_id (int): Identifier of the FAQ to retrieve.
+
+        Response:
+            dict: Response with:
+                - HTTP status code
+                - Message
+                - Success flag
+                - Data containing the FAQ details or empty dict if not found.
+
+        Purpose:
+            To fetch the full FAQ details for a given FAQ ID,
+            ensuring the record exists before returning.
+
+        Company Name:
+            Softvan Pvt Ltd
+        """
         try:
             faq_detail = FaqDAO.get_faq_by_id_dao(faq_id)
 
@@ -133,11 +227,34 @@ class FaqService:
             )
 
         except Exception as exception:
-            logger.exception("Error retrieving faq with ID: %s", faq_id)
             return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
     def update_faq_service(faq_dto):
+        """
+        Update an existing FAQ entry.
+
+        Request:
+            faq_dto (object): DTO with FAQ update information including:
+                - faq_id: int (mandatory for update)
+                - country_id: int (optional)
+                - faq_title: str (optional)
+                - faq_description: str (optional)
+
+        Response:
+            dict: Structured response with:
+                - HTTP status code
+                - Message
+                - Success flag
+                - Data containing updated FAQ object or empty dict on failure.
+
+        Purpose:
+            To modify the details of an existing FAQ,
+            validating referenced country and persisting updates.
+
+        Company Name:
+            Softvan Pvt Ltd
+        """
         try:
             existing_faq = FaqDAO.get_faq_by_id_dao(faq_dto.faq_id)
 
@@ -153,8 +270,7 @@ class FaqService:
                 existing_faq.faq_id = faq_dto.faq_id
 
             if faq_dto.country_id is not None:
-                country_vo = CountryDAO.get_country_by_id_dao(
-                    faq_dto.country_id)
+                country_vo = CountryDAO.get_country_by_id_dao(faq_dto.country_id)
                 if not country_vo:
                     return AppServices.app_response(
                         HttpStatusCodeEnum.NOT_FOUND,
@@ -171,7 +287,7 @@ class FaqService:
             if faq_dto.faq_description is not None:
                 existing_faq.faq_description = faq_dto.faq_description
 
-            # Step 3: Persist updated data
+            # Persist updated data
             updated_faq = FaqDAO.update_faq_dao(existing_faq)
 
             if not updated_faq:
@@ -191,5 +307,4 @@ class FaqService:
             )
 
         except Exception as exception:
-            logger.exception("Error updating faq")
             return AppServices.handle_exception(exception, is_raise=True)

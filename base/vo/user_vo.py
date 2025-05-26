@@ -20,9 +20,9 @@ class UserVO(Base, StatusMixin, TimestampMixin):
 
     user_country_id = Column(
         Integer,
-        ForeignKey("country_table.country_id", ondelete="CASCADE",
-                   onupdate="CASCADE"),
-        nullable=False, )
+        ForeignKey("country_table.country_id", ondelete="CASCADE", onupdate="CASCADE"),
+        nullable=False,
+    )
 
     user_country_name = Column(String(50), nullable=False)
 

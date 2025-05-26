@@ -9,10 +9,20 @@ logger = get_logger()
 
 
 class RuleService:
+    """
+    RuleService Layer
+
+    Company: Softvan Pvt Ltd
+    """
 
     @staticmethod
     def insert_rule_service(rule_dto):
-
+        """
+        Request: rule_dto (includes rule_title, rule_description, country_id)
+        Response: JSON response with inserted rule data or error
+        Purpose: Insert a new rule after validating the provided country_id
+        Company: Softvan Pvt Ltd
+        """
         try:
             country_vo = CountryDAO.get_country_by_id_dao(rule_dto.country_id)
             if not country_vo:
@@ -48,12 +58,16 @@ class RuleService:
             )
 
         except Exception as exception:
-            logger.exception("Error inserting rule")
             return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
-    def get_all_rule_service(page_number, page_size, search_value, sort_by,
-                             sort_as):
+    def get_all_rule_service(page_number, page_size, search_value, sort_by, sort_as):
+        """
+        Request: page_number, page_size, search_value, sort_by, sort_as
+        Response: Paginated JSON response with list of rules or error
+        Purpose: Retrieve all rules with search, pagination, and sorting support
+        Company: Softvan Pvt Ltd
+        """
         try:
             result = RuleDAO.get_all_rule_dao(
                 page_number=page_number,
@@ -79,12 +93,16 @@ class RuleService:
             )
 
         except Exception as exception:
-            logger.exception("Error fetching all rule")
             return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
     def delete_rule_service(rule_id):
-        """Soft delete a rule by ID."""
+        """
+        Request: rule_id
+        Response: JSON response confirming soft deletion or failure
+        Purpose: Perform soft delete of a rule by marking `is_deleted` as True
+        Company: Softvan Pvt Ltd
+        """
         try:
             delete_rule_data = RuleDAO.delete_rule_dao(rule_id)
 
@@ -107,12 +125,16 @@ class RuleService:
             )
 
         except Exception as exception:
-            logger.exception("Error deleting rule with ID: %s", rule_id)
             return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
     def get_rule_by_id_service(rule_id):
-        """Retrieve rule details for a given ID."""
+        """
+        Request: rule_id
+        Response: JSON response with rule detail or error
+        Purpose: Fetch specific rule detail using unique rule ID
+        Company: Softvan Pvt Ltd
+        """
         try:
             rule_detail = RuleDAO.get_rule_by_id_dao(rule_id)
 
@@ -133,11 +155,16 @@ class RuleService:
             )
 
         except Exception as exception:
-            logger.exception("Error retrieving rule with ID: %s", rule_id)
             return AppServices.handle_exception(exception, is_raise=True)
 
     @staticmethod
     def update_rule_service(rule_dto):
+        """
+        Request: rule_dto (includes rule_id, updated title/description/country_id)
+        Response: JSON response with updated rule data or error
+        Purpose: Update an existing rule with new details and country mapping
+        Company: Softvan Pvt Ltd
+        """
         try:
             existing_rule = RuleDAO.get_rule_by_id_dao(rule_dto.rule_id)
 
@@ -153,8 +180,7 @@ class RuleService:
                 existing_rule.rule_id = rule_dto.rule_id
 
             if rule_dto.country_id is not None:
-                country_vo = CountryDAO.get_country_by_id_dao(
-                    rule_dto.country_id)
+                country_vo = CountryDAO.get_country_by_id_dao(rule_dto.country_id)
                 if not country_vo:
                     return AppServices.app_response(
                         HttpStatusCodeEnum.NOT_FOUND,
@@ -171,7 +197,6 @@ class RuleService:
             if rule_dto.rule_description is not None:
                 existing_rule.rule_description = rule_dto.rule_description
 
-            # Step 3: Persist updated data
             updated_rule = RuleDAO.update_rule_dao(existing_rule)
 
             if not updated_rule:
@@ -191,5 +216,4 @@ class RuleService:
             )
 
         except Exception as exception:
-            logger.exception("Error updating rule")
             return AppServices.handle_exception(exception, is_raise=True)

@@ -10,10 +10,25 @@ engine = database.get_db_connection()
 
 
 class MysqlCommonQuery:
-    """Generic MySQL repository for common database operations."""
+    """Generic MySQL repository for common database operations.
+
+    Company Name: Softvan Pvt Ltd
+    """
 
     @staticmethod
     def insert_query(create_object):
+        """
+        Purpose:
+            Insert a new record into the database.
+
+        Request:
+            create_object: SQLAlchemy ORM object to be inserted.
+
+        Response:
+            Returns the inserted object with refreshed state from the database.
+
+        Company Name: Softvan Pvt Ltd
+        """
         session = database.get_db_session(engine)
         try:
             session.add(create_object)
@@ -26,7 +41,18 @@ class MysqlCommonQuery:
 
     @staticmethod
     def get_all_query(table_name):
-        """Retrieve all non-deleted entities of a given model."""
+        """
+        Purpose:
+            Retrieve all non-deleted records from the specified table.
+
+        Request:
+            table_name: SQLAlchemy ORM model class representing the table.
+
+        Response:
+            List of all records where is_deleted is False.
+
+        Company Name: Softvan Pvt Ltd
+        """
         session = database.get_db_session(engine)
         table_data = (
             session.query(table_name).filter(
@@ -36,6 +62,20 @@ class MysqlCommonQuery:
 
     @staticmethod
     def soft_delete_query(table_name, table_id, entity_id):
+        """
+        Purpose:
+            Soft delete a record by setting its 'is_deleted' flag to True.
+
+        Request:
+            table_name: SQLAlchemy ORM model class representing the table.
+            table_id: ORM column representing the primary key.
+            entity_id: ID of the record to soft delete.
+
+        Response:
+            Returns the updated record after soft deletion.
+
+        Company Name: Softvan Pvt Ltd
+        """
         session = database.get_db_session(engine)
         table_data = (
             session.query(table_name)
@@ -48,7 +88,20 @@ class MysqlCommonQuery:
 
     @staticmethod
     def get_by_id_query(table_name, table_id, entity_id):
-        """Retrieve an entity by its ID, excluding soft-deleted entities."""
+        """
+        Purpose:
+            Retrieve a single record by its primary key excluding soft-deleted entries.
+
+        Request:
+            table_name: SQLAlchemy ORM model class representing the table.
+            table_id: ORM column representing the primary key.
+            entity_id: ID of the record to retrieve.
+
+        Response:
+            The matching record or None if not found.
+
+        Company Name: Softvan Pvt Ltd
+        """
         session = database.get_db_session(engine)
         table_data = (
             session.query(table_name)
@@ -59,7 +112,18 @@ class MysqlCommonQuery:
 
     @staticmethod
     def update_query(update_record):
-        """Commit updates to an existing entity."""
+        """
+        Purpose:
+            Update an existing record in the database.
+
+        Request:
+            update_record: ORM object with updated fields.
+
+        Response:
+            Returns the updated record after commit.
+
+        Company Name: Softvan Pvt Ltd
+        """
         session = database.get_db_session(engine)
         session.merge(update_record)
         session.flush()
@@ -69,11 +133,27 @@ class MysqlCommonQuery:
 
     @staticmethod
     def get_record_by_field(model, field_name, value):
+        """
+        Purpose:
+            Retrieve a single record matching a specific field value.
+
+        Request:
+            model: SQLAlchemy ORM model class.
+            field_name: String name of the field to filter by.
+            value: Value to match in the field.
+
+        Response:
+            The matching record or None if not found.
+
+        Company Name: Softvan Pvt Ltd
+        """
         session = database.get_db_session(engine)
         user_data = (
             session.query(model).filter(
-                getattr(model, field_name) == value).first()
+                getattr(model, field_name) == value).filter(
+                model.is_deleted == False).first()
         )
+        print(f"user_data{user_data}")
         session.close()
         return user_data
 
@@ -81,6 +161,21 @@ class MysqlCommonQuery:
     def update_login_status(
             model_class, table_id, model_id, current_login_status: bool
     ):
+        """
+        Purpose:
+            Update the login status of a user.
+
+        Request:
+            model_class: ORM model class representing the user.
+            table_id: ORM primary key column.
+            model_id: ID of the user to update.
+            current_login_status: Boolean status to set.
+
+        Response:
+            Returns the updated user object.
+
+        Company Name: Softvan Pvt Ltd
+        """
         session = database.get_db_session(engine)
 
         existing_user = session.query(model_class).filter(
@@ -95,6 +190,27 @@ class MysqlCommonQuery:
 
     @staticmethod
     def get_all_with_filters(page_info):
+        """
+        Purpose:
+            Retrieve paginated, searchable, and sortable records from a table.
+
+        Request:
+            page_info: Dictionary containing
+                - model: ORM model class
+                - search_fields: list of field names to search
+                - search_value: search string
+                - page_number: current page number
+                - page_size: number of records per page
+                - sort_by: field name to sort by
+                - sort_as: 'asc' or 'desc'
+
+        Response:
+            Dictionary with
+                - items: list of retrieved records
+                - page_info: pagination metadata
+
+        Company Name: Softvan Pvt Ltd
+        """
         session = database.get_db_session(engine)
 
         model = page_info["model"]
@@ -140,6 +256,21 @@ class MysqlCommonQuery:
     @staticmethod
     def fetch_email_by_login_username(register_vo, login_vo, username,
                                       loginId):
+        """
+        Purpose:
+            Fetch the registered email address for a given login username.
+
+        Request:
+            register_vo: ORM model representing registration information.
+            login_vo: ORM model representing login information.
+            username: Username string to query.
+            loginId: Relationship key between register_vo and login_vo.
+
+        Response:
+            Tuple containing the email or None.
+
+        Company Name: Softvan Pvt Ltd
+        """
         session = database.get_db_session(engine)
         result = (
             session.query(register_vo.register_email)
@@ -152,6 +283,18 @@ class MysqlCommonQuery:
 
     @staticmethod
     def get_country_id_by_name(name: str):
+        """
+        Purpose:
+            Retrieve country ID by country name.
+
+        Request:
+            name: String name of the country.
+
+        Response:
+            Integer country_id if found; otherwise None.
+
+        Company Name: Softvan Pvt Ltd
+        """
         session = database.get_db_session(engine)
         try:
             country = (
@@ -164,6 +307,20 @@ class MysqlCommonQuery:
 
     @staticmethod
     def get_role(table, pk_column, value):
+        """
+        Purpose:
+            Retrieve a role record by its primary key value.
+
+        Request:
+            table: ORM model class representing roles.
+            pk_column: Primary key column of the table.
+            value: Value to search for.
+
+        Response:
+            The matching role record or None.
+
+        Company Name: Softvan Pvt Ltd
+        """
         session = database.get_db_session(engine)
         result = session.query(table).filter(pk_column == value).first()
         return result
@@ -171,19 +328,22 @@ class MysqlCommonQuery:
     @staticmethod
     def get_by_membership_id(table_name, membership_id):
         """
-        Retrieve a database record by membership ID.
-        Author: Tarun Mondal
-        Designation: Software Engineer
+        Purpose:
+            Retrieve a record by membership ID.
 
-        Args:
-            table_name: The table representing the database entity.
-            membership_id: The membership ID to search for.
+        Request:
+            table_name: ORM model class representing the table.
+            membership_id: Membership ID to search for.
 
-        Returns:
-            The retrieved database record or None if not found.
+        Response:
+            The matching record or None if not found.
+
+        Company Name: Softvan Pvt Ltd
         """
         session = database.get_db_session(engine)
-        db_data = session.query(table_name).filter_by(
-            membership_id=membership_id).first()
+        db_data = (
+            session.query(table_name).filter_by(
+                membership_id=membership_id).first()
+        )
 
         return db_data

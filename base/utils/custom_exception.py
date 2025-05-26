@@ -2,7 +2,7 @@
 import logging
 import sys
 
-from django.db.utils import IntegrityError
+from pymysql import IntegrityError
 
 from base.custom_enum.http_enum import ResponseMessageEnum, HttpStatusCodeEnum
 

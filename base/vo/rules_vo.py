@@ -20,8 +20,7 @@ class RuleVO(Base, StatusMixin, TimestampMixin):
     rule_id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     rule_country_id = Column(
         Integer,
-        ForeignKey("country_table.country_id", onupdate="CASCADE",
-                   ondelete="RESTRICT"),
+        ForeignKey("country_table.country_id", onupdate="CASCADE", ondelete="RESTRICT"),
         nullable=False,
     )
     rule_country_name = Column(String(500), nullable=False)

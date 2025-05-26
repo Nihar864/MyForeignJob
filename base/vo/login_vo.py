@@ -18,8 +18,7 @@ class AdminVO(Base, StatusMixin, TimestampMixin):
     username = Column(String(500), nullable=False)
     password = Column(String(500), nullable=False)
     role = Column(
-        Integer,
-        ForeignKey(RoleVO.role_id, ondelete="CASCADE", onupdate="CASCADE")
+        Integer, ForeignKey(RoleVO.role_id, ondelete="CASCADE", onupdate="CASCADE")
     )
 
     @staticmethod
