@@ -48,6 +48,15 @@ class FaqService:
             Softvan Pvt Ltd
         """
         try:
+            existing_faq = FaqDAO.check_existing_faq(faq_dto.faq_title)
+            if existing_faq:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.BAD_REQUEST.value,
+                    f"The faq title '{faq_dto.faq_title}' is already in use. Please choose a different title.",
+                    success=False,
+                    data={},
+                )
+
             country_vo = CountryDAO.get_country_by_id_dao(faq_dto.country_id)
             if not country_vo:
                 return AppServices.app_response(

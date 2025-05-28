@@ -24,7 +24,9 @@ class UserDAO:
 
         Company Name: Softvan Pvt Ltd
         """
-        get_data = MysqlCommonQuery.get_record_by_field(UserVO, "user_phone", phone_number)
+        get_data = MysqlCommonQuery.get_record_by_field(
+            UserVO, "user_phone", phone_number
+        )
         return get_data
 
     @staticmethod
@@ -81,7 +83,12 @@ class UserDAO:
         """
         page_info = {
             "model": UserVO,
-            "search_fields": ["user_name", "user_email", "user_phone", "user_country_name"],
+            "search_fields": [
+                "user_name",
+                "user_email",
+                "user_phone",
+                "user_country_name",
+            ],
             "page_number": page_number,
             "page_size": page_size,
             "search_value": search_value,
@@ -104,7 +111,9 @@ class UserDAO:
 
         Company Name: Softvan Pvt Ltd
         """
-        user_data = MysqlCommonQuery.soft_delete_query(UserVO, UserVO.user_id, target_id)
+        user_data = MysqlCommonQuery.soft_delete_query(
+            UserVO, UserVO.user_id, target_id
+        )
         return user_data
 
     @staticmethod

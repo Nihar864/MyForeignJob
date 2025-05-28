@@ -45,7 +45,9 @@ class SocialMediaDAO:
         return social_media_country_id
 
     @staticmethod
-    def get_all_social_media_dao(page_number, page_size, search_value, sort_by, sort_as):
+    def get_all_social_media_dao(
+        page_number, page_size, search_value, sort_by, sort_as
+    ):
         """
         Request:
             page_number (int): Pagination page number.
@@ -127,3 +129,27 @@ class SocialMediaDAO:
         """
         social_media_data = MysqlCommonQuery.update_query(social_media_vo)
         return social_media_data
+
+    @staticmethod
+    def check_existing_social_media(social_media_title):
+        """
+        Check if a social_media with the given title already exists.
+
+        Request:
+            - social_media_title (str): The title to check for existing social_medias
+
+        Response:
+            - social_mediaVO object if social_media exists
+            - None if no matching social_media found
+
+        Purpose:
+            - Prevent duplicate social_media entries
+            - Validate uniqueness of social_media titles
+
+        Company Name:
+            - Softvan Pvt Ltd
+        """
+        get_data = MysqlCommonQuery.get_record_by_field(
+            SocialMediaVO, "social_media_title", social_media_title
+        )
+        return get_data

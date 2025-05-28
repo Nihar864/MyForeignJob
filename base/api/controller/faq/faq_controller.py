@@ -19,12 +19,11 @@ faq_router = APIRouter(
 
 
 @faq_router.post("/add")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def insert_faq_controller(
-        resposne, Response,
-        request: Request,
-        faq_dto: FaqDTO,
-        response: Response,
+    request: Request,
+    faq_dto: FaqDTO,
+    response: Response,
 ):
     """
     Request:
@@ -65,12 +64,12 @@ def insert_faq_controller(
 @faq_router.get("/all")
 # @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def view_faq_controller(
-        request: Request,
-        page_number: int = Query(1, ge=1),
-        page_size: int = Query(10, ge=1),
-        search_value: str = "",
-        sort_by: str = "faq_title",
-        sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
+    request: Request,
+    page_number: int = Query(1, ge=1),
+    page_size: int = Query(10, ge=1),
+    search_value: str = "",
+    sort_by: str = "faq_title",
+    sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
 ):
     """
     Request:
@@ -101,7 +100,7 @@ def view_faq_controller(
 
 
 @faq_router.delete("/faq-id")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def delete_faq_controller(response: Response, request: Request, faq_id):
     """
     Request:
@@ -129,9 +128,8 @@ def delete_faq_controller(response: Response, request: Request, faq_id):
 
 
 @faq_router.get("/faq-id")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
-def get_faq_by_id_controller(response: Response, request: Request,
-                             faq_id: int):
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def get_faq_by_id_controller(response: Response, request: Request, faq_id: int):
     """
         Request:
         - Path Parameter:
@@ -149,7 +147,7 @@ def get_faq_by_id_controller(response: Response, request: Request,
     """
     try:
         response_payload = FaqService.get_faq_by_id_service(faq_id)
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Fetched faq details: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -157,11 +155,11 @@ def get_faq_by_id_controller(response: Response, request: Request,
 
 
 @faq_router.put("/update")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def update_faq_controller(
-        response: Response,
-        request: Request,
-        faq_dto: UpdateFaqDTO,
+    response: Response,
+    request: Request,
+    faq_dto: UpdateFaqDTO,
 ):
     """
     Request:
@@ -183,7 +181,7 @@ def update_faq_controller(
     """
     try:
         response_payload = FaqService.update_faq_service(faq_dto)
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Updated job with ID: {response_payload}")
         return response_payload
     except Exception as exception:

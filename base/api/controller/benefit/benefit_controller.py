@@ -20,14 +20,14 @@ benefit_router = APIRouter(
 
 # Insert benefit
 @benefit_router.post("/add")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def insert_benefit_controller(
-        response: Response,
-        request: Request,
-        country_id: int = Form(...),
-        benefit_title: str = Form(...),
-        benefit_description: str = Form(...),
-        # benefit_image: UploadFile = File(...),
+    response: Response,
+    request: Request,
+    country_id: int = Form(...),
+    benefit_title: str = Form(...),
+    benefit_description: str = Form(...),
+    # benefit_image: UploadFile = File(...),
 ):
     """
     Insert a new benefit into the system.
@@ -53,6 +53,7 @@ def insert_benefit_controller(
             country_id, benefit_title, benefit_description
         )
         response.status_code = response_payload.get("status_code")
+        print(">>>>>>>>", response.status_code)
         logger.info(f"benefit inserted: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -60,14 +61,14 @@ def insert_benefit_controller(
 
 
 @benefit_router.get("/all")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def view_benefit_controller(
-        request: Request,
-        page_number: int = Query(1, ge=1),
-        page_size: int = Query(10, ge=1),
-        search_value: str = "",
-        sort_by: str = "benefit_title",
-        sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
+    request: Request,
+    page_number: int = Query(1, ge=1),
+    page_size: int = Query(10, ge=1),
+    search_value: str = "",
+    sort_by: str = "benefit_title",
+    sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
 ):
     """
     Retrieve all benefits with pagination and filtering options.
@@ -100,9 +101,8 @@ def view_benefit_controller(
 
 
 @benefit_router.delete("/benefit-id")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
-def delete_benefit_controller(response: Response, request: Request,
-                              benefit_id):
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def delete_benefit_controller(response: Response, request: Request, benefit_id):
     """
     Delete a specific benefit by its ID.
 
@@ -129,10 +129,8 @@ def delete_benefit_controller(response: Response, request: Request,
 
 
 @benefit_router.get("/benefit-id")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
-def get_benefit_by_id_controller(response: Response,
-                                 request: Request,
-                                 benefit_id: (int)):
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def get_benefit_by_id_controller(response: Response, request: Request, benefit_id: int):
     """
     Retrieve a specific benefit by its ID.
 
@@ -152,7 +150,7 @@ def get_benefit_by_id_controller(response: Response,
     try:
         logger.info(f"Fetching benefit details for ID: {benefit_id}")
         response_payload = BenefitService.get_benefit_by_id_service(benefit_id)
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Fetched benefit details: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -160,15 +158,15 @@ def get_benefit_by_id_controller(response: Response,
 
 
 @benefit_router.put("/update")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def update_benefit_controller(
-        response: Response,
-        request: Request,
-        benefit_id: int = Form(...),
-        country_id: Optional[int] = Form(None),
-        benefit_title: Optional[str] = Form(None),
-        benefit_description: Optional[str] = Form(None),
-        # benefit_image: Optional[UploadFile] = File(None),
+    response: Response,
+    request: Request,
+    benefit_id: int = Form(...),
+    country_id: Optional[int] = Form(None),
+    benefit_title: Optional[str] = Form(None),
+    benefit_description: Optional[str] = Form(None),
+    # benefit_image: Optional[UploadFile] = File(None),
 ):
     """
     Update an existing benefit's information.
@@ -197,7 +195,7 @@ def update_benefit_controller(
             benefit_title=benefit_title,
             benefit_description=benefit_description,
         )
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Updated benefit with ID: {response_payload}")
         return response_payload
     except Exception as exception:

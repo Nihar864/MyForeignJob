@@ -123,3 +123,25 @@ class JobDAO:
         """
         job_data = MysqlCommonQuery.update_query(job_vo)
         return job_data
+
+    @staticmethod
+    def check_existing_job(job_title):
+        """
+        Check if a job with the given title already exists.
+
+        Request:
+            - job_title (str): The title to check for existing jobs
+
+        Response:
+            - JobVO object if job exists
+            - None if no matching job found
+
+        Purpose:
+            - Prevent duplicate job entries
+            - Validate uniqueness of job titles
+
+        Company Name:
+            - Softvan Pvt Ltd
+        """
+        get_data = MysqlCommonQuery.get_record_by_field(JobVO, "job_title", job_title)
+        return get_data

@@ -1,7 +1,5 @@
 import os
-from configparser import ConfigParser, NoSectionError
-from sqlalchemy import create_engine
-
+from configparser import ConfigParser
 
 # Initialize config parser
 configure = ConfigParser()
@@ -20,10 +18,10 @@ if not os.path.exists(CONFIG_PATH):
 # Load the config file
 configure.read(CONFIG_PATH)
 
+
 # Now load the configuration values
 class Constant:
     # try:
-    DB_SCHEME = configure.get("DB_CONFIG", "db_scheme")
     DB_USERNAME = configure.get("DB_CONFIG", "db_username")
     DB_PASSWORD = configure.get("DB_CONFIG", "db_password")
     DB_HOST = configure.get("DB_CONFIG", "db_host")
@@ -32,12 +30,9 @@ class Constant:
 
     ACCESS_TOKEN = configure.get("TOKEN_CONFIG", "ACCESS_TOKEN")
     REFRESH_TOKEN = configure.get("TOKEN_CONFIG", "REFRESH_TOKEN")
-    ACCESS_TOKEN_EXP = int(
-        configure.get("TOKEN_CONFIG", "ACCESS_TOKEN_EXP"))
-    REFRESH_TOKEN_EXP = int(
-        configure.get("TOKEN_CONFIG", "REFRESH_TOKEN_EXP"))
-    TIME_OUT_MAX_AGE = int(
-        configure.get("TOKEN_CONFIG", "TIME_OUT_MAX_AGE"))
+    ACCESS_TOKEN_EXP = int(configure.get("TOKEN_CONFIG", "ACCESS_TOKEN_EXP"))
+    REFRESH_TOKEN_EXP = int(configure.get("TOKEN_CONFIG", "REFRESH_TOKEN_EXP"))
+    TIME_OUT_MAX_AGE = int(configure.get("TOKEN_CONFIG", "TIME_OUT_MAX_AGE"))
 
     ENCODING = configure.get("SECURITY_CONFIG", "ENCODING")
     HASH_ALGORITHM = configure.get("SECURITY_CONFIG", "HASH_ALGORITHM")

@@ -24,6 +24,16 @@ class RuleService:
         Company: Softvan Pvt Ltd
         """
         try:
+            existing_rule = RuleDAO.check_existing_rule(rule_dto.rule_title)
+            if existing_rule:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.NOT_FOUND,
+                    f"The rule Title '{rule_dto.rule_title}' is already in use. "
+                    f"Please choose a different Title.",
+                    success=False,
+                    data={},
+                )
+
             country_vo = CountryDAO.get_country_by_id_dao(rule_dto.country_id)
             if not country_vo:
                 return AppServices.app_response(
@@ -166,12 +176,12 @@ class RuleService:
         Company: Softvan Pvt Ltd
         """
         try:
-            existing_rule = RuleDAO.get_rule_by_id_dao(rule_dto.rule_id)
-
-            if not existing_rule:
+            existing_rule = RuleDAO.check_existing_rule(rule_dto.rule_title)
+            if existing_rule:
                 return AppServices.app_response(
-                    HttpStatusCodeEnum.BAD_REQUEST.value,
-                    ResponseMessageEnum.NOT_FOUND.value,
+                    HttpStatusCodeEnum.NOT_FOUND,
+                    f"The rule Title '{rule_dto.rule_title}' is already in use. "
+                    f"Please choose a different Title.",
                     success=False,
                     data={},
                 )

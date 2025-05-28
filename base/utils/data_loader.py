@@ -44,13 +44,15 @@ def get_connection_cursor():
 
     Company Name: Softvan Pvt Ltd
     """
+    connection = mysql.connector.connect()
     conn = mysql.connector.connect(
         host=constant.DB_HOST,
-        port=constant.DB_PORT,
+        port=3307,
         user=constant.DB_USERNAME,
         password=constant.DB_PASSWORD,
         database=constant.DB_NAME,
     )
+    print(f"Connected to MySQL database: {conn}")
     return conn.cursor(), conn
 
 

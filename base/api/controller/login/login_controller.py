@@ -15,6 +15,7 @@ login_router = APIRouter(
     responses={404: {"description": "API Endpoint Not Found"}},
 )
 
+
 @login_router.post("/login")
 async def member_login(login_dto: LoginDTO, response: Response):
     """
@@ -45,6 +46,7 @@ async def member_login(login_dto: LoginDTO, response: Response):
             )
 
         response_payload = LoginService.login_service(login_dto)
+        print("respomse_payload",response_payload)
         logger.info(f"Response for login is {response_payload}")
         return response_payload
     except Exception as exception:
@@ -53,7 +55,9 @@ async def member_login(login_dto: LoginDTO, response: Response):
 
 @login_router.put("/update_password")
 @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
-async def update_password(request: Request, password_dto: PasswordDTO, response: Response):
+async def update_password(
+    request: Request, password_dto: PasswordDTO, response: Response
+):
     """
     PUT /auth/update_password
 
@@ -79,7 +83,7 @@ async def update_password(request: Request, password_dto: PasswordDTO, response:
         password_dto_dict["username"] = username
 
         response_payload = LoginService.update_password_service(password_dto_dict)
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Updated password for user: {username}")
         return response_payload
     except Exception as exception:

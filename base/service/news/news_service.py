@@ -35,6 +35,16 @@ class NewsService:
             Softvan Pvt Ltd
         """
         try:
+            existing_news = NewsDAO.check_existing_news(news_dto.news_title)
+            if existing_news:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.NOT_FOUND,
+                    f"The news Title '{news_dto.news_title}' is already in use. "
+                    f"Please choose a different Title.",
+                    success=False,
+                    data={},
+                )
+
             country_vo = CountryDAO.get_country_by_id_dao(news_dto.country_id)
             if not country_vo:
                 return AppServices.app_response(
@@ -217,16 +227,15 @@ class NewsService:
             Softvan Pvt Ltd
         """
         try:
-            existing_news = NewsDAO.get_news_by_id_dao(news_dto.news_id)
-
-            if not existing_news:
+            existing_news = NewsDAO.check_existing_news(news_dto.news_title)
+            if existing_news:
                 return AppServices.app_response(
-                    HttpStatusCodeEnum.BAD_REQUEST.value,
-                    ResponseMessageEnum.NOT_FOUND.value,
+                    HttpStatusCodeEnum.NOT_FOUND,
+                    f"The news Title '{news_dto.news_title}' is already in use. "
+                    f"Please choose a different Title.",
                     success=False,
                     data={},
                 )
-
             if news_dto.news_id is not None:
                 existing_news.news_id = news_dto.news_id
 

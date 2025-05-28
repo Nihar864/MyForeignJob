@@ -13,6 +13,7 @@ DB_PORT = constant.DB_PORT
 DB_NAME = constant.DB_NAME
 
 MYSQL_URL = f"mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?charset=utf8"
+print(f"MYSQL_URL = {MYSQL_URL}")
 POOL_SIZE = 10
 POOL_RECYCLE = 3600
 POOL_TIMEOUT = 15
@@ -48,7 +49,9 @@ class Database:
                     connect_args=connect_args,
                     pool_pre_ping=POOL_PRE_PING,
                 )
-                print(f"[✅] Database connection successfully established at: {MYSQL_URL}")
+                print(
+                    f"[✅] Database connection successfully established at: {MYSQL_URL}"
+                )
                 self.connection_is_active = True
             except Exception as exception:
                 AppServices.handle_exception(exception, is_raise=True)

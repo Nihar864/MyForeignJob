@@ -12,7 +12,7 @@ class FaqVO(Base, StatusMixin, TimestampMixin):
     __tablename__ = "faq_table"
 
     faq_id = Column(Integer, primary_key=True, index=True)
-    faq_title = Column(String(500), unique=True, index=True, nullable=False)
+    faq_title = Column(String(500), index=True, nullable=False)
     faq_country_id = Column(
         Integer,
         ForeignKey("country_table.country_id", ondelete="CASCADE", onupdate="CASCADE"),

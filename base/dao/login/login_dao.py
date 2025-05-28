@@ -111,4 +111,3 @@ class AuthLoginDAO:
         """
         user_data = MysqlCommonQuery.update_query(login_vo)
         return user_data
-

@@ -19,11 +19,11 @@ rule_router = APIRouter(
 
 
 @rule_router.post("/add")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def insert_rule_controller(
-        request: Request,
-        rule_dto: RuleDTO,
-        response: Response,
+    request: Request,
+    rule_dto: RuleDTO,
+    response: Response,
 ):
     """
     Request: Accepts RuleDTO object containing rule information.
@@ -56,12 +56,12 @@ def insert_rule_controller(
 @rule_router.get("/all")
 # @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def view_rule_controller(
-        request: Request,
-        page_number: int = Query(1, ge=1),
-        page_size: int = Query(10, ge=1),
-        search_value: str = "",
-        sort_by: str = "rule_title",
-        sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
+    request: Request,
+    page_number: int = Query(1, ge=1),
+    page_size: int = Query(10, ge=1),
+    search_value: str = "",
+    sort_by: str = "rule_title",
+    sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
 ):
     """
     Request: Query parameters for page_number, page_size, search_value, sort_by, and sort_as.
@@ -82,7 +82,7 @@ def view_rule_controller(
 
 
 @rule_router.delete("/{rule-id}")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def delete_rule_controller(response: Response, request: Request, rule_id):
     """
     Request: Path parameter rule_id representing the ID of the rule to be deleted.
@@ -95,7 +95,7 @@ def delete_rule_controller(response: Response, request: Request, rule_id):
     """
     try:
         response_payload = RuleService.delete_rule_service(rule_id)
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Deleted rule with ID: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -103,9 +103,8 @@ def delete_rule_controller(response: Response, request: Request, rule_id):
 
 
 @rule_router.get("/{rule-id}")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
-def get_rule_by_id_controller(response:Response,request: Request, rule_id:
-int):
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def get_rule_by_id_controller(response: Response, request: Request, rule_id: int):
     """
     Request: Path parameter rule_id to fetch the corresponding rule.
 
@@ -118,7 +117,7 @@ int):
     try:
         logger.info(f"Fetching rule details for ID: {rule_id}")
         response_payload = RuleService.get_rule_by_id_service(rule_id)
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Fetched rule details: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -126,11 +125,11 @@ int):
 
 
 @rule_router.put("/update")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def update_rule_controller(
-        response: Response,
-        request: Request,
-        rule_dto: UpdateRuleDTO,
+    response: Response,
+    request: Request,
+    rule_dto: UpdateRuleDTO,
 ):
     """
     Request: Accepts UpdateRuleDTO containing updated rule information.
@@ -143,7 +142,7 @@ def update_rule_controller(
     """
     try:
         response_payload = RuleService.update_rule_service(rule_dto)
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Updated job with ID: {response_payload}")
         return response_payload
     except Exception as exception:

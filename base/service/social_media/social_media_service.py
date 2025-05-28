@@ -27,8 +27,19 @@ class SocialMediaService:
             Softvan Pvt Ltd
         """
         try:
-            country_vo = CountryDAO.get_country_by_id_dao(
-                social_media_dto.country_id)
+            existing_social_media = SocialMediaDAO.check_existing_social_media(
+                social_media_dto.social_media_title
+            )
+            if existing_social_media:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.NOT_FOUND,
+                    f"The social_media Title '{social_media_dto.social_media_title}' is already in use. "
+                    f"Please choose a different Title.",
+                    success=False,
+                    data={},
+                )
+
+            country_vo = CountryDAO.get_country_by_id_dao(social_media_dto.country_id)
             if not country_vo:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.NOT_FOUND,
@@ -59,8 +70,7 @@ class SocialMediaService:
                     data={},
                 )
 
-            logger.info("Inserted social media: %s",
-                        social_media_vo.social_media_title)
+            logger.info("Inserted social media: %s", social_media_vo.social_media_title)
             return AppServices.app_response(
                 HttpStatusCodeEnum.OK.value,
                 ResponseMessageEnum.INSERT_DATA.value,
@@ -73,7 +83,7 @@ class SocialMediaService:
 
     @staticmethod
     def get_all_social_media_service(
-            page_number, page_size, search_value, sort_by, sort_as
+        page_number, page_size, search_value, sort_by, sort_as
     ):
         """
         Request:
@@ -191,8 +201,7 @@ class SocialMediaService:
                     data={},
                 )
 
-            logger.info("Fetched social_media detail for ID: %s",
-                        social_media_id)
+            logger.info("Fetched social_media detail for ID: %s", social_media_id)
             return AppServices.app_response(
                 HttpStatusCodeEnum.ACCEPTED.value,
                 ResponseMessageEnum.GET_DATA.value,
@@ -220,14 +229,14 @@ class SocialMediaService:
             Softvan Pvt Ltd
         """
         try:
-            existing_social_media = SocialMediaDAO.get_social_media_by_id_dao(
-                social_media_dto.social_media_id
+            existing_social_media = SocialMediaDAO.check_existing_social_media(
+                social_media_dto.social_media_title
             )
-
-            if not existing_social_media:
+            if existing_social_media:
                 return AppServices.app_response(
-                    HttpStatusCodeEnum.BAD_REQUEST.value,
-                    ResponseMessageEnum.NOT_FOUND.value,
+                    HttpStatusCodeEnum.NOT_FOUND,
+                    f"The social_media Title '{social_media_dto.social_media_title}' is already in use. "
+                    f"Please choose a different Title.",
                     success=False,
                     data={},
                 )
@@ -285,8 +294,7 @@ class SocialMediaService:
                 )
 
             logger.info(
-                "Updated social media with ID: %s",
-                social_media_dto.social_media_id
+                "Updated social media with ID: %s", social_media_dto.social_media_id
             )
             return AppServices.app_response(
                 HttpStatusCodeEnum.ACCEPTED.value,

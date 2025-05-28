@@ -1,39 +1,36 @@
-#version: "3.9"
-
+#version: "3.7"
 services:
-  fastapi:
-    build: .
-    container_name: fastapi-app
-    ports:
-      - "8000:8000"
-    depends_on:
-      - mysql-db
-    environment:
-      - DATABASE_URL=${DATABASE_URL}
-
-    volumes:
-      - .:/myforeignjob
-    networks:
-      - myforeignjob_app-network
 
   mysql-db:
     image: mysql:5.7
-    container_name: mysql-db
-    environment:
-      MYSQL_ROOT_PASSWORD: root#123
-      MYSQL_DATABASE: myforeignjob_dbs
+    container_name: mysql-container
     restart: always
     ports:
       - "3307:3306"
-    env_file:
-      - .env
     volumes:
-      - mysql_data:/var/lib/mysql
-    networks:
-      - myforeignjob_app-network
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: Root_123
+      MYSQL_DATABASE: myforeignjob_dbs
+      MYSQL_USER: demo
+      MYSQL_PASSWORD: cK649m##Q
+
+  fast-api:
+    container_name: fast-api-container
+    build: .
+    restart: always
+    depends_on:
+      - mysql-db
+    ports:
+      - "8000:8000"
+#    volumes:
+#      - ./static/country_flag_image:/static/country_flag_image
+#      - ./static/country_image:/static/country_image
+    volumes:
+      - .:/myforeignjob
+      - ./static/country_flag_image:/myforeignjob/static/country_flag_image
+      - ./static/country_image:/myforeignjob/static/country_image
 
 volumes:
-  mysql_data:
-
-networks:
-  myforeignjob_app-network:
+  mysql-data:

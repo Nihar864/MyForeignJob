@@ -19,10 +19,11 @@ job_router = APIRouter(
 
 @job_router.post("/add")
 # @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
-def insert_job_controller(response: Response,
-                          request: Request,
-                          job_dto: JobDTO,
-                          ):
+def insert_job_controller(
+    response: Response,
+    request: Request,
+    job_dto: JobDTO,
+):
     """
     Request:
         - job_dto (JobDTO): JSON payload with job data to be inserted.
@@ -48,12 +49,12 @@ def insert_job_controller(response: Response,
 @job_router.get("/all")
 # @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def view_job_controller(
-        request: Request,
-        page_number: int = Query(1, ge=1),
-        page_size: int = Query(10, ge=1),
-        search_value: str = "",
-        sort_by: str = "job_title",
-        sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
+    request: Request,
+    page_number: int = Query(1, ge=1),
+    page_size: int = Query(10, ge=1),
+    search_value: str = "",
+    sort_by: str = "job_title",
+    sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
 ):
     """
     Request:
@@ -106,8 +107,7 @@ def delete_job_controller(response: Response, request: Request, job_id):
 
 @job_router.get("/{job-id}")
 # @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
-def get_job_by_id_controller(response: Response, request: Request,
-                             job_id: int):
+def get_job_by_id_controller(response: Response, request: Request, job_id: int):
     """
     Request:
         - job_id (int): Unique identifier for the job to be retrieved.
@@ -123,7 +123,7 @@ def get_job_by_id_controller(response: Response, request: Request,
     try:
         logger.info(f"Fetching job details for ID: {job_id}")
         response_payload = JobService.get_job_by_id_service(job_id)
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Fetched job details: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -133,9 +133,9 @@ def get_job_by_id_controller(response: Response, request: Request,
 @job_router.put("/update")
 # @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def update_job_controller(
-        response: Response,
-        request: Request,
-        job_dto: UpdateJobDTO,
+    response: Response,
+    request: Request,
+    job_dto: UpdateJobDTO,
 ):
     """
     Request:
@@ -151,7 +151,7 @@ def update_job_controller(
     """
     try:
         response_payload = JobService.update_job_service(job_dto)
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Updated job with ID: {response_payload}")
         return response_payload
     except Exception as exception:

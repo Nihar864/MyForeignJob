@@ -11,7 +11,7 @@ class CountryVO(Base, StatusMixin, TimestampMixin):
     __tablename__ = "country_table"
 
     country_id = Column(Integer, primary_key=True, index=True)
-    country_name = Column(String(500), unique=True, index=True, nullable=False)
+    country_name = Column(String(500), index=True, nullable=False)
     country_description = Column(String(500))
     country_image_names = Column(String(500), nullable=False)
     country_image_paths = Column(String(500), nullable=False)

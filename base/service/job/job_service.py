@@ -13,6 +13,16 @@ class JobService:
     @staticmethod
     def insert_job_service(job_dto):
         try:
+            existing_job = JobDAO.check_existing_job(job_dto.job_title)
+            if existing_job:
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.NOT_FOUND,
+                    f"The Job Title '{job_dto.job_title}' is already in use. "
+                    f"Please choose a different Title.",
+                    success=False,
+                    data={},
+                )
+
             country_vo = CountryDAO.get_country_by_id_dao(job_dto.country_id)
             if not country_vo:
                 return AppServices.app_response(
@@ -136,12 +146,12 @@ class JobService:
     @staticmethod
     def update_job_service(job_dto):
         try:
-            existing_job = JobDAO.get_job_by_id_dao(job_dto.job_id)
-
-            if not existing_job:
+            existing_job = JobDAO.check_existing_job(job_dto.job_title)
+            if existing_job:
                 return AppServices.app_response(
-                    HttpStatusCodeEnum.BAD_REQUEST.value,
-                    ResponseMessageEnum.NOT_FOUND.value,
+                    HttpStatusCodeEnum.NOT_FOUND,
+                    f"The Job Title '{job_dto.job_title}' is already in use. "
+                    f"Please choose a different Title.",
                     success=False,
                     data={},
                 )

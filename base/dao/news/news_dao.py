@@ -1,4 +1,3 @@
-
 from base.client.mysql_common.mysql_common_query import MysqlCommonQuery
 from base.vo.news_vo import NewsVO
 
@@ -88,7 +87,9 @@ class NewsDAO:
 
         Company Name: Softvan Pvt Ltd
         """
-        news_data = MysqlCommonQuery.soft_delete_query(NewsVO, NewsVO.news_id, target_id)
+        news_data = MysqlCommonQuery.soft_delete_query(
+            NewsVO, NewsVO.news_id, target_id
+        )
         return news_data
 
     @staticmethod
@@ -124,3 +125,27 @@ class NewsDAO:
         """
         news_data = MysqlCommonQuery.update_query(news_vo)
         return news_data
+
+    @staticmethod
+    def check_existing_news(news_title):
+        """
+        Check if a news with the given title already exists.
+
+        Request:
+            - news_title (str): The title to check for existing newss
+
+        Response:
+            - newsVO object if news exists
+            - None if no matching news found
+
+        Purpose:
+            - Prevent duplicate news entries
+            - Validate uniqueness of news titles
+
+        Company Name:
+            - Softvan Pvt Ltd
+        """
+        get_data = MysqlCommonQuery.get_record_by_field(
+            NewsVO, "news_title", news_title
+        )
+        return get_data

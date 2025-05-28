@@ -36,8 +36,7 @@ def verify_password(hashed_password: str, input_password: str) -> bool:
     """
     print("verify")
     try:
-        print(
-            f"hashed_password: {hashed_password} & input_password: {input_password}")
+        print(f"hashed_password: {hashed_password} & input_password: {input_password}")
         print("---->>>>>>>>>", argon2.verify(hashed_password, input_password))
         return argon2.verify(hashed_password, input_password)
     except InvalidHashError as e:

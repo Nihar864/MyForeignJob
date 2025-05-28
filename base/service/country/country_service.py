@@ -75,9 +75,13 @@ class CountryService:
             country_vo.country_name = country_name
             country_vo.country_description = country_description
             country_vo.country_image_names = country_image.filename
-            country_vo.country_image_paths = f"static/country_image/{country_image.filename}"
+            country_vo.country_image_paths = (
+                f"static/country_image/{country_image.filename}"
+            )
             country_vo.country_flag_image_name = country_flag_image.filename
-            country_vo.country_flag_image_path = f"static/country_flag_image/{country_flag_image.filename}"
+            country_vo.country_flag_image_path = (
+                f"static/country_flag_image/{country_flag_image.filename}"
+            )
             country_vo.country_currency = country_currency
             country_vo.show_on_homepage_status = show_on_homepage_status
             country_vo.country_status = country_status

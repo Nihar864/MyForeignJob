@@ -65,7 +65,7 @@ async def insert_country_controller(
             country_image,
             country_flag_image,
         )
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         return response_payload
 
     except Exception as exception:
@@ -112,7 +112,7 @@ def get_all_countries(
             sort_by=sort_by,
             sort_as=sort_as.value,
         )
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         return response_payload
     except Exception as exception:
         return AppServices.handle_exception(exception)
@@ -141,7 +141,7 @@ def delete_country_controller(request: Request, response: Response, country_id):
     try:
         response_payload = CountryService.delete_country_service(country_id)
         logger.info(f"Deleted country with ID: {response_payload}")
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         return response_payload
     except Exception as exception:
         return AppServices.handle_exception(exception)
@@ -170,7 +170,7 @@ def get_country_by_id_controller(request: Request, response: Response, country_i
     try:
         response_payload = CountryService.get_country_by_id_service(country_id)
         logger.info(f"Fetched country details: {response_payload}")
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         return response_payload
     except Exception as exception:
         return AppServices.handle_exception(exception)
@@ -225,7 +225,7 @@ def update_country_controller(
             country_image=country_image,
             country_flag_image=country_flag_image,
         )
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Updated country with ID: {response_payload}")
         return response_payload
     except Exception as exception:

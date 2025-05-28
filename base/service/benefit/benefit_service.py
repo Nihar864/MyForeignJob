@@ -39,9 +39,12 @@ class BenefitService:
         try:
             existing_benefit = BenefitDAO.check_existing_benefit(benefit_title)
             if existing_benefit:
-                return (
+                return AppServices.app_response(
+                    HttpStatusCodeEnum.NOT_FOUND,
                     f"The Benefit Title '{benefit_title}' is already in use. "
-                    f"Please choose a different Title."
+                    f"Please choose a different Title.",
+                    success=False,
+                    data={},
                 )
 
             country_vo = CountryDAO.get_country_by_id_dao(country_id)
@@ -244,11 +247,12 @@ class BenefitService:
             - Softvan Pvt Ltd
         """
         try:
-            existing_benefit = BenefitDAO.get_benefit_by_id_dao(benefit_id)
-            if not existing_benefit:
+            existing_benefit = BenefitDAO.check_existing_benefit(benefit_title)
+            if existing_benefit:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.NOT_FOUND,
-                    "Benefit not found for the given ID.",
+                    f"The Benefit Title '{benefit_title}' is already in use. "
+                    f"Please choose a different Title.",
                     success=False,
                     data={},
                 )

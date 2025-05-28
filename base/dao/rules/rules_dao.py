@@ -87,7 +87,9 @@ class RuleDAO:
 
         Company Name: Softvan Pvt Ltd
         """
-        rule_data = MysqlCommonQuery.soft_delete_query(RuleVO, RuleVO.rule_id, target_id)
+        rule_data = MysqlCommonQuery.soft_delete_query(
+            RuleVO, RuleVO.rule_id, target_id
+        )
         return rule_data
 
     @staticmethod
@@ -123,3 +125,27 @@ class RuleDAO:
         """
         rule_data = MysqlCommonQuery.update_query(rule_vo)
         return rule_data
+
+    @staticmethod
+    def check_existing_rule(rule_title):
+        """
+        Check if a rule with the given title already exists.
+
+        Request:
+            - rule_title (str): The title to check for existing rules
+
+        Response:
+            - ruleVO object if rule exists
+            - None if no matching rule found
+
+        Purpose:
+            - Prevent duplicate rule entries
+            - Validate uniqueness of rule titles
+
+        Company Name:
+            - Softvan Pvt Ltd
+        """
+        get_data = MysqlCommonQuery.get_record_by_field(
+            RuleVO, "rule_title", rule_title
+        )
+        return get_data

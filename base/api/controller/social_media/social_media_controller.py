@@ -3,9 +3,7 @@ from fastapi import APIRouter, Response, Query, Request
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import HttpStatusCodeEnum, ResponseMessageEnum
 from base.custom_enum.http_enum import SortingOrderEnum
-from base.custom_enum.static_enum import StaticVariables
 from base.dto.social_media.social_media_dto import UpdateSocialMediaDTO, SocialMediaDTO
-from base.service.login.login_service import login_required
 from base.service.social_media.social_media_service import SocialMediaService
 from base.utils.custom_exception import AppServices
 
@@ -19,7 +17,7 @@ social_media_router = APIRouter(
 
 
 @social_media_router.post("/add")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def insert_social_media_controller(
     request: Request,
     social_media_dto: SocialMediaDTO,
@@ -35,6 +33,7 @@ def insert_social_media_controller(
     Company Name: Softvan Pvt. Ltd.
     """
     try:
+
         if not social_media_dto:
             response.status_code = HttpStatusCodeEnum.BAD_REQUEST
             return AppServices.app_response(
@@ -46,7 +45,7 @@ def insert_social_media_controller(
         response_payload = SocialMediaService.insert_social_media_service(
             social_media_dto
         )
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
 
         logger.info(f"social media inserted: {response_payload}")
         return response_payload
@@ -84,9 +83,10 @@ def view_social_media_controller(
 
 
 @social_media_router.delete("/{social-media-id}")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
-def delete_social_media_controller(response: Response,
-        request: Request, social_media_id):
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def delete_social_media_controller(
+    response: Response, request: Request, social_media_id
+):
     """
     Request: Accepts social_media_id as a path parameter to identify the record to delete.
 
@@ -100,7 +100,7 @@ def delete_social_media_controller(response: Response,
         response_payload = SocialMediaService.delete_social_media_service(
             social_media_id
         )
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Deleted social media with ID: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -108,9 +108,10 @@ def delete_social_media_controller(response: Response,
 
 
 @social_media_router.get("/{social-media-id}")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
-def get_social_media_by_id_controller(response:Response,request: Request,
-                                      social_media_id: int):
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def get_social_media_by_id_controller(
+    response: Response, request: Request, social_media_id: int
+):
     """
     Request: Accepts social_media_id as a path parameter to fetch a specific record.
 
@@ -125,7 +126,7 @@ def get_social_media_by_id_controller(response:Response,request: Request,
         response_payload = SocialMediaService.get_social_media_by_id_service(
             social_media_id
         )
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Fetched social media details: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -133,8 +134,9 @@ def get_social_media_by_id_controller(response:Response,request: Request,
 
 
 @social_media_router.put("/update")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
-def update_social_media_controller(response: Response,
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def update_social_media_controller(
+    response: Response,
     request: Request,
     social_media_dto: UpdateSocialMediaDTO,
 ):
@@ -151,7 +153,7 @@ def update_social_media_controller(response: Response,
         response_payload = SocialMediaService.update_social_media_service(
             social_media_dto
         )
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Updated social media with ID: {response_payload}")
         return response_payload
     except Exception as exception:

@@ -123,3 +123,20 @@ class FaqDAO:
         """
         faq_data = MysqlCommonQuery.update_query(faq_vo)
         return faq_data
+
+    @staticmethod
+    def check_existing_faq(faq_title):
+        """
+        Request:
+            country_name (str): Name of the country to check for existence.
+
+        Response:
+            Returns CountryVO if a matching country is found; otherwise None.
+
+        Purpose:
+            Verify if a country with the given name already exists to prevent duplicates.
+
+        Company Name : Softvan Pvt Ltd
+        """
+        get_data = MysqlCommonQuery.get_record_by_field(FaqVO, "faq_title", faq_title)
+        return get_data

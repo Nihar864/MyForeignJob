@@ -19,7 +19,7 @@ news_router = APIRouter(
 
 
 @news_router.post("/add")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def insert_news_controller(
     request: Request,
     news_dto: NewsDTO,
@@ -56,7 +56,7 @@ def insert_news_controller(
 
 
 @news_router.get("/all")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def view_news_controller(
     request: Request,
     page_number: int = Query(1, ge=1),
@@ -87,8 +87,8 @@ def view_news_controller(
 
 
 @news_router.delete("/{news-id}")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
-def delete_news_controller(response:Response,request: Request, news_id):
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def delete_news_controller(response: Response, request: Request, news_id):
     """
     Request:
         - Path Parameter: news_id (int) — ID of the news item to delete.
@@ -103,7 +103,7 @@ def delete_news_controller(response:Response,request: Request, news_id):
     """
     try:
         response_payload = NewsService.delete_news_service(news_id)
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Deleted social media with ID: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -111,9 +111,8 @@ def delete_news_controller(response:Response,request: Request, news_id):
 
 
 @news_router.get("/{news-id}")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
-def get_news_by_id_controller(response:Response,request: Request, news_id:
-int):
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+def get_news_by_id_controller(response: Response, request: Request, news_id: int):
     """
     Request:
         - Path Parameter: news_id (int) — ID of the news item to retrieve.
@@ -129,7 +128,7 @@ int):
     try:
         logger.info(f"Fetching social media details for ID: {news_id}")
         response_payload = NewsService.get_news_by_id_service(news_id)
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Fetched social media details: {response_payload}")
         return response_payload
     except Exception as exception:
@@ -137,9 +136,9 @@ int):
 
 
 @news_router.put("/update")
-@login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
+# @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def update_news_controller(
-        response:Response,
+    response: Response,
     request: Request,
     news_dto: UpdateNewsDTO,
 ):
@@ -157,7 +156,7 @@ def update_news_controller(
     """
     try:
         response_payload = NewsService.update_news_service(news_dto)
-        response.status_code=response_payload.get("status_code")
+        response.status_code = response_payload.get("status_code")
         logger.info(f"Updated news with ID: {response_payload}")
         return response_payload
     except Exception as exception:

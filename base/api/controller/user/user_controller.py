@@ -21,8 +21,8 @@ user_router = APIRouter(
 
 @user_router.post("/add")
 def insert_user_controller(
-        user_dto: UserDTO,
-        response: Response,
+    user_dto: UserDTO,
+    response: Response,
 ):
     """
     Request:
@@ -59,12 +59,12 @@ def insert_user_controller(
 @user_router.get("/all")
 # @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def view_user_controller(
-        request: Request,
-        page_number: int = Query(1, ge=1),
-        page_size: int = Query(10, ge=1),
-        search_value: str = "",
-        sort_by: str = "user_name",
-        sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
+    request: Request,
+    page_number: int = Query(1, ge=1),
+    page_size: int = Query(10, ge=1),
+    search_value: str = "",
+    sort_by: str = "user_name",
+    sort_as: SortingOrderEnum = Query(SortingOrderEnum.ASCENDING),
 ):
     """
     Request:
@@ -122,8 +122,7 @@ def delete_user_controller(response: Response, request: Request, user_id):
 
 @user_router.get("/{user-id}")
 # @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
-def get_user_by_id_controller(response: Response, request: Request, user_id:
-int):
+def get_user_by_id_controller(response: Response, request: Request, user_id: int):
     """
     Request:
         - request: FastAPI Request object.
@@ -152,9 +151,9 @@ int):
 @user_router.put("/update")
 # @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def update_user_controller(
-        response: Response,
-        request: Request,
-        user_dto: UpdateUserDTO,
+    response: Response,
+    request: Request,
+    user_dto: UpdateUserDTO,
 ):
     """
     Request:
