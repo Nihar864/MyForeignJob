@@ -241,6 +241,10 @@ class SocialMediaService:
                     data={},
                 )
 
+            existing_social_media = SocialMediaDAO.get_social_media_by_id_dao(
+                social_media_dto.social_media_id
+            )
+
             if social_media_dto.social_media_id is not None:
                 existing_social_media.social_media_id = social_media_dto.social_media_id
 

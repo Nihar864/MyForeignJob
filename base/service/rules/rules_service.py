@@ -186,6 +186,8 @@ class RuleService:
                     data={},
                 )
 
+            existing_rule = RuleDAO.get_rule_by_id_dao(rule_dto.rule_id)
+
             if rule_dto.rule_id is not None:
                 existing_rule.rule_id = rule_dto.rule_id
 

@@ -146,8 +146,9 @@ class JobService:
     @staticmethod
     def update_job_service(job_dto):
         try:
-            existing_job = JobDAO.check_existing_job(job_dto.job_title)
-            if existing_job:
+            existing_jobs = JobDAO.check_existing_job(job_dto.job_title)
+            print(f"existing_jobs: {existing_jobs}")
+            if existing_jobs:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.NOT_FOUND,
                     f"The Job Title '{job_dto.job_title}' is already in use. "
@@ -156,6 +157,7 @@ class JobService:
                     data={},
                 )
 
+            existing_job = JobDAO.get_job_by_id_dao(job_dto.job_id)
             if job_dto.job_title is not None:
                 existing_job.job_title = job_dto.job_title
 

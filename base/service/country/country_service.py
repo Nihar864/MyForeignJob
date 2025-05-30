@@ -264,15 +264,17 @@ class CountryService:
             Softvan Pvt Ltd
         """
         try:
-            existing_country = CountryDAO.get_country_by_id_dao(country_id)
+            existing_countrys = CountryDAO.get_country_by_id_dao(country_id)
 
-            if not existing_country:
+            if not existing_countrys:
                 return AppServices.app_response(
                     HttpStatusCodeEnum.BAD_REQUEST.value,
                     ResponseMessageEnum.NOT_FOUND.value,
                     success=False,
                     data={},
                 )
+
+            existing_country = CountryDAO.get_country_by_id_dao(country_id)
 
             if country_name is not None:
                 existing_country.country_name = country_name

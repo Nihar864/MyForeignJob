@@ -46,7 +46,7 @@ async def member_login(login_dto: LoginDTO, response: Response):
             )
 
         response_payload = LoginService.login_service(login_dto)
-        print("respomse_payload",response_payload)
+        print("respomse_payload", response_payload)
         logger.info(f"Response for login is {response_payload}")
         return response_payload
     except Exception as exception:

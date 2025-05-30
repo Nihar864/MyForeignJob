@@ -236,6 +236,9 @@ class NewsService:
                     success=False,
                     data={},
                 )
+
+            existing_news = NewsDAO.get_news_by_id_dao(news_dto.news_id)
+
             if news_dto.news_id is not None:
                 existing_news.news_id = news_dto.news_id
 

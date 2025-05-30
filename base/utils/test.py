@@ -16,6 +16,5 @@ except Exception as e:
 from urllib.parse import quote_plus
 
 password = quote_plus("your_password_here")
-url = (f"mysql+pymysql://demo:"
-       f"cK649m%%Q@mysql:3306/myforeignjob_dbs?charset=utf8")
+url = f"mysql+pymysql://demo:" f"cK649m%%Q@mysql:3306/myforeignjob_dbs?charset=utf8"
 print(f"URL = {url}")

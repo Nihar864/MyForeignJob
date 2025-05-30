@@ -5,11 +5,9 @@ from configparser import ConfigParser
 configure = ConfigParser()
 
 # ✅ Correct path: move up from 'base/utils' to 'myforeignjob'
-CURRENT_DIR = os.path.dirname(
-    os.path.abspath(__file__))  # /myforeignjob/base/utils
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))  # /myforeignjob/base/utils
 PROJECT_ROOT = os.path.dirname(os.path.dirname(CURRENT_DIR))  # /myforeignjob
-CONFIG_PATH = os.path.join(PROJECT_ROOT,
-                           "config.ini")  # /myforeignjob/config.ini
+CONFIG_PATH = os.path.join(PROJECT_ROOT, "config.ini")  # /myforeignjob/config.ini
 
 # Check config file existence
 if not os.path.exists(CONFIG_PATH):

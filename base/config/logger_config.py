@@ -2,6 +2,7 @@ import os
 import logging
 from logging.handlers import RotatingFileHandler
 
+
 def get_logger():
     """
     Purpose:
@@ -33,7 +34,9 @@ def get_logger():
     log_path = os.path.expanduser("~/myforeignjob_logs/app.log")
     os.makedirs(os.path.dirname(log_path), exist_ok=True)
 
-    file_handler = RotatingFileHandler(log_path, maxBytes=5*1024*1024, backupCount=3)
+    file_handler = RotatingFileHandler(
+        log_path, maxBytes=5 * 1024 * 1024, backupCount=3
+    )
 
     formatter = logging.Formatter(
         "%(asctime)s - %(filename)s - %(name)s - %(funcName)s - %(levelname)s - %(message)s\n"

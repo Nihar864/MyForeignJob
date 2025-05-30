@@ -263,6 +263,7 @@ class BenefitService:
                     f"The Benefit Title '{benefit_title}' is already in use. "
                     f"Please choose a different Title."
                 )
+            existing_benefit = BenefitDAO.get_benefit_by_id_dao(benefit_id)
 
             if country_id is not None:
                 country_vo = CountryDAO.get_country_by_id_dao(country_id)

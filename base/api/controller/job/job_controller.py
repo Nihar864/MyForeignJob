@@ -81,7 +81,7 @@ def view_job_controller(
     )
 
 
-@job_router.delete("/{job-id}")
+@job_router.delete("/job-id")
 # @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def delete_job_controller(response: Response, request: Request, job_id):
     """
@@ -105,7 +105,7 @@ def delete_job_controller(response: Response, request: Request, job_id):
         return AppServices.handle_exception(exception)
 
 
-@job_router.get("/{job-id}")
+@job_router.get("/job-id")
 # @login_required(required_roles=[StaticVariables.ADMIN_ROLE_ENUM])
 def get_job_by_id_controller(response: Response, request: Request, job_id: int):
     """

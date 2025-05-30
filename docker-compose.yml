@@ -24,9 +24,6 @@ services:
       - mysql-db
     ports:
       - "8000:8000"
-#    volumes:
-#      - ./static/country_flag_image:/static/country_flag_image
-#      - ./static/country_image:/static/country_image
     volumes:
       - .:/myforeignjob
       - ./static/country_flag_image:/myforeignjob/static/country_flag_image

@@ -4,9 +4,7 @@ from fastapi import APIRouter, Form, Query, Response, Request
 
 from base.config.logger_config import get_logger
 from base.custom_enum.http_enum import SortingOrderEnum
-from base.custom_enum.static_enum import StaticVariables
 from base.service.benefit.benefit_service import BenefitService
-from base.service.login.login_service import login_required
 from base.utils.custom_exception import AppServices
 
 logger = get_logger()
